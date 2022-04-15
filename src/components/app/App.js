@@ -1,33 +1,40 @@
-import { IconButton } from '@mui/material';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import { ThemeProvider } from '@mui/system';
 import React from 'react';
-import InfoTwoToneIcon from '@mui/icons-material/InfoTwoTone';
+import {
+  BrowserRouter, Route, Routes,
+} from 'react-router-dom';
+import Home from '../home/Home';
+import I18nDemo from '../i18nDemo/I18nDemo';
+import KonvaDemo from '../knovaDemo/KonvaDemo';
+import KonvaDemo2 from '../konvaDemo2/KonvaDemo2';
+import Layout from './Layout';
 import theme from './theme';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Design helper
-            </Typography>
-
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="secondary"
-            >
-              <InfoTwoToneIcon />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-      </Box>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route
+              path="/"
+              element={<Home />}
+            />
+            <Route
+              path="/i18n"
+              element={<I18nDemo />}
+            />
+            <Route
+              path="/konva"
+              element={<KonvaDemo />}
+            />
+            <Route
+              path="/konva2"
+              element={<KonvaDemo2 />}
+            />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
