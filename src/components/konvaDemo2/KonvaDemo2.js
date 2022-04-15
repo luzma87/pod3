@@ -6,20 +6,22 @@ import './konvaDemo2.css';
 
 const blocks = {
   fourteen: {
+    key: 'fourteen',
     path: '/assets/014-1.svg',
   },
   tentacles: {
+    key: 'tentacles',
     path: '/assets/001.svg',
   },
 };
 
 function KonvaDemo2() {
   const dragItems = useRef(null);
-  const [currentUrl, setCurrentUrl] = useState(null);
+  const [currentItem, setCurrentItem] = useState(null);
 
   useEffect(() => {
     const handleStartDrag = (e) => {
-      setCurrentUrl(blocks[e.target.id].path);
+      setCurrentItem(blocks[e.target.id]);
     };
     dragItems.current.addEventListener('dragstart', handleStartDrag);
 
@@ -46,7 +48,7 @@ function KonvaDemo2() {
           ))}
         </div>
         <div style={{ background: 'hotpink' }}>
-          <TestWrapper id="canvasContainer" currentUrl={currentUrl} />
+          <TestWrapper id="canvasContainer" currentItem={currentItem} />
         </div>
       </div>
     </div>

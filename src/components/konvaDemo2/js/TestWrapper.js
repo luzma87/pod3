@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Test from './Test';
 
-function TestWrapper({ id, currentUrl }) {
+function TestWrapper({ id, currentItem }) {
   const canvasArea = useRef(null);
   const [canvas, setCanvas] = useState(null);
 
@@ -10,22 +10,22 @@ function TestWrapper({ id, currentUrl }) {
     if (!canvas) {
       const newChart = Test(id);
       setCanvas(newChart);
-    } else {
-      canvas.draw();
-      if (currentUrl) canvas.updateItemUrl(currentUrl);
+    } else if (currentItem) {
+      canvas.updateItem(currentItem);
     }
-  }, [canvas, currentUrl]);
+  }, [canvas, currentItem]);
 
   return <div id={id} ref={canvasArea} />;
 }
 
 TestWrapper.defaultProps = {
-  currentUrl: null,
+  currentItem: null,
 };
 
 TestWrapper.propTypes = {
   id: PropTypes.string.isRequired,
-  currentUrl: PropTypes.string,
+  // eslint-disable-next-line react/forbid-prop-types
+  currentItem: PropTypes.any,
 };
 
 export default TestWrapper;
