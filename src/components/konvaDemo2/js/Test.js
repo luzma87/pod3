@@ -321,6 +321,14 @@ const Test = (id) => {
 
   // bg color
   con.style.backgroundColor = 'green';
+  // const bg = new Konva.Rect({
+  //   x: 0,
+  //   y: 0,
+  //   width: stage.width,
+  //   height: stage.height,
+  //   fill: 'pink',
+  // });
+  // layer.add(bg);
 
   // add the shape to the layer
   // layer.add(circle);

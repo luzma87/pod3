@@ -1,0 +1,21 @@
+#drag-items {
+  background: pink;
+  padding:2px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2px;
+}
+
+.block-wrapper {
+  width:100px;
+  height: 100px;
+  background:orange
+}
+
+#drag-items img {
+  height: 100px;
+  border:solid 1px #666;
+  margin: 2px;
+  border-radius: 8px;
+  cursor: pointer;
+}
