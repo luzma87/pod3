@@ -7,7 +7,7 @@ const disneyBlocks = [
     type: 'Disney',
     difficulty: 2,
     designer: 'Kathy Borrelli',
-    file: '001-tentacles',
+    file: 'disney/001-tentacles',
     url: 'http://www.fandominstitches.com/2012/12/disney-themed-bookcase-blocks.html',
   },
 ];

@@ -7,7 +7,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 2,
     designer: 'Wendi Riggens-Miller',
-    file: '001-colin',
+    file: 'supplemental/001-colin',
   },
   {
     id: 'sb2',
@@ -17,7 +17,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Daphne Seymour',
-    file: '002-dre',
+    file: 'supplemental/002-dre',
   },
   {
     id: 'sb3',
@@ -27,7 +27,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 1,
     designer: 'Michelle Thompson',
-    file: '003-ear-muffs',
+    file: 'supplemental/003-ear-muffs',
   },
   {
     id: 'sb4',
@@ -37,7 +37,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 1,
     designer: 'Tianna Homer',
-    file: '004-grim',
+    file: 'supplemental/004-grim',
   },
   {
     id: 'sb5',
@@ -47,7 +47,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 4,
     designer: 'Vanda Chittenden',
-    file: '005-voldemort',
+    file: 'supplemental/005-voldemort',
   },
   {
     id: 'sb6',
@@ -57,7 +57,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 2,
     designer: 'Wendi Riggens-Miller',
-    file: '006-honeydukes-books',
+    file: 'supplemental/006-honeydukes-books',
   },
   {
     id: 'sb7',
@@ -67,7 +67,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 2,
     designer: 'Wendi Riggens-Miller',
-    file: '007-honeydukes-boxes',
+    file: 'supplemental/007-honeydukes-boxes',
   },
   {
     id: 'sb8',
@@ -77,7 +77,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Wendi Riggens-Miller',
-    file: '008-honeydukes',
+    file: 'supplemental/008-honeydukes',
   },
   {
     id: 'sb9',
@@ -87,7 +87,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 2,
     designer: 'Wendi Riggens-Miller',
-    file: '009-scarf',
+    file: 'supplemental/009-scarf',
   },
   {
     id: 'sb13',
@@ -97,7 +97,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 4,
     designer: 'Wendi Riggens-Miller',
-    file: '010-lantern',
+    file: 'supplemental/010-lantern',
   },
   {
     id: 'sb14',
@@ -107,7 +107,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 4,
     designer: 'Megan Ruth Stay',
-    file: '011-lovegood',
+    file: 'supplemental/011-lovegood',
   },
   {
     id: 'sb16',
@@ -118,7 +118,7 @@ const supplementalBlocks = [
     difficulty: 4,
     designer: 'Michelle Thompson',
     hasEmbroidery: true,
-    file: '012-luna-hat',
+    file: 'supplemental/012-luna-hat',
   },
   {
     id: 'sb17',
@@ -128,7 +128,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Michelle Thompson',
-    file: '013-luna-spectrespecs',
+    file: 'supplemental/013-luna-spectrespecs',
   },
   {
     id: 'sb18',
@@ -139,7 +139,7 @@ const supplementalBlocks = [
     difficulty: 3,
     designer: 'Michelle Thompson',
     hasEmbroidery: true,
-    file: '014-mafalda',
+    file: 'supplemental/014-mafalda',
   },
   {
     id: 'sb19',
@@ -150,7 +150,7 @@ const supplementalBlocks = [
     difficulty: 4,
     designer: 'Michelle Thompson',
     hasEmbroidery: true,
-    file: '015-omnioculars',
+    file: 'supplemental/015-omnioculars',
   },
   {
     id: 'sb20',
@@ -160,7 +160,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 2,
     designer: 'Wendi Riggens-Miller',
-    file: '016-pygmy',
+    file: 'supplemental/016-pygmy',
   },
   {
     id: 'sb21',
@@ -171,7 +171,7 @@ const supplementalBlocks = [
     difficulty: 3,
     hasEmbroidery: true,
     designer: 'Michelle Thompson',
-    file: '017-quidditch',
+    file: 'supplemental/017-quidditch',
   },
   {
     id: 'sb22',
@@ -181,7 +181,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 2,
     designer: 'Michelle Thompson',
-    file: '018-rememberall',
+    file: 'supplemental/018-rememberall',
   },
   {
     id: 'sb23',
@@ -191,7 +191,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 1,
     designer: 'Tereza Kulovaná',
-    file: '019-ripped',
+    file: 'supplemental/019-ripped',
   },
   {
     id: 'sb24',
@@ -202,7 +202,7 @@ const supplementalBlocks = [
     difficulty: 2,
     hasEmbroidery: true,
     designer: 'Daphne Seymour',
-    file: '020-rita',
+    file: 'supplemental/020-rita',
   },
   {
     id: 'sb25',
@@ -212,7 +212,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 1,
     designer: 'Wendi Riggens-Miller',
-    file: '021-hat',
+    file: 'supplemental/021-hat',
   },
   {
     id: 'sb26',
@@ -222,7 +222,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Michelle Thompson',
-    file: '022-skelegro',
+    file: 'supplemental/022-skelegro',
     hasEmbroidery: true,
   },
   {
@@ -233,7 +233,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Michelle Thompson',
-    file: '023-bishop-dark',
+    file: 'supplemental/023-bishop-dark',
     hasEmbroidery: true,
   },
   {
@@ -244,7 +244,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Michelle Thompson',
-    file: '024-king-queen-dark',
+    file: 'supplemental/024-king-queen-dark',
     hasEmbroidery: true,
   },
   {
@@ -255,7 +255,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Michelle Thompson',
-    file: '025-knight-dark',
+    file: 'supplemental/025-knight-dark',
     hasEmbroidery: true,
   },
   {
@@ -266,7 +266,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 2,
     designer: 'Tereza Kulovaná',
-    file: '026-mortar',
+    file: 'supplemental/026-mortar',
   },
   {
     id: 'sb34',
@@ -276,7 +276,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Tereza Kulovaná',
-    file: '027-deluminator',
+    file: 'supplemental/027-deluminator',
     hasEmbroidery: true,
   },
   {
@@ -287,7 +287,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Gretchen Kohlhaas',
-    file: '028-mermaid',
+    file: 'supplemental/028-mermaid',
     hasEmbroidery: true,
   },
   {
@@ -298,7 +298,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Jessica Lee Blacknall',
-    file: '030-diadem',
+    file: 'supplemental/030-diadem',
   },
   {
     id: 'sb37',
@@ -308,7 +308,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 1,
     designer: 'Daphne Seymour',
-    file: '031-fleur',
+    file: 'supplemental/031-fleur',
   },
   {
     id: 'sb38',
@@ -318,7 +318,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 2,
     designer: 'Patty Fresonke',
-    file: '032-ron',
+    file: 'supplemental/032-ron',
   },
   {
     id: 'sb39',
@@ -328,7 +328,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 5,
     designer: 'Esther Wheat',
-    file: '033-monster-book',
+    file: 'supplemental/033-monster-book',
   },
   {
     id: 'sb41',
@@ -338,7 +338,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Daphne Seymour',
-    file: '034-advanced',
+    file: 'supplemental/034-advanced',
   },
   {
     id: 'sb42',
@@ -348,7 +348,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Loretta Nardi',
-    file: '035-umbridge',
+    file: 'supplemental/035-umbridge',
   },
   {
     id: 'sb43',
@@ -358,7 +358,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 5,
     designer: 'Daphne Seymour',
-    file: '036-ferret',
+    file: 'supplemental/036-ferret',
   },
   {
     id: 'sb44',
@@ -368,7 +368,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 2,
     designer: 'Daphne Seymour',
-    file: '037-bella',
+    file: 'supplemental/037-bella',
   },
   {
     id: 'sb45',
@@ -378,7 +378,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Heidi Hansen',
-    file: '038-raven',
+    file: 'supplemental/038-raven',
   },
   {
     id: 'sb46',
@@ -388,7 +388,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 2,
     designer: 'Tanya Searle',
-    file: '039-house-points',
+    file: 'supplemental/039-house-points',
   },
   {
     id: 'sb47',
@@ -398,7 +398,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 5,
     designer: 'Daphne Seymour',
-    file: '040-lucius',
+    file: 'supplemental/040-lucius',
   },
   {
     id: 'sb48',
@@ -408,7 +408,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Daphne Seymour',
-    file: '041-salazar',
+    file: 'supplemental/041-salazar',
   },
   {
     id: 'sb49',
@@ -418,7 +418,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 5,
     designer: 'Daphne Seymour',
-    file: '042-remus',
+    file: 'supplemental/042-remus',
   },
   {
     id: 'sb50',
@@ -428,7 +428,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 2,
     designer: 'Daphne Seymour',
-    file: '043-bella',
+    file: 'supplemental/043-bella',
   },
   {
     id: 'sb51',
@@ -438,7 +438,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Daphne Seymour',
-    file: '044-occlumency',
+    file: 'supplemental/044-occlumency',
   },
   {
     id: 'sb52',
@@ -448,7 +448,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Daphne Seymour',
-    file: '045-dark-arts',
+    file: 'supplemental/045-dark-arts',
   },
   {
     id: 'sb53',
@@ -458,7 +458,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 1,
     designer: 'Heidi Hansen',
-    file: '046-memos',
+    file: 'supplemental/046-memos',
   },
   {
     id: 'sb54',
@@ -468,7 +468,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 3,
     designer: 'Heidi Hansen',
-    file: '047-scabbers',
+    file: 'supplemental/047-scabbers',
   },
   {
     id: 'sb55',
@@ -478,7 +478,7 @@ const supplementalBlocks = [
     type: 'supplemental',
     difficulty: 4,
     designer: 'Daphne Seymour',
-    file: '048-snape-wand',
+    file: 'supplemental/048-snape-wand',
   },
 ];
 
