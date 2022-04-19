@@ -7,7 +7,7 @@ const feetBlocks = [
     type: 'Feet',
     difficulty: 3,
     designer: 'Tereza Kulovaná',
-    file: 'feet/001-bookcaseFeet',
+    file: '001-bookcaseFeet',
     url: 'http://www.fandominstitches.com/2015/07/harry-potter-bookcase-quilt-along.html#topsides',
   },
   {
@@ -18,7 +18,7 @@ const feetBlocks = [
     type: 'Feet',
     difficulty: 3,
     designer: 'Tereza Kulovaná',
-    file: 'feet/001-bookcaseFeet2',
+    file: '001-bookcaseFeet2',
     url: 'http://www.fandominstitches.com/2015/07/harry-potter-bookcase-quilt-along.html#topsides',
   },
   {
@@ -29,7 +29,7 @@ const feetBlocks = [
     type: 'Feet',
     difficulty: 3,
     designer: 'Daphne Seymour',
-    file: 'feet/002-bookcasePaw',
+    file: '002-bookcasePaw',
     url: 'http://www.fandominstitches.com/2015/07/harry-potter-bookcase-quilt-along.html#topsides',
   },
   {
@@ -40,7 +40,7 @@ const feetBlocks = [
     type: 'Feet',
     difficulty: 2,
     designer: 'Daphne Seymour',
-    file: 'feet/003-bookcaseWitchFeet',
+    file: '003-bookcaseWitchFeet',
     url: 'http://www.fandominstitches.com/2015/07/harry-potter-bookcase-quilt-along.html#topsides',
   },
   {
@@ -51,7 +51,7 @@ const feetBlocks = [
     type: 'Feet',
     difficulty: 3,
     designer: 'Gretchen Kohlhaas',
-    file: 'feet/004-bookcaseFoot',
+    file: '004-bookcaseFoot',
     url: 'http://www.fandominstitches.com/2015/07/harry-potter-bookcase-quilt-along.html#topsides',
   },
   {
@@ -62,7 +62,7 @@ const feetBlocks = [
     type: 'Feet',
     difficulty: 1,
     designer: 'Gretchen Kohlhaas',
-    file: 'feet/005-bookcaseRoundedFoot',
+    file: '005-bookcaseRoundedFoot',
     url: 'http://www.fandominstitches.com/2015/07/harry-potter-bookcase-quilt-along.html#topsides',
   },
 ];

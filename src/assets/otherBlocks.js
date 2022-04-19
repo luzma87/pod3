@@ -7,7 +7,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 4,
     designer: 'Schenley Pilgram',
-    file: 'others/001-mimbulus',
+    file: '001-mimbulus',
   },
   {
     id: 'ob002',
@@ -17,7 +17,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 2,
     designer: 'Cat Magraith',
-    file: 'others/002-mandrake',
+    file: '002-mandrake',
   },
   {
     id: 'ob003',
@@ -27,7 +27,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 1,
     designer: 'Michelle Thompson',
-    file: 'others/003-molly',
+    file: '003-molly',
   },
   {
     id: 'ob005',
@@ -37,7 +37,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 3,
     designer: 'Kristi Lehane',
-    file: 'others/005-rita',
+    file: '005-rita',
   },
   {
     id: 'ob006',
@@ -47,7 +47,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 4,
     designer: 'Jennifer Ofenstein ',
-    file: 'others/006-hogwarts',
+    file: '006-hogwarts',
   },
   {
     id: 'ob007',
@@ -57,7 +57,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 4,
     designer: 'Jennifer Ofenstein ',
-    file: 'others/006-hogwarts2',
+    file: '006-hogwarts2',
   },
   {
     id: 'ob008',
@@ -67,7 +67,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 2,
     designer: 'Jennifer Ofenstein ',
-    file: 'others/006-gryffindor',
+    file: '006-gryffindor',
   },
   {
     id: 'ob009',
@@ -77,7 +77,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 2,
     designer: 'Jennifer Ofenstein ',
-    file: 'others/006-gryffindor2',
+    file: '006-gryffindor2',
   },
   {
     id: 'ob010',
@@ -87,7 +87,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 2,
     designer: 'Jennifer Ofenstein ',
-    file: 'others/006-hufflepuff',
+    file: '006-hufflepuff',
   },
   {
     id: 'ob011',
@@ -97,7 +97,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 2,
     designer: 'Jennifer Ofenstein ',
-    file: 'others/006-hufflepuff2',
+    file: '006-hufflepuff2',
   },
   {
     id: 'ob012',
@@ -107,7 +107,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 2,
     designer: 'Jennifer Ofenstein ',
-    file: 'others/006-ravenclaw',
+    file: '006-ravenclaw',
   },
   {
     id: 'ob013',
@@ -117,7 +117,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 2,
     designer: 'Jennifer Ofenstein ',
-    file: 'others/006-ravenclaw2',
+    file: '006-ravenclaw2',
   },
   {
     id: 'ob014',
@@ -127,7 +127,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 2,
     designer: 'Jennifer Ofenstein ',
-    file: 'others/006-slytherin',
+    file: '006-slytherin',
   },
   {
     id: 'ob015',
@@ -137,7 +137,7 @@ const otherBlocks = [
     type: 'others',
     difficulty: 2,
     designer: 'Jennifer Ofenstein ',
-    file: 'others/006-slytherin2',
+    file: '006-slytherin2',
   },
 ];
 

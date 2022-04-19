@@ -7,8 +7,7 @@ const beastsBlocks = [
     type: 'Fantastic Beasts',
     difficulty: 4,
     designer: 'Michelle Thompson',
-    file: 'beasts/001-pixie',
-    url: 'http://www.fandominstitches.com/2011/12/harry-potter-fantastic-beasts-magical.html',
+    file: '001-pixie',
   },
   {
     id: 'fbb002',
@@ -18,8 +17,7 @@ const beastsBlocks = [
     type: 'Fantastic Beasts',
     difficulty: -1,
     designer: 'Vanda Chittenden',
-    file: 'beasts/002-puffskein',
-    url: 'http://www.fandominstitches.com/2011/12/harry-potter-fantastic-beasts-magical.html',
+    file: '002-puffskein',
   },
 ];
 

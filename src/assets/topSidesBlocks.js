@@ -7,7 +7,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Daphne Seymour',
-    file: 'sides-top/01-apothecary',
+    file: '01-apothecary',
   },
   {
     id: 'tsb0002',
@@ -17,7 +17,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Wendi Riggens-Miller',
-    file: 'sides-top/02-dobby',
+    file: '02-dobby',
   },
   {
     id: 'tsb0003',
@@ -27,7 +27,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 2,
     designer: 'Sheila Fordyce',
-    file: 'sides-top/03-hidden_sword',
+    file: '03-hidden_sword',
   },
   {
     id: 'tsb0004',
@@ -37,7 +37,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Wendi Riggens-Miller',
-    file: 'sides-top/04-firebolt',
+    file: '04-firebolt',
   },
   {
     id: 'tsb0005',
@@ -47,7 +47,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Wendi Riggens-Miller',
-    file: 'sides-top/05-kneazle',
+    file: '05-kneazle',
   },
   {
     id: 'tsb0006',
@@ -57,7 +57,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Wendi Riggens-Miller',
-    file: 'sides-top/06-kreacher',
+    file: '06-kreacher',
   },
   {
     id: 'tsb0007',
@@ -67,7 +67,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Wendi Riggens-Miller',
-    file: 'sides-top/07-dragon',
+    file: '07-dragon',
   },
   {
     id: 'tsb0008',
@@ -77,7 +77,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Daphne Seymour',
-    file: 'sides-top/08-gargoyle',
+    file: '08-gargoyle',
   },
   {
     id: 'tsb0009',
@@ -87,7 +87,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 5,
     designer: 'Jen Rose',
-    file: 'sides-top/09-horntail',
+    file: '09-horntail',
   },
   {
     id: 'tsb0010',
@@ -97,7 +97,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Michelle Thompson',
-    file: 'sides-top/10-nimbus_2000',
+    file: '10-nimbus_2000',
   },
   {
     id: 'tsb0011',
@@ -107,7 +107,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Michelle Thompson',
-    file: 'sides-top/11-nimbus_2001',
+    file: '11-nimbus_2001',
   },
   {
     id: 'tsb0012',
@@ -117,7 +117,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Michelle Thompson',
-    file: 'sides-top/12-gryffindor_sword',
+    file: '12-gryffindor_sword',
   },
   {
     id: 'tsb0013',
@@ -127,7 +127,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 2,
     designer: 'Michelle Thompson',
-    file: 'sides-top/13-dobby',
+    file: '13-dobby',
   },
   {
     id: 'tsb0014',
@@ -137,7 +137,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 2,
     designer: 'AJ',
-    file: 'sides-top/14-fawkes',
+    file: '14-fawkes',
   },
   {
     id: 'tsb0015',
@@ -147,7 +147,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 4,
     designer: 'Esther Wheat',
-    file: 'sides-top/15-pixie',
+    file: '15-pixie',
   },
   {
     id: 'tsb0016',
@@ -157,7 +157,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Esther Wheat',
-    file: 'sides-top/16-dobby',
+    file: '16-dobby',
   },
   {
     id: 'tsb0017',
@@ -167,7 +167,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    file: 'sides-top/17-owl_ears',
+    file: '17-owl_ears',
   },
   {
     id: 'tsb0018',
@@ -177,7 +177,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    file: 'sides-top/18-hagrid',
+    file: '18-hagrid',
   },
   {
     id: 'tsb0019',
@@ -187,7 +187,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Michelle Thompson',
-    file: 'sides-top/19-scarf',
+    file: '19-scarf',
   },
   {
     id: 'tsb0020',
@@ -197,7 +197,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Daphne Seymour',
-    file: 'sides-top/20-dementor',
+    file: '20-dementor',
   },
   {
     id: 'tsb0021',
@@ -207,7 +207,7 @@ const topSidesBlocks = [
     type: 'top-sides',
     difficulty: 3,
     designer: 'Laura Wright',
-    file: 'sides-top/21-quidditch',
+    file: '21-quidditch',
   },
 ];
 
