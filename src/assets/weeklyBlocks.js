@@ -1,111 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
-import Svg0001Corner from './images/js/castle/0001Corner';
-import Svg0011CrystalBall from './images/js/weekly/0011CrystalBall';
-import Svg0012CrystalBall from './images/js/weekly/0012CrystalBall';
-import Svg0013CrystalBall from './images/js/weekly/0013CrystalBall';
-import Svg0021Books from './images/js/weekly/0021Books';
-import Svg0022Books from './images/js/weekly/0022Books';
-import Svg0031BooksPotion from './images/js/weekly/0031BooksPotion';
-import Svg0032BooksPotion from './images/js/weekly/0032BooksPotion';
-import Svg0033BooksHallows from './images/js/weekly/0033BooksHallows';
-import Svg0034BooksDarkMark from './images/js/weekly/0034BooksDarkMark';
-import Svg0041HarryGlasses from './images/js/weekly/0041HarryGlasses';
-import Svg0042HarryGlasses from './images/js/weekly/0042HarryGlasses';
-import Svg0043HarryGlasses from './images/js/weekly/0043HarryGlasses';
-import Svg0044HandOfGlory from './images/js/weekly/0044HandOfGlory';
-import Svg0051Books from './images/js/weekly/0051Books';
-import Svg0061Vial from './images/js/weekly/0061Vial';
-import Svg0062Vial from './images/js/weekly/0062Vial';
-import Svg0063Frame from './images/js/weekly/0063Frame';
-import Svg0064SlytherinLocket from './images/js/weekly/0064SlytherinLocket';
-import Svg0071TimeTurner from './images/js/weekly/0071TimeTurner';
-import Svg0072TimeTurner from './images/js/weekly/0072TimeTurner';
-import Svg0073VenomousTentacula from './images/js/weekly/0073VenomousTentacula';
-import Svg0081Books from './images/js/weekly/0081Books';
-import Svg0091GoldenSnitch from './images/js/weekly/0091GoldenSnitch';
-import Svg0092HouseTieHufflepuff from './images/js/weekly/0092HouseTieHufflepuff';
-import Svg0093HouseTieRavenclaw from './images/js/weekly/0093HouseTieRavenclaw';
-import Svg0094HouseTieGryffindor from './images/js/weekly/0094HouseTieGryffindor';
-import Svg0095HouseTieSlytherin from './images/js/weekly/0095HouseTieSlytherin';
-import Svg0101BooksSpells from './images/js/weekly/0101BooksSpells';
-import Svg0102BooksSpells from './images/js/weekly/0102BooksSpells';
-import Svg0111Hedwig from './images/js/weekly/0111Hedwig';
-import Svg0112EagleOwl from './images/js/weekly/0112EagleOwl';
-import Svg0113Errol from './images/js/weekly/0113Errol';
-import Svg0114Pigwidgeon from './images/js/weekly/0114Pigwidgeon';
-import Svg0121BasiliskFang from './images/js/weekly/0121BasiliskFang';
-import Svg0122Butterbeer from './images/js/weekly/0122Butterbeer';
-import Svg0123CookingSherry from './images/js/weekly/0123CookingSherry';
-import Svg0131MonsterBook from './images/js/weekly/0131MonsterBook';
-import Svg0132QuirrelTurban from './images/js/weekly/0132QuirrelTurban';
-import Svg0141MagicWand from './images/js/weekly/0141MagicWand';
-import Svg0142HarryWand from './images/js/weekly/0142HarryWand';
-import Svg0143ElderWand from './images/js/weekly/0143ElderWand';
-import Svg0144VoldemortWand from './images/js/weekly/0144VoldemortWand';
-import Svg0151RiddleDiary from './images/js/weekly/0151RiddleDiary';
-import Svg0152RiddleDiary from './images/js/weekly/0152RiddleDiary';
-import Svg0153BooksPotion from './images/js/weekly/0153BooksPotion';
-import Svg0154LockhartQuill from './images/js/weekly/0154LockhartQuill';
-import Svg0161BookBroomstick from './images/js/weekly/0161BookBroomstick';
-import Svg0162BookPygmy from './images/js/weekly/0162BookPygmy';
-import Svg0163Book from './images/js/weekly/0163Book';
-import Svg0171Www from './images/js/weekly/0171Www';
-import Svg0172DeathEaterMask from './images/js/weekly/0172DeathEaterMask';
-import Svg0181Books from './images/js/weekly/0181Books';
-import Svg0182Books from './images/js/weekly/0182Books';
-import Svg0183PotionBook from './images/js/weekly/0183PotionBook';
-import Svg0184PotionBook from './images/js/weekly/0184PotionBook';
-import Svg01910CrestHufflepuff from './images/js/weekly/01910CrestHufflepuff';
-import Svg01911CrestHufflepuff from './images/js/weekly/01911CrestHufflepuff';
-import Svg01912CrestGryffindor from './images/js/weekly/01912CrestGryffindor';
-import Svg01913CrestGryffindor from './images/js/weekly/01913CrestGryffindor';
-import Svg01914CrestGryffindor from './images/js/weekly/01914CrestGryffindor';
-import Svg01915CrestBeauxbatons from './images/js/weekly/01915CrestBeauxbatons';
-import Svg01916CrestBeauxbatons from './images/js/weekly/01916CrestBeauxbatons';
-import Svg01917CrestBeauxbatons from './images/js/weekly/01917CrestBeauxbatons';
-import Svg01918CrestDurmstrang from './images/js/weekly/01918CrestDurmstrang';
-import Svg01919CrestDurmstrang from './images/js/weekly/01919CrestDurmstrang';
-import Svg0191CrestHogwarts from './images/js/weekly/0191CrestHogwarts';
-import Svg01920CrestDurmstrang from './images/js/weekly/01920CrestDurmstrang';
-import Svg0192CrestHogwarts from './images/js/weekly/0192CrestHogwarts';
-import Svg0193CrestSlytherin from './images/js/weekly/0193CrestSlytherin';
-import Svg0194CrestSlytherin from './images/js/weekly/0194CrestSlytherin';
-import Svg0195CrestSlytherin from './images/js/weekly/0195CrestSlytherin';
-import Svg0196CrestRavenclaw from './images/js/weekly/0196CrestRavenclaw';
-import Svg0197CrestRavenclaw from './images/js/weekly/0197CrestRavenclaw';
-import Svg0198CrestRavenclaw from './images/js/weekly/0198CrestRavenclaw';
-import Svg0199CrestHufflepuff from './images/js/weekly/0199CrestHufflepuff';
-import Svg0201Candle from './images/js/weekly/0201Candle';
-import Svg0202Bluebell from './images/js/weekly/0202Bluebell';
-import Svg0211SortingHat from './images/js/weekly/0211SortingHat';
-import Svg0212SortingHatCrookshanks from './images/js/weekly/0212SortingHatCrookshanks';
-import Svg0213Nagini from './images/js/weekly/0213Nagini';
-import Svg0231Quill from './images/js/weekly/0231Quill';
-import Svg0232UmbridgeQuill from './images/js/weekly/0232UmbridgeQuill';
-import Svg0233QuickQuotesQuill from './images/js/weekly/0233QuickQuotesQuill';
-import Svg0241Books from './images/js/weekly/0241Books';
-import Svg0251OpenBook from './images/js/weekly/0251OpenBook';
-import Svg0252Quaffle from './images/js/weekly/0252Quaffle';
-import Svg0253DragonEggs from './images/js/weekly/0253DragonEggs';
-import Svg0261Books from './images/js/weekly/0261Books';
-import Svg0262Acromantula from './images/js/weekly/0262Acromantula';
-import Svg0271Teacup from './images/js/weekly/0271Teacup';
-import Svg0272Teacup from './images/js/weekly/0272Teacup';
-import Svg0273HalfMoonSpectacles from './images/js/weekly/0273HalfMoonSpectacles';
-import Svg0274ChocolateFrogBox from './images/js/weekly/0274ChocolateFrogBox';
-import Svg0281Trevor from './images/js/weekly/0281Trevor';
-import Svg0282Trevor from './images/js/weekly/0282Trevor';
-import Svg0283Parchment from './images/js/weekly/0283Parchment';
-import Svg0284UnicornHead from './images/js/weekly/0284UnicornHead';
-import Svg0285Norbert from './images/js/weekly/0285Norbert';
-import Svg0286Bats from './images/js/weekly/0286Bats';
-import Svg0287Moody from './images/js/weekly/0287Moody';
-import Svg0291Cauldron from './images/js/weekly/0291Cauldron';
-import Svg0292Pumpkin from './images/js/weekly/0292Pumpkin';
-import Svg0301BertieBotts from './images/js/weekly/0301BertieBotts';
-import Svg0302PotionBottles from './images/js/weekly/0302PotionBottles';
-
 const weeklyBlocks = [
   {
     id: 'wb1',
@@ -116,7 +8,6 @@ const weeklyBlocks = [
     tags: ['castle', 'corner'],
     type: 'castle',
     difficulty: 1,
-    element: (props) => <Svg0001Corner {...props} />,
   },
   {
     id: 'wb4',
@@ -128,7 +19,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0011CrystalBall {...props} />,
   },
   {
     id: 'wb5',
@@ -140,7 +30,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0012CrystalBall {...props} />,
   },
   {
     id: 'wb6',
@@ -152,7 +41,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0013CrystalBall {...props} />,
   },
   {
     id: 'wb7',
@@ -164,7 +52,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0021Books {...props} />,
   },
   {
     id: 'wb8',
@@ -176,7 +63,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0022Books {...props} />,
   },
   {
     id: 'wb9',
@@ -188,7 +74,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0031BooksPotion {...props} />,
   },
   {
     id: 'wb10',
@@ -200,7 +85,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0032BooksPotion {...props} />,
   },
   {
     id: 'wb11',
@@ -212,7 +96,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0033BooksHallows {...props} />,
   },
   {
     id: 'wb12',
@@ -224,7 +107,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0034BooksDarkMark {...props} />,
   },
   {
     id: 'wb13',
@@ -236,7 +118,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0041HarryGlasses {...props} />,
   },
   {
     id: 'wb14',
@@ -248,7 +129,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0042HarryGlasses {...props} />,
   },
   {
     id: 'wb15',
@@ -260,7 +140,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0043HarryGlasses {...props} />,
   },
   {
     id: 'wb16',
@@ -272,7 +151,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0044HandOfGlory {...props} />,
   },
   {
     id: 'wb17',
@@ -284,7 +162,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0051Books {...props} />,
   },
   {
     id: 'wb18',
@@ -296,7 +173,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0061Vial {...props} />,
   },
   {
     id: 'wb19',
@@ -308,7 +184,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0062Vial {...props} />,
   },
   {
     id: 'wb20',
@@ -320,7 +195,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0063Frame {...props} />,
   },
   {
     id: 'wb21',
@@ -332,7 +206,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0064SlytherinLocket {...props} />,
   },
   {
     id: 'wb22',
@@ -344,7 +217,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0071TimeTurner {...props} />,
   },
   {
     id: 'wb23',
@@ -356,7 +228,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0072TimeTurner {...props} />,
   },
   {
     id: 'wb24',
@@ -368,7 +239,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0073VenomousTentacula {...props} />,
   },
   {
     id: 'wb25',
@@ -380,7 +250,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0081Books {...props} />,
   },
   {
     id: 'wb26',
@@ -392,55 +261,17 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0091GoldenSnitch {...props} />,
   },
   {
     id: 'wb27',
     week: 9,
     number: 2,
-    name: 'House tie Hufflepuff',
+    name: 'House tie',
     size: { width: 10, height: 10 },
     tags: ['books', 'book', 'tie', 'hufflepuff'],
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0092HouseTieHufflepuff {...props} />,
-  },
-  {
-    id: 'wb28',
-    week: 9,
-    number: 3,
-    name: 'House tie Ravenclaw',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'tie', 'ravenclaw'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0093HouseTieRavenclaw {...props} />,
-  },
-  {
-    id: 'wb29',
-    week: 9,
-    number: 4,
-    name: 'House tie Gryffindor',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'tie', 'gryffindor'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0094HouseTieGryffindor {...props} />,
-  },
-  {
-    id: 'wb30',
-    week: 9,
-    number: 5,
-    name: 'House tie Slytherin',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'tie', 'slytherin'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0095HouseTieSlytherin {...props} />,
   },
   {
     id: 'wb31',
@@ -452,7 +283,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0101BooksSpells {...props} />,
   },
   {
     id: 'wb32',
@@ -464,7 +294,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0102BooksSpells {...props} />,
   },
   {
     id: 'wb33',
@@ -476,7 +305,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0111Hedwig {...props} />,
   },
   {
     id: 'wb34',
@@ -488,7 +316,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0112EagleOwl {...props} />,
   },
   {
     id: 'wb35',
@@ -500,7 +327,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0113Errol {...props} />,
   },
   {
     id: 'wb36',
@@ -512,7 +338,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0114Pigwidgeon {...props} />,
   },
   {
     id: 'wb37',
@@ -524,7 +349,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0121BasiliskFang {...props} />,
   },
   {
 
@@ -537,7 +361,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0122Butterbeer {...props} />,
   },
   {
     id: 'wb39',
@@ -549,7 +372,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0123CookingSherry {...props} />,
   },
   {
     id: 'wb40',
@@ -561,7 +383,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0131MonsterBook {...props} />,
   },
   {
     id: 'wb41',
@@ -573,7 +394,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0132QuirrelTurban {...props} />,
   },
   {
     id: 'wb42',
@@ -585,7 +405,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0141MagicWand {...props} />,
   },
   {
     id: 'wb43',
@@ -597,7 +416,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0142HarryWand {...props} />,
   },
   {
     id: 'wb44',
@@ -609,7 +427,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0143ElderWand {...props} />,
   },
   {
     id: 'wb45',
@@ -621,7 +438,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 2,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0144VoldemortWand {...props} />,
   },
   {
     id: 'wb46',
@@ -633,7 +449,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0151RiddleDiary {...props} />,
   },
   {
     id: 'wb47',
@@ -645,7 +460,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0152RiddleDiary {...props} />,
   },
   {
     id: 'wb48',
@@ -657,7 +471,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0153BooksPotion {...props} />,
   },
   {
     id: 'wb49',
@@ -669,7 +482,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0154LockhartQuill {...props} />,
   },
   {
     id: 'wb50',
@@ -681,7 +493,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0161BookBroomstick {...props} />,
   },
   {
     id: 'wb51',
@@ -693,7 +504,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0162BookPygmy {...props} />,
   },
   {
     id: 'wb52',
@@ -705,7 +515,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0163Book {...props} />,
   },
   {
     id: 'wb53',
@@ -717,7 +526,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0171Www {...props} />,
   },
   {
     id: 'wb54',
@@ -729,7 +537,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0172DeathEaterMask {...props} />,
   },
   {
     id: 'wb55',
@@ -741,7 +548,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0181Books {...props} />,
   },
   {
     id: 'wb56',
@@ -753,7 +559,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0182Books {...props} />,
   },
   {
     id: 'wb57',
@@ -765,7 +570,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0183PotionBook {...props} />,
   },
   {
     id: 'wb58',
@@ -777,7 +581,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0184PotionBook {...props} />,
   },
   {
     id: 'wb59',
@@ -789,7 +592,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0191CrestHogwarts {...props} />,
   },
   {
     id: 'wb60',
@@ -801,7 +603,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0192CrestHogwarts {...props} />,
   },
   {
     id: 'wb61',
@@ -813,31 +614,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0193CrestSlytherin {...props} />,
-  },
-  {
-    id: 'wb62',
-    week: 19,
-    number: 4,
-    name: 'Slytherin crest',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'crest', 'slytherin'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0194CrestSlytherin {...props} />,
-  },
-  {
-    id: 'wb63',
-    week: 19,
-    number: 5,
-    name: 'Slytherin crest',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'crest', 'slytherin'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0195CrestSlytherin {...props} />,
   },
   {
     id: 'wb64',
@@ -849,31 +625,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0196CrestRavenclaw {...props} />,
-  },
-  {
-    id: 'wb65',
-    week: 19,
-    number: 7,
-    name: 'Ravenclaw crest',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'crest', 'ravenclaw'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0197CrestRavenclaw {...props} />,
-  },
-  {
-    id: 'wb66',
-    week: 19,
-    number: 8,
-    name: 'Ravenclaw crest',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'crest', 'ravenclaw'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0198CrestRavenclaw {...props} />,
   },
   {
     id: 'wb67',
@@ -885,31 +636,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0199CrestHufflepuff {...props} />,
-  },
-  {
-    id: 'wb68',
-    week: 19,
-    number: 10,
-    name: 'Hufflepuff crest',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'crest', 'hufflepuff'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg01910CrestHufflepuff {...props} />,
-  },
-  {
-    id: 'wb69',
-    week: 19,
-    number: 11,
-    name: 'Hufflepuff crest',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'crest', 'hufflepuff'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg01911CrestHufflepuff {...props} />,
   },
   {
     id: 'wb70',
@@ -921,31 +647,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg01912CrestGryffindor {...props} />,
-  },
-  {
-    id: 'wb71',
-    week: 19,
-    number: 13,
-    name: 'Gryffindor crest',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'crest', 'gryffindor'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg01913CrestGryffindor {...props} />,
-  },
-  {
-    id: 'wb72',
-    week: 19,
-    number: 14,
-    name: 'Gryffindor crest',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'crest', 'gryffindor'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg01914CrestGryffindor {...props} />,
   },
   {
     id: 'wb73',
@@ -957,31 +658,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg01915CrestBeauxbatons {...props} />,
-  },
-  {
-    id: 'wb74',
-    week: 19,
-    number: 16,
-    name: 'Beauxbatons crest',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'crest', 'beauxbatons'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg01916CrestBeauxbatons {...props} />,
-  },
-  {
-    id: 'wb75',
-    week: 19,
-    number: 17,
-    name: 'Beauxbatons crest',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'crest', 'beauxbatons'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg01917CrestBeauxbatons {...props} />,
   },
   {
     id: 'wb76',
@@ -993,31 +669,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg01918CrestDurmstrang {...props} />,
-  },
-  {
-    id: 'wb77',
-    week: 19,
-    number: 19,
-    name: 'Durmstrang crest',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'crest', 'durmstrang'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg01919CrestDurmstrang {...props} />,
-  },
-  {
-    id: 'wb78',
-    week: 19,
-    number: 20,
-    name: 'Durmstrang crest',
-    size: { width: 10, height: 10 },
-    tags: ['books', 'book', 'crest', 'durmstrang'],
-    type: 'variation',
-    difficulty: 3,
-    designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg01920CrestDurmstrang {...props} />,
   },
   {
     id: 'wb79',
@@ -1029,7 +680,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0201Candle {...props} />,
   },
   {
     id: 'wb80',
@@ -1041,7 +691,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0202Bluebell {...props} />,
   },
   {
     id: 'wb81',
@@ -1053,7 +702,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0211SortingHat {...props} />,
   },
   {
     id: 'wb82',
@@ -1065,7 +713,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0212SortingHatCrookshanks {...props} />,
   },
   {
     id: 'wb83',
@@ -1077,7 +724,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0213Nagini {...props} />,
   },
   {
     id: 'wb84',
@@ -1089,7 +735,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0231Quill {...props} />,
   },
   {
     id: 'wb85',
@@ -1101,7 +746,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0232UmbridgeQuill {...props} />,
   },
   {
     id: 'wb86',
@@ -1113,7 +757,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0233QuickQuotesQuill {...props} />,
   },
   {
     id: 'wb87',
@@ -1125,7 +768,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0241Books {...props} />,
   },
   {
     id: 'wb88',
@@ -1137,7 +779,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0251OpenBook {...props} />,
   },
   {
     id: 'wb89',
@@ -1149,7 +790,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0252Quaffle {...props} />,
   },
   {
     id: 'wb90',
@@ -1161,7 +801,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0253DragonEggs {...props} />,
   },
   {
     id: 'wb91',
@@ -1173,7 +812,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0261Books {...props} />,
   },
   {
     id: 'wb92',
@@ -1185,7 +823,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0262Acromantula {...props} />,
   },
   {
     id: 'wb93',
@@ -1197,7 +834,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0271Teacup {...props} />,
   },
   {
     id: 'wb94',
@@ -1209,7 +845,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0272Teacup {...props} />,
   },
   {
     id: 'wb95',
@@ -1221,7 +856,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0273HalfMoonSpectacles {...props} />,
   },
   {
     id: 'wb96',
@@ -1233,7 +867,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0274ChocolateFrogBox {...props} />,
   },
   {
     id: 'wb97',
@@ -1245,7 +878,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0281Trevor {...props} />,
   },
   {
     id: 'wb98',
@@ -1257,7 +889,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0282Trevor {...props} />,
   },
   {
     id: 'wb99',
@@ -1269,7 +900,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0283Parchment {...props} />,
   },
   {
     id: 'wb100',
@@ -1281,7 +911,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0284UnicornHead {...props} />,
   },
   {
     id: 'wb101',
@@ -1293,7 +922,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0285Norbert {...props} />,
   },
   {
     id: 'wb102',
@@ -1305,7 +933,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0286Bats {...props} />,
   },
   {
     id: 'wb103',
@@ -1317,7 +944,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 4,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0287Moody {...props} />,
   },
   {
     id: 'wb104',
@@ -1329,7 +955,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0291Cauldron {...props} />,
   },
   {
     id: 'wb105',
@@ -1341,7 +966,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 1,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0292Pumpkin {...props} />,
   },
   {
     id: 'wb106',
@@ -1353,7 +977,6 @@ const weeklyBlocks = [
     type: 'original',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0301BertieBotts {...props} />,
   },
   {
     id: 'wb107',
@@ -1365,7 +988,6 @@ const weeklyBlocks = [
     type: 'variation',
     difficulty: 3,
     designer: 'Jennifer Ofenstein',
-    element: (props) => <Svg0302PotionBottles {...props} />,
   },
 ];
 

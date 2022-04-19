@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="262" height="262" viewBox="328.512 124.707 262 262">
+  <defs>
+    <path id="a" d="M328.51 124.71h262v262h-262v-262Z"/>
+    <path id="b" d="m359.2 125.16 63.4.11 1.87 260.87-62.74-.22-2.53-260.76Z"/>
+    <path id="c" d="m361.83 351.27 62.33-6.28v21.14h-62.33v-14.86Z"/>
+    <path id="d" d="m422.57 159.7 55.09.49 4.15 226-57.47-.13-1.77-226.36Z"/>
+    <path id="e" d="m558.14 159.62 31.62.25v226.27l-31.59-.11-.03-226.41Z"/>
+    <path id="f" d="m494.13 159.07 63.95.27v226.83h-62.33l-1.62-227.1Z"/>
+    <path id="g" d="M495.62 353.78h62.6v16.58l-62.43-2.71-.17-13.87Z"/>
+  </defs>
+  <use xlink:href="#a" fill="#9b7647"/>
+  <use xlink:href="#b" fill="#4a6f84"/>
+  <use xlink:href="#c" fill="#419ccf"/>
+  <use xlink:href="#d" fill="#bc3b6e"/>
+  <use xlink:href="#e" fill="#479f4e"/>
+  <use xlink:href="#f" fill="#e3c47f"/>
+  <use xlink:href="#g" fill="#969b99"/>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="262.28" height="262" viewBox="170.288 172.052 262.281 262">
+  <defs>
+    <path id="a" d="M170.29 172.05h262v262h-262v-262Z"/>
+    <path id="b" d="M387.29 172.05h45.28l-.28 262h-45v-262Z"/>
+    <path id="c" d="M314.41 218.67h72.88v215.08l-72.88.3V218.67Z"/>
+    <path id="d" d="M314.41 239.85h72.88v7.31l-72.88-.31v-7Z"/>
+    <path id="e" d="M314.17 381.58h73.12v6.61h-73.12v-6.61Z"/>
+    <path id="f" d="M314.41 408h72.88l.23 7.75h-73.11V408Z"/>
+    <path id="g" d="m387.5 180.87 44.79 12.02v8.35l-45-12.12.21-8.25Z"/>
+    <path id="h" d="m387.29 352.78 45 11.91v14.63L387 367.3l.29-14.52Z"/>
+    <path id="i" d="m387.29 394.11 45 12.12v11.81l-44.77-11.81-.23-12.12Z"/>
+    <path id="j" d="m178.36 420.08 5.91 8.1 13.35 5.87h88.4l14.44-5.65 5.8-7.99.44-21.66-128.99-2.96.65 24.29Z"/>
+    <path id="k" d="m177.54 303.46 5.14-13.78 10.5-6.75h98.36l10.07 6.75 5.47 14.11.43 32.28-130.19-.33.22-32.28Z"/>
+    <path id="l" d="m198.07 269.56 4.7-8.43h78.89l4.81 7.22v14.58h-88.4v-13.37Z"/>
+    <path id="m" d="m307.51 335.74-.81 63.29-128.99-3.24-.39-60.05h130.19Z"/>
+    <path id="n" d="m307.28 367.85-65.43 28.88-64.14-29.34 64.49-31.32 65.08 31.78Z"/>
+    <path id="o" d="m242.2 393.67 58.74-25.6-58.45-28.12-58.62 27.87 58.33 25.85Z"/>
+    <path id="p" d="m242.2 390.28 53.26-21.77L242.2 344l-52.97 24.51 52.97 21.77Z"/>
+    <path id="q" d="m242.42 387 44.18-18.71-44.36-20.02-44.48 20.02L242.42 387Z"/>
+    <path id="r" d="M236.27 350.89v14.22h12.26v-14.22l6.45 3.28v27.41l-7.11 3.01v-12.91h-11.6v12.91l-6.89-3.01v-27.95l6.89-2.74Z"/>
+  </defs>
+  <use xlink:href="#a" fill="#9b7647"/>
+  <use xlink:href="#b" fill="#ffcb9a"/>
+  <use xlink:href="#c" fill="#98cbfc"/>
+  <use xlink:href="#d" fill="#ccffff"/>
+  <use xlink:href="#e" fill="#ccffff"/>
+  <use xlink:href="#f" fill="#ccffff"/>
+  <use xlink:href="#g" fill="#fd9902"/>
+  <use xlink:href="#h" fill="#fe9901"/>
+  <use xlink:href="#i" fill="#fc9705"/>
+  <use xlink:href="#j" fill="#d0b89a"/>
+  <use xlink:href="#k" fill="#d0b89a"/>
+  <use xlink:href="#l" fill="#b6b6b6"/>
+  <use xlink:href="#m" fill="#d2b4be"/>
+  <use xlink:href="#n" fill="#f904fc"/>
+  <use xlink:href="#o" fill="#02fd02"/>
+  <use xlink:href="#p" fill="#f904fc"/>
+  <use xlink:href="#q" fill="#fc98ca"/>
+  <use xlink:href="#r" fill="#02fd02"/>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="262" height="262" viewBox="191.597 168.778 262 262">
+  <defs>
+    <path id="a" d="M191.6 168.78h262v262h-262v-262Z"/>
+    <path id="b" d="M448.89 412.43v5.89l-8.85 12.12h-33.41l-8.6-10.89v-7.12h50.86Z"/>
+    <path id="c" d="M398.03 325.2h50.86v87.23h-50.86V325.2Z"/>
+    <path id="d" d="m398.03 242.06 14.74-10.81h21.13l14.99 10.81v83.14h-50.86v-83.14Z"/>
+    <path id="e" d="m448.15 196.36.74 24.32-14.25 10.57h-22.36l-14.25-10.57v-24.32h50.12Z"/>
+    <path id="f" d="M448.15 196.36v-6.64l-7.86-12.28h-33.91l-8.35 12.28v6.64h50.12Z"/>
+    <path id="g" d="M382.81 412.43v5.89l-8.84 12.12h-33.42l-8.6-10.89v-7.12h50.86Z"/>
+    <path id="h" d="M331.95 297.7h50.86v114.73h-50.86V297.7Z"/>
+    <path id="i" d="m331.95 242.06 14.75-10.81h21.13l14.98 10.81v83.14h-50.86v-83.14Z"/>
+    <path id="j" d="m382.08 196.36.73 24.32-14.25 10.57H346.2l-14.25-10.57v-24.32h50.13Z"/>
+    <path id="k" d="M382.08 196.36v-6.64l-7.87-12.28h-33.9l-8.36 12.28v6.64h50.13Z"/>
+    <path id="l" d="M315.54 412.43v5.89l-8.84 12.12h-33.42l-8.6-10.89v-7.12h50.86Z"/>
+    <path id="m" d="M265.05 313.33h50.86v99.1h-50.86v-99.1Z"/>
+    <path id="n" d="m265.05 242.06 14.74-10.81h21.14l14.98 10.81v71.27h-50.86v-71.27Z"/>
+    <path id="o" d="m315.18 196.36.73 24.32-14.25 10.57H279.3l-14.25-10.57v-24.32h50.13Z"/>
+    <path id="p" d="M315.18 196.36v-6.64l-7.87-12.28h-33.9l-8.36 12.28v6.64h50.13Z"/>
+    <path id="q" d="M250.66 412.43v5.89l-8.84 12.12H208.4l-8.6-10.89v-7.12h50.86Z"/>
+    <path id="r" d="M199.8 285.62h50.13l.73 126.81H199.8V285.62Z"/>
+    <path id="s" d="m199.8 242.06 14.75-10.81h21.13l14.98 10.81-.73 43.56H199.8v-43.56Z"/>
+    <path id="t" d="m249.93 196.36.73 24.32-14.25 10.57h-22.35l-14.26-10.57v-24.32h50.13Z"/>
+    <path id="u" d="M249.93 196.36v-6.64l-7.86-12.28h-33.91l-8.36 12.28v6.64h50.13Z"/>
+  </defs>
+  <use xlink:href="#a" fill="#9b7647"/>
+  <use xlink:href="#b" fill="#f8d10c"/>
+  <use xlink:href="#c" fill="#229e0e"/>
+  <use xlink:href="#d" fill="#f6f2ec"/>
+  <use xlink:href="#e" fill="#229e0e"/>
+  <use xlink:href="#f" fill="#f8d10c"/>
+  <use xlink:href="#g" fill="#f8d10c"/>
+  <use xlink:href="#h" fill="#052bc5"/>
+  <use xlink:href="#i" fill="#f6f2ec"/>
+  <use xlink:href="#j" fill="#052bc5"/>
+  <use xlink:href="#k" fill="#f8d10c"/>
+  <use xlink:href="#l" fill="#f8d10c"/>
+  <use xlink:href="#m" fill="#b31b1b"/>
+  <use xlink:href="#n" fill="#f6f2ec"/>
+  <use xlink:href="#o" fill="#b31b1b"/>
+  <use xlink:href="#p" fill="#f8d10c"/>
+  <use xlink:href="#q" fill="#f8d10c"/>
+  <use xlink:href="#r" fill="#fffa20"/>
+  <use xlink:href="#s" fill="#f6f2ec"/>
+  <use xlink:href="#t" fill="#fffa20"/>
+  <use xlink:href="#u" fill="#f8d10c"/>
+</svg>

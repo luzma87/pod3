@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="262" height="262" viewBox="204.997 192.001 262 262">
+  <defs>
+    <path id="a" d="M205 192h262v262H205V192Z"/>
+    <path id="b" d="m454.2 454-.97-54.29L205 398.42V454h249.2Z"/>
+    <path id="c" d="m266.13 398.42 1.94 55.58h-21.61l-4.84-55.58h24.51Z"/>
+    <path id="d" d="m316.7 291.29-72.5-32.69-1.15-8.08 5.96-12.12 1.15-13.65 66.54 66.54Z"/>
+    <path id="e" d="m316.32 291.29-75.39-64.23-27.31 7.3 102.7 56.93Z"/>
+    <path id="f" d="m316.7 291.67-43.27-72.88-23.46 5.96 66.73 66.92Z"/>
+    <path id="g" d="m302.65 370.86 88.23-86.32-27.97-14.23-60.26 100.55Z"/>
+    <path id="h" d="m302.65 370.86 104.36-39.82v-6.44l-11.5-13.56-4.63-26.5-88.23 86.32Z"/>
+    <path id="i" d="m302.65 371.3 138.95-62.41-33.64-16.61-105.31 79.02Z"/>
+  </defs>
+  <use xlink:href="#a" fill="#9b7647"/>
+  <use xlink:href="#b" fill="#c8ebe4"/>
+  <use xlink:href="#c" fill="#edca71"/>
+  <use xlink:href="#d" fill="#e1d5d5"/>
+  <use xlink:href="#e" fill="#fcebe9"/>
+  <use xlink:href="#f" fill="#fcebe9"/>
+  <use xlink:href="#g" fill="#bc2424"/>
+  <use xlink:href="#g" fill="#fcebe9"/>
+  <use xlink:href="#h" fill="#e1d5d5"/>
+  <use xlink:href="#i" fill="#fcebe9"/>
+</svg>

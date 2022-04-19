@@ -30,6 +30,10 @@ function KonvaDemo3() {
     };
   }, []);
 
+  const onClick = (element) => {
+    console.log('OUTSIDE', element);
+  };
+
   return (
     <div>
       <Typography>
@@ -48,7 +52,11 @@ function KonvaDemo3() {
           ))}
         </div>
         <div style={{ background: 'hotpink' }}>
-          <TestWrapper id="canvasContainer" currentItem={currentItem} />
+          <TestWrapper
+            id="canvasContainer"
+            currentItem={currentItem}
+            onClick={onClick}
+          />
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ const getGriddedPosition = (element) => ({
   y: Math.round(element.y() / blockSnapSize) * blockSnapSize,
 });
 
-const Test = (id) => {
+const Test = (id, onClick) => {
   const stage = new Konva.Stage({
     container: id, // id of container <div>
     width,
@@ -51,19 +51,16 @@ const Test = (id) => {
   // then create layer
   const layer = new Konva.Layer();
 
-  const shadowRectangle = new Konva.Rect({
-    x: 0,
-    y: 0,
-    width: blockWidth,
-    height: blockHeight,
-    fill: '#FF7B17',
-    opacity: 0.6,
-    stroke: '#CF6412',
-    strokeWidth: 3,
-    dash: [20, 2],
-  });
-  shadowRectangle.hide();
-  layer.add(shadowRectangle);
+  // const shadowRectangle = new Konva.Rect({
+  //   x: 0,
+  //   y: 0,
+  //   width: blockWidth,
+  //   height: blockHeight,
+  //   fill: 'white',
+  //   opacity: 0.6,
+  // });
+  // shadowRectangle.hide();
+  // layer.add(shadowRectangle);
 
   const addDraggedImage = () => {
     if (item) {
@@ -101,21 +98,22 @@ const Test = (id) => {
         });
         image.on('click tap', () => {
           console.log('clicked', item);
+          onClick(item);
         });
-        image.on('dragstart', () => {
-          shadowRectangle.show();
-          shadowRectangle.moveToTop();
-          image.moveToTop();
-        });
+        // image.on('dragstart', () => {
+        //   // shadowRectangle.show();
+        //   // shadowRectangle.moveToTop();
+        //   image.moveToTop();
+        // });
         image.on('dragend', () => {
           image.position(getGriddedPosition(image));
           stage.batchDraw();
-          shadowRectangle.hide();
+          // shadowRectangle.hide();
         });
-        image.on('dragmove', () => {
-          shadowRectangle.position(getGriddedPosition(image));
-          stage.batchDraw();
-        });
+        // image.on('dragmove', () => {
+        //   // shadowRectangle.position(getGriddedPosition(image));
+        //   // stage.batchDraw();
+        // });
         layer.add(image);
       });
     }

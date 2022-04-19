@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="262" height="262" viewBox="24.167 131.111 262 262">
+  <defs>
+    <path id="a" d="M24.17 131.11h262v262h-262v-262Z"/>
+    <path id="b" d="M24.45 146.69h42.29l-.66 245.97H24.45V146.69Z"/>
+    <path id="c" d="M66.74 146.69h37.5l-.16 246.22-38.22-.33.88-245.89Z"/>
+    <path id="d" d="M66.08 255.19h37.66v37.84l-37.66.37v-38.21Z"/>
+    <path id="e" d="M103.74 335.47h182.43v31.58H103.99l-.25-31.58Z"/>
+    <path id="f" d="m103.74 367.07 169.15-.34.25 25.93-169.12.25-.28-25.84Z"/>
+    <path id="g" d="m254.44 215.88 11.45 119.59H123.91l11.96-118.06 59.79-53.18 58.78 51.65Z"/>
+    <path id="h" d="m150.38 215.35-19.17 120.12h-7.3l12.04-118.31 52.66-46.7-38.23 44.89Z"/>
+    <path id="i" d="m172.53 215.67-1.42 119.8h-5.96l-.37-120.69 27.79-47.21-20.04 48.1Z"/>
+    <path id="j" d="m195.81 163.92 1.27 1.32 1.72 170.23-6.6-.3 2.7-169.93.91-1.32Z"/>
+    <path id="k" d="m218.47 215.06-19.16-46.7 26.64 47.71v119.4h-6.6l-.88-120.41Z"/>
+    <path id="l" d="m254.42 215.71-51.26-44.67L242 216.28l16.87 119.19 7.02-.31-11.47-119.45Z"/>
+    <path id="m" d="m164.78 239.65 61.17.51v56.09l-61.17-.63v-55.97Z"/>
+  </defs>
+  <use xlink:href="#a" fill="#9b7647"/>
+  <use xlink:href="#b" fill="#ff7f50"/>
+  <use xlink:href="#c" fill="#c850ff"/>
+  <use xlink:href="#d" fill="#5250ff"/>
+  <use xlink:href="#e" fill="#daa6ef"/>
+  <use xlink:href="#f" fill="#ff9e50"/>
+  <use xlink:href="#g" fill="#ffffff"/>
+  <use xlink:href="#h" fill="#f31e5d"/>
+  <use xlink:href="#i" fill="#f31e5d"/>
+  <use xlink:href="#j" fill="#f31e5d"/>
+  <use xlink:href="#k" fill="#f31e5d"/>
+  <use xlink:href="#l" fill="#f31e5d"/>
+  <use xlink:href="#m" fill="#6550ff"/>
+</svg>

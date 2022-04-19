@@ -1,18 +1,14 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
-import Svg001Tentacles from './images/js/disney/001Tentacles';
-
 const disneyBlocks = [
   {
-    id: 'db1',
+    id: 'db001',
     name: 'Ursula’s Tentacles (from Disney bookcase)',
     size: { width: 10, height: 10 },
     tags: ['tentacle', 'tentacles', 'book', 'books'],
-    type: 'disney',
+    type: 'Disney',
     difficulty: 2,
     designer: 'Kathy Borrelli',
     file: '001-tentacles',
-    element: (props) => <Svg001Tentacles {...props} />,
+    url: 'http://www.fandominstitches.com/2012/12/disney-themed-bookcase-blocks.html',
   },
 ];
 

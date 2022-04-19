@@ -1,18 +1,25 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
-import Svg01Pixie from './images/js/beasts/01Pixie';
-
 const beastsBlocks = [
   {
-    id: 'fbb1',
+    id: 'fbb001',
     name: 'Cornish Pixie',
     size: { width: 7, height: 8.5 },
-    tags: ['cornish', 'pixie'],
-    type: 'beasts',
+    tags: ['cornish', 'pixie', 'noBooks'],
+    type: 'Fantastic Beasts',
     difficulty: 4,
     designer: 'Michelle Thompson',
-    file: '01-pixie',
-    element: (props) => <Svg01Pixie {...props} />,
+    file: '001-pixie',
+    url: 'http://www.fandominstitches.com/2011/12/harry-potter-fantastic-beasts-magical.html',
+  },
+  {
+    id: 'fbb002',
+    name: 'Puffskein',
+    size: { width: 10, height: 10 },
+    tags: ['puffskein', 'noBooks'],
+    type: 'Fantastic Beasts',
+    difficulty: -1,
+    designer: 'Vanda Chittenden',
+    file: '002-puffskein',
+    url: 'http://www.fandominstitches.com/2011/12/harry-potter-fantastic-beasts-magical.html',
   },
 ];
 

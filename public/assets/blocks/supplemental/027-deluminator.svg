@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="262" height="262" viewBox="189 164.79 262 262">
+  <defs>
+    <path id="a" d="M189 164.79h262v262H189v-262Z"/>
+    <path id="b" d="M189 389.84h262v36.95H189v-36.95Z"/>
+    <path id="c" d="M313.41 164.79h43.3v225.05h-43.3V164.79Z"/>
+    <path id="d" d="M356.71 164.79h43.3v225.05h-43.3V164.79Z"/>
+    <path id="e" d="M400.01 164.79H451v225.05h-50.99V164.79Z"/>
+    <path id="f" d="M272.11 195.47h3.64v-7.15h-3.05v-7.27l-3.4-3.75v-6.21l4.22-3.99 5.98-1.87h22.39l5.63 2.46 5.89 5.27v5.75l-4.13 2.34.35 6.8h-3.52v7.04h3.52v4.45h-37.52v-3.87Z"/>
+    <path id="g" d="m306.39 199.34 7.02 5.58v139.17l-5.7 3.4 1.4 2.46-.7 2.34-5.21 3.09-22.11.43-6.09-3.52-.94-2.81 1.64-2.23-5.86-3.63V205.37l7.08-6.03h29.47Z"/>
+    <path id="h" d="m272.49 352.75 3.28 3.06-5.74 3.74v5.51l2.81 4.46-2.81 5.15 4.22 6.33 10.9 4.58h12.31l13.6-4.58 2.35-2.22v-5.28l-3.64-5.63.35-5.39-1.99-1.05v-5.98l3.28-2.7-2.28-2.87-2.53 2.05-9.73 1.99-18.64-1.17-3.98-3.52-1.76 3.52Z"/>
+    <path id="i" d="m269.84 286.54-6.39-3.02 2.54-5.45v-23.05l-4.53-4.53 8.38-4.6v40.65Z"/>
+    <path id="j" d="M309.38 181.02c-8.49-2.62-20.83-2.62-37.02 0"/>
+    <path id="k" d="M309.38 187.68c-13.49-1.5-25.83-1.38-37.02.36"/>
+    <path id="l" d="M309.38 195.42c-18.17-.71-30.51-.47-37.02.72"/>
+    <path id="m" d="M310.62 352.77c-6.55 6.31-34.88 4.02-37.62-.36"/>
+    <path id="n" d="M309.91 368.72c-15 2.7-27.31 2.7-36.91 0"/>
+    <path id="o" d="M313.41 375.27c-16.79 4.21-31.25 3.69-43.38-1.55"/>
+    <path id="p" d="m275.74 369.2.36-14.67"/>
+    <path id="q" d="M307.52 354.53v14.67"/>
+    <path id="r" d="M272.45 364.37c.73 0 1.43-.75 1.43-1.54s-.7-1.61-1.43-1.61-1.48.82-1.48 1.61c0 .79.75 1.54 1.48 1.54Z"/>
+    <path id="s" d="M313.41 344.08c-2.07 2.01-5.55 2.4-9.67 3.16-6.31 1.15-14.12.96-20.69 0-6.25-.92-11.37-1.58-13.02-3.52"/>
+    <path id="t" d="M313.06 205.66c-9.88-.25-24.38-.25-43.5 0"/>
+    <path id="u" d="m275.15 345.87-.6-140.4"/>
+    <path id="v" d="m289.88 205.47.71 142.56"/>
+    <path id="w" d="m307.52 346.27-.39-140.8"/>
+  </defs>
+  <use xlink:href="#a" fill="#9b7647"/>
+  <use xlink:href="#b" fill="#6f4630"/>
+  <use xlink:href="#c" fill="#372636"/>
+  <use xlink:href="#d" fill="#934922"/>
+  <use xlink:href="#e" fill="#4b2293"/>
+  <use xlink:href="#f" fill="#cbcbcb"/>
+  <use xlink:href="#g" fill="#01583b"/>
+  <use xlink:href="#h" fill="#cbcbcb"/>
+  <use xlink:href="#i" fill="#cbcbcb"/>
+  <use xlink:href="#j" fill-opacity="0" stroke="#7d7d7d"/>
+  <use xlink:href="#k" fill-opacity="0" stroke="#7d7d7d"/>
+  <use xlink:href="#l" fill-opacity="0" stroke="#7d7d7d"/>
+  <use xlink:href="#m" fill-opacity="0" stroke="#7d7d7d"/>
+  <use xlink:href="#n" fill-opacity="0" stroke="#7d7d7d"/>
+  <use xlink:href="#o" fill-opacity="0" stroke="#7d7d7d"/>
+  <use xlink:href="#p" fill-opacity="0" stroke="#7d7d7d"/>
+  <use xlink:href="#q" fill-opacity="0" stroke="#7d7d7d"/>
+  <use xlink:href="#r" fill-opacity="0" stroke="#7d7d7d"/>
+  <use xlink:href="#s" fill-opacity="0" stroke="#012715"/>
+  <use xlink:href="#t" fill-opacity="0" stroke="#012715"/>
+  <use xlink:href="#u" fill-opacity="0" stroke="#012715"/>
+  <use xlink:href="#v" fill-opacity="0" stroke="#012715"/>
+  <use xlink:href="#w" fill-opacity="0" stroke="#012715"/>
+</svg>
