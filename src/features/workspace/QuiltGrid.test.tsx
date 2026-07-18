@@ -1,4 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 import allBlocks from '../../assets/blocks/allBlocks'
 import { useDesignerStore } from '../../store/designerStore'
@@ -243,5 +244,57 @@ describe('QuiltGrid', () => {
 
     fireEvent.mouseLeave(grid)
     expect(screen.queryByTestId('paint-hover-preview')).not.toBeInTheDocument()
+  })
+
+  it('move: grabbing a placed block via its toolbar re-places it elsewhere via the normal placement flow', async () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    act(() => {
+      useDesignerStore.getState().selectBlockToPlace(pixie)
+    })
+    fireEvent.click(grid, { clientX: 22, clientY: 33 })
+
+    const placedWrapper = screen.getByTitle('Cornish Pixie')
+    await userEvent.hover(placedWrapper)
+    fireEvent.click(
+      await screen.findByRole('button', { name: /wingardium leviosa/i }),
+    )
+
+    // grabbed: removed from the grid, now pending in the sidebar-style flow
+    expect(screen.queryByTitle('Cornish Pixie')).not.toBeInTheDocument()
+    expect(useDesignerStore.getState().blockToPlace?.block).toBe(pixie)
+
+    // re-place it at a new cell (5, 6) => (55, 66)
+    fireEvent.click(grid, { clientX: 55, clientY: 66 })
+
+    const movedWrapper = screen.getByTitle('Cornish Pixie')
+    expect(movedWrapper).toHaveStyle({ left: '55px', top: '66px' })
+  })
+
+  it('recolor: opens from the toolbar and applies the chosen part color on save', async () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    act(() => {
+      useDesignerStore.getState().selectBlockToPlace(pixie)
+    })
+    fireEvent.click(grid, { clientX: 22, clientY: 33 })
+
+    await userEvent.hover(screen.getByTitle('Cornish Pixie'))
+    fireEvent.click(await screen.findByRole('button', { name: /colovaria/i }))
+
+    expect(screen.getByRole('dialog')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /Wings/ }))
+    fireEvent.click(screen.getByRole('button', { name: 'Red' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Save' }))
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    const [placed] = useDesignerStore.getState().placedBlocks
+    expect(placed.colorOverrides).toEqual({
+      wings: { color: '#F44336', type: 'fill' },
+    })
   })
 })

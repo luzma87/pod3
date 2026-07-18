@@ -21,7 +21,7 @@ describe('BlockThumbnail', () => {
     expect(button).toHaveAttribute('aria-pressed', 'false')
     await userEvent.click(button)
 
-    expect(useDesignerStore.getState().blockToPlace).toBe(block)
+    expect(useDesignerStore.getState().blockToPlace?.block).toBe(block)
     expect(button).toHaveAttribute('aria-pressed', 'true')
   })
 

@@ -141,12 +141,36 @@ rather than built now.
 
 ## Slice 5: Manipulate placed blocks
 
-- [ ] Move/grab a placed block
-- [ ] Delete a placed block
-- [ ] Flip a placed block
-- [ ] Rotate a placed block
-- [ ] Recolor a placed block
-- **Manual test**: for each action, place a block and try it.
+- [x] Hovering a placed block reveals a small action toolbar (Flipendo /
+      Wingardium Leviosa / Circumrota / Colovaria / Evanesco — keeping the
+      pod2 spell flavor as tooltips/labels, per the plan)
+- [x] Delete a placed block (Evanesco)
+- [x] Flip a placed block (Flipendo)
+- [x] Rotate a placed block 90° at a time (Circumrota)
+- [x] Move/grab a placed block (Wingardium Leviosa) — reuses the exact
+      click-to-place flow from Slice 3 (grabbing removes the instance and
+      selects it as pending; clicking a new square re-places it).
+      **Improvement over pod2**: pod2's grab discarded any
+      flip/rotate/recolor customization on re-placement (it re-selected
+      the plain catalog block); pod3 carries those over to the new
+      instance instead.
+- [x] Recolor a placed block (Colovaria) — full per-part recolor like
+      pod2: opens a dialog that scans the block's SVG for named parts
+      (e.g. "wings", "background") by their class names, lets you pick a
+      part then a color, previews live, and only commits on Save (Cancel
+      discards). Uses the same preset swatch palette as the bucket tool
+      rather than a full arbitrary-color picker (see `docs/todo.md`).
+- **Manual test**: place a block, hover it — a small toolbar should
+  appear above it. Try each button: flip mirrors it, rotate turns it 90°
+  each click, delete removes it. Click move (feather icon) — the block
+  disappears and you're back in placement mode; click a new square and
+  it reappears there. Click recolor (palette icon) — a dialog opens
+  showing the block's distinct colorable parts; click "Wings" (or
+  whichever part), pick a color swatch, click Save — that part of the
+  placed block should now be recolored. Try Cancel instead and confirm
+  no change happened. Flip/rotate/recolor a block, then move it, and
+  confirm those customizations survive the move (this is the pod2
+  improvement — worth specifically checking).
 
 ## Slice 6: Reset & info dialog
 

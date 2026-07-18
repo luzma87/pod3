@@ -88,6 +88,16 @@
       "blueGray": "Azul Grisáceo",
       "black": "Negro",
       "white": "Blanco"
-    }
+    },
+    "actions": {
+      "flip": "Flipendo (voltear)",
+      "move": "Wingardium Leviosa (mover)",
+      "rotate": "Circumrota (rotar)",
+      "recolor": "Colovaria (recolorear)",
+      "delete": "Evanesco (eliminar)"
+    },
+    "recolorDialogTitle": "Recolorear bloque",
+    "recolorSave": "Guardar",
+    "recolorCancel": "Cancelar"
   }
 }

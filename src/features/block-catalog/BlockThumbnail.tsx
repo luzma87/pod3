@@ -9,7 +9,7 @@ interface BlockThumbnailProps {
 
 function BlockThumbnail({ block }: BlockThumbnailProps) {
   const isSelected = useDesignerStore(
-    (state) => state.blockToPlace?.id === block.id,
+    (state) => state.blockToPlace?.block.id === block.id,
   )
   const selectBlockToPlace = useDesignerStore(
     (state) => state.selectBlockToPlace,

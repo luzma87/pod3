@@ -4,6 +4,8 @@ import Dialog from '../../components/ui/Dialog'
 import { useDesignerStore } from '../../store/designerStore'
 import ColorSwatchPicker from './ColorSwatchPicker'
 import { SQUARE_INCHES, SQUARE_SIZE } from './constants'
+import PlacedBlockView from './PlacedBlockView'
+import RecolorDialog from './RecolorDialog'
 
 interface QuiltGridProps {
   width: number
@@ -27,6 +29,7 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
   const paintedSquares = useDesignerStore((state) => state.paintedSquares)
   const placeBlockAt = useDesignerStore((state) => state.placeBlockAt)
   const paintSquare = useDesignerStore((state) => state.paintSquare)
+  const setColorOverrides = useDesignerStore((state) => state.setColorOverrides)
 
   const [hoveredCell, setHoveredCell] = useState<{
     x: number
@@ -36,6 +39,9 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
     x: number
     y: number
   } | null>(null)
+  const [recolorInstanceId, setRecolorInstanceId] = useState<string | null>(
+    null,
+  )
 
   const style = {
     '--square-size': `${SQUARE_SIZE}px`,
@@ -59,8 +65,12 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
   const isOutOfBounds =
     blockToPlace &&
     hoveredCell &&
-    (hoveredCell.x + blockToPlace.size.width > columns ||
-      hoveredCell.y + blockToPlace.size.height > rows)
+    (hoveredCell.x + blockToPlace.block.size.width > columns ||
+      hoveredCell.y + blockToPlace.block.size.height > rows)
+
+  const recolorTarget =
+    placedBlocks.find((placed) => placed.instanceId === recolorInstanceId) ??
+    null
 
   return (
     <div
@@ -91,20 +101,11 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
         />
       ))}
       {placedBlocks.map((placed) => (
-        <div
+        <PlacedBlockView
           key={placed.instanceId}
-          title={placed.block.name}
-          className="pointer-events-none absolute"
-          style={{
-            left: placed.position.x * SQUARE_SIZE,
-            top: placed.position.y * SQUARE_SIZE,
-          }}
-        >
-          {placed.block.element({
-            width: placed.block.size.width * SQUARE_SIZE,
-            height: placed.block.size.height * SQUARE_SIZE,
-          })}
-        </div>
+          placed={placed}
+          onRecolor={() => setRecolorInstanceId(placed.instanceId)}
+        />
       ))}
       {blockToPlace && hoveredCell && (
         <div
@@ -116,8 +117,8 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
           style={{
             left: hoveredCell.x * SQUARE_SIZE,
             top: hoveredCell.y * SQUARE_SIZE,
-            width: blockToPlace.size.width * SQUARE_SIZE,
-            height: blockToPlace.size.height * SQUARE_SIZE,
+            width: blockToPlace.block.size.width * SQUARE_SIZE,
+            height: blockToPlace.block.size.height * SQUARE_SIZE,
           }}
         />
       )}
@@ -147,6 +148,14 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
           }}
         />
       </Dialog>
+      <RecolorDialog
+        placed={recolorTarget}
+        onSave={(overrides) => {
+          if (recolorInstanceId) setColorOverrides(recolorInstanceId, overrides)
+          setRecolorInstanceId(null)
+        }}
+        onClose={() => setRecolorInstanceId(null)}
+      />
     </div>
   )
 }

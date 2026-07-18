@@ -88,6 +88,16 @@
       "blueGray": "Blue Gray",
       "black": "Black",
       "white": "White"
-    }
+    },
+    "actions": {
+      "flip": "Flipendo (flip)",
+      "move": "Wingardium Leviosa (move)",
+      "rotate": "Circumrota (rotate)",
+      "recolor": "Colovaria (recolor)",
+      "delete": "Evanesco (delete)"
+    },
+    "recolorDialogTitle": "Recolor block",
+    "recolorSave": "Save",
+    "recolorCancel": "Cancel"
   }
 }
