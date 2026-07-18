@@ -1,0 +1,25 @@
+{
+  "app": {
+    "title": "Diseñador de colchas Pod3"
+  },
+  "designer": {
+    "noQuiltLoaded": "Marcador de posición — aún no se ha cargado ninguna colcha.",
+    "quiltLoaded": "Marcador de posición — aquí se cargaría la colcha \"{{quiltId}}\".",
+    "openInfo": "Abrir información",
+    "secondary": "Secundario",
+    "infoDialogTitle": "Base del tema",
+    "infoDialogDescription": "Este diálogo demuestra que la base del tema (colores, fuentes, diálogo con Radix) está configurada.",
+    "close": "Cerrar"
+  },
+  "notFound": {
+    "title": "404",
+    "body": "No encontrado."
+  },
+  "theme": {
+    "toggleToDark": "Cambiar a modo oscuro",
+    "toggleToLight": "Cambiar a modo claro"
+  },
+  "language": {
+    "label": "Idioma"
+  }
+}

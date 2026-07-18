@@ -15,9 +15,24 @@
   --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
 }
 
+:root.dark {
+  --color-parchment: #17120c;
+  --color-parchment-dark: #241a13;
+  --color-ink: #f0e6d2;
+  --color-ink-muted: #c9b896;
+  --color-maroon: #d9636f;
+  --color-maroon-dark: #b8404c;
+  --color-gold: #e0c069;
+  --color-gold-light: #f0d98a;
+  --color-border: #3a2c1f;
+}
+
 body {
   margin: 0;
   background-color: var(--color-parchment);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }

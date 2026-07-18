@@ -33,6 +33,19 @@ yourself.
   parchment/maroon theme, not default browser styling. On the designer
   page, click "Open info" to confirm the themed dialog opens/closes.
 
+## Slice 0b: Internationalization & light/dark theme switcher
+
+- [x] `react-i18next` + `i18next-browser-languagedetector` wired up
+- [x] English + Spanish translation files (`src/i18n/locales/en.json`,
+      `es.json`)
+- [x] Visible `LanguageSwitcher` in the persistent header
+- [x] Manual light/dark `ThemeToggle` in the persistent header, persisted
+      to `localStorage`, no flash of the wrong theme on load
+- **Manual test**: open the app, use the language dropdown in the header
+  to switch to Español and confirm the designer page text changes; use
+  the theme toggle to confirm colors swap between light/dark and persist
+  across a page refresh.
+
 ## Slice 1: Block catalog sidebar
 
 - [ ] Themed list of ported blocks

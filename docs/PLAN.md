@@ -40,6 +40,13 @@ organized into category modules (`weeklyBlocks`, `beastsBlocks`, `disneyBlocks`,
 - **Security model**: quilts are edit-locked to their original (anonymous)
   creator, with explicit "save as your own copy" to fork someone else's
   design (see Firebase Security Rules section below).
+- **Internationalization**: pod2 was English-only; pod3 supports English +
+  Spanish from the start, with all UI strings routed through translation
+  keys from the first slice rather than retrofitted later (see
+  Internationalization section below).
+- **Light/dark theme**: a manual toggle (not just OS-level
+  `prefers-color-scheme`), persisted per browser (see Internationalization
+  section below, where it was added alongside i18n).
 
 ## Visual direction: Enchanted stationery, componentized
 
@@ -66,6 +73,36 @@ Shared regardless of direction:
   the licensed/attributed community content; only the chrome around them
   changes.
 
+## Internationalization & theme switching
+
+Added in the theme-foundation slice, alongside the base visual system,
+rather than retrofitted later — every user-visible string goes through a
+translation key from the first slice on.
+
+- **Library**: `react-i18next` + `i18next`, with
+  `i18next-browser-languagedetector` for automatic browser-language
+  detection.
+- **Languages**: English (`en`, fallback) and Spanish (`es`) shipped from
+  the start. Adding a third language later is just adding another
+  `src/i18n/locales/<lang>.json` file — no code changes needed.
+- **Detection/persistence**: checks `localStorage` first, then the
+  browser's `navigator.language`, falling back to English. A visible
+  `LanguageSwitcher` (a `<select>` in the persistent header) lets the user
+  override this manually; the choice is cached in `localStorage`.
+- **Theme**: light/dark is a manual toggle (`ThemeToggle`, also in the
+  header), not just OS-level `prefers-color-scheme` — though OS
+  preference is used as the *default* the first time, via the same
+  detection-then-override pattern as the language. The chosen theme
+  persists in `localStorage` under `pod3-theme`.
+- **How dark mode works**: rather than sprinkling `dark:` utility variants
+  through every component, the theme's semantic color tokens (parchment,
+  ink, maroon, gold, etc.) are plain CSS custom properties, and a `.dark`
+  class on `<html>` overrides their values. Components just use
+  `bg-parchment`/`text-ink`/etc. and get the right colors automatically
+  under either theme. An inline script in `index.html` applies the `.dark`
+  class before first paint (reading `localStorage`/`prefers-color-scheme`)
+  to avoid a flash of the wrong theme on load.
+
 ## Proposed architecture
 
 ```
@@ -78,6 +115,9 @@ pod3/
       workspace/            # the grid, drag-drop placement, painting
       spells/                 # flip/rotate/recolor/delete/grab actions
       save-load/                # firebase-backed save/load/share
+    components/ui/        # theme-aware base components (Button, Card,
+                           # Dialog, ThemeToggle, LanguageSwitcher, ...)
+    i18n/                 # i18next setup + locales/<lang>.json
     store/                # zustand store(s), split by concern
     firebase/             # modular SDK wrapper (auth, database)
     assets/
@@ -360,3 +400,7 @@ through in the browser, not just new files that compile.
 - Firebase project: reuse `poddesigner-7d754`, no new project.
 - Edit permissions: creator-only edit, fork-to-copy for everyone else.
 - Gallery: no visibility toggle for now — all quilts browsable.
+- i18n: English + Spanish from the start, `react-i18next`, visible
+  language switcher shipped in the theme-foundation slice (not deferred).
+- Theme: manual light/dark toggle shipped alongside i18n, in the same
+  slice.

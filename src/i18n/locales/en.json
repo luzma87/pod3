@@ -1,0 +1,25 @@
+{
+  "app": {
+    "title": "Pod3 Quilt Designer"
+  },
+  "designer": {
+    "noQuiltLoaded": "Placeholder — no quilt loaded yet.",
+    "quiltLoaded": "Placeholder — would load quilt \"{{quiltId}}\" here.",
+    "openInfo": "Open info",
+    "secondary": "Secondary",
+    "infoDialogTitle": "Theme foundation",
+    "infoDialogDescription": "This dialog proves the base theme (colors, fonts, Radix-powered dialog) is wired up.",
+    "close": "Close"
+  },
+  "notFound": {
+    "title": "404",
+    "body": "Not found."
+  },
+  "theme": {
+    "toggleToDark": "Switch to dark mode",
+    "toggleToLight": "Switch to light mode"
+  },
+  "language": {
+    "label": "Language"
+  }
+}
