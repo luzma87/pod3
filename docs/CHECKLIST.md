@@ -14,6 +14,8 @@ and details behind each item. Check items off as they land.
 - [x] Production build verified (`npm run build`)
 - [x] Port cursor assets (`assets/cursors/*.cur`)
 - [x] Port SVG block assets (`assets/images/js/**` + category index files)
+- [x] Pre-push hook running `npm run validate` (format:check, lint, build,
+      test)
 - [ ] Base routing (`/` and `/:quiltId`)
 
 ## Phase 2: Store + Firebase core
