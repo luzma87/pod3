@@ -103,6 +103,12 @@ slices/stores instead of one god-object:
 Each store gets typed actions instead of the current `context.toggle('Foo')`
 stringly-typed dialog toggling.
 
+This isn't ported as one big upfront step — each store (and each slice of
+each store) gets built in whichever vertical slice first needs it. E.g.
+`catalogStore`'s search state arrives with Slice 1, `designerStore`'s
+placed-blocks state arrives with Slice 3, its Firebase-backed fields with
+Slices 7–8.
+
 ### Interactions to modernize
 
 - Replace click-to-select-a-block-then-click-a-square-to-place with real
@@ -285,28 +291,67 @@ pod2 has no tests. For pod3, add:
 - npm only, with a single `package-lock.json` — drop the current
   yarn.lock/package-lock.json duplication from pod2.
 
-## Suggested phases
+## Build order: vertical slices, not layers
 
-1. **Scaffold**: Vite + React + TS project in `pod3`, base routing (`/` and
-   `/:quiltId` matching current `react-router` behavior), theme tokens
-   placeholder, port cursors and block assets untouched so nothing else is
-   blocked on them.
-2. **Store + Firebase core**: Zustand stores with the current behavior
-   ported 1:1 (no UX changes yet), modular Firebase wrapper, load/save
-   round-trip working against existing saved quilts.
-3. **Visual system**: implement the chosen direction's theme (colors,
-   fonts, base components: buttons, dialogs, cards, the info/save/load/
-   reset/recolor dialogs).
-4. **Interaction upgrade**: drag-and-drop placement/movement, contextual
-   block toolbar for spells, smoothed color painting.
-5. **Gallery**: `quiltIndex` write-on-save, browse grid, clone-to-new-quilt
-   flow.
-6. **Polish**: responsive check, loading/empty states, the info dialog
-   content rewritten to match the new interactions, error states for
-   Firebase failures (currently mostly unhandled).
-7. **Cutover**: deploy the new security rules to `poddesigner-7d754`
-   (with your explicit go-ahead), point Firebase Hosting at the new build,
-   keep pod2 around read-only until confidence is high.
+Earlier drafts of this plan organized work by layer (do all the state
+management, then all the visuals, then all the interactions). That means
+nothing is manually testable until an entire layer is finished. Instead,
+work proceeds as **vertical slices** — each one adds one complete,
+themed, manually-testable piece of behavior, touching whatever
+store/UI/Firebase code it needs. `docs/CHECKLIST.md` tracks these slices
+one by one; this section explains the reasoning and ordering.
+
+Two standing decisions that shape every slice:
+
+- **Themed from the start.** Each slice uses the real visual system
+  (theme tokens, base components), not placeholder/default styling — so a
+  slice-0 "theme foundation" step comes before the first feature slice,
+  and nothing after it should look like unstyled scaffolding.
+- **Click-to-place before drag-and-drop.** Block placement starts as
+  click-to-select-then-click-to-place (matches pod2, fastest to a
+  testable slice); drag-and-drop is a later slice that upgrades the
+  interaction once the underlying placement logic is already built and
+  tested.
+
+Slice order:
+
+0. **Theme foundation** — Tailwind + the chosen headless primitives
+   (Radix/Ark) wired up, design tokens (colors, fonts, spacing), and the
+   base building blocks (button, card, dialog shell) that every later
+   slice will reuse. Testable: the app shell (even mostly empty) visibly
+   uses the parchment/maroon theme instead of default browser styling.
+1. **Block catalog sidebar** — themed, searchable/filterable list of
+   ported blocks, no placement yet. Testable: browse and search blocks.
+2. **Quilt grid + size picker** — empty themed grid for the selected
+   quilt size, size picker resizes it. Testable: change size, grid
+   updates, no blocks placed yet.
+3. **Click-to-place blocks** — select a block from the sidebar, click a
+   grid square, it appears there. First slice where the two earlier
+   pieces connect into one flow.
+4. **Bucket paint tool** — click an empty square, pick a color, square
+   gets painted.
+5. **Manipulate placed blocks** — move/grab, delete, flip, rotate,
+   recolor (the "spell" actions), via a discoverable per-block toolbar.
+6. **Reset & info dialog** — reset-with-confirmation, and the rewritten
+   info/help content matching the new interactions.
+7. **Save to Firebase** — save button writes the quilt, generates the
+   shareable id/URL.
+8. **Load from Firebase via URL** — `/:quiltId` loads and renders real
+   saved data (closes the loop opened by slice 7).
+9. **Firebase security rules deployed** — creator-lock write rules,
+   `quiltIndex` write-on-save (with your explicit go-ahead before
+   deploying to the live project).
+10. **Drag-and-drop upgrade** — replace slice 3's click-to-place with
+    real drag-and-drop (dnd-kit) for placing and moving blocks.
+11. **Gallery** — browse grid over `quiltIndex`, clone-to-new-quilt flow.
+12. **Polish pass** — responsive check, loading/empty states, Firebase
+    error states.
+13. **Cutover** — deploy to `poddesigner-7d754` Hosting, keep pod2 around
+    read-only until confidence is high.
+
+Slices can be reordered if testing one reveals a dependency was missed,
+but the intent is: after every slice, there's something new to click
+through in the browser, not just new files that compile.
 
 ## Resolved
 
