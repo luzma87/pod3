@@ -174,9 +174,16 @@ rather than built now.
 
 ## Slice 6: Reset & info dialog
 
-- [ ] Reset-with-confirmation clears the quilt
-- [ ] Info/help dialog content matches the new interactions
-- **Manual test**: reset a quilt with blocks on it; open the info dialog.
+- [x] Reset-with-confirmation clears the quilt (`ResetDialog`, placed blocks
+      and painted squares only — quilt size is untouched)
+- [x] Info/help dialog content matches the new interactions (click-to-place,
+      hover toolbar for flip/rotate/move/recolor/delete, paint-by-click,
+      reset), plus the pod2 attribution/licensing text and links
+- **Manual test**: place a couple of blocks and paint a square, click Reset
+  in the designer header, confirm in the dialog — the quilt should go back
+  to empty. Click Info — a dialog with attribution links, the license
+  disclaimer, and a rundown of how to place/manipulate/paint should open;
+  "Got it" closes it. Switch to Spanish and confirm both dialogs translate.
 
 ## Slice 7: Save to Firebase
 

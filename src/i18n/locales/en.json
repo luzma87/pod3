@@ -5,11 +5,26 @@
   "designer": {
     "noQuiltLoaded": "Placeholder — no quilt loaded yet.",
     "quiltLoaded": "Placeholder — would load quilt \"{{quiltId}}\" here.",
-    "openInfo": "Open info",
-    "secondary": "Secondary",
-    "infoDialogTitle": "Theme foundation",
-    "infoDialogDescription": "This dialog proves the base theme (colors, fonts, Radix-powered dialog) is wired up.",
-    "close": "Close"
+    "infoButton": "Info",
+    "resetButton": "Reset",
+    "info": {
+      "title": "About this quilt designer",
+      "credit": "These blocks were designed by Jennifer Ofenstein and other Fandom in Stitches designers.",
+      "license": "These patterns are free for personal and NON-profit use only. Not to be used for manufacture or distribution. Sale of the patterns or quilts made from them is prohibited.",
+      "patternsLink": "Find the full pattern list on the Fandom in Stitches – Project of Doom blog",
+      "squareSize": "Each square in the quilt grid measures 1\".",
+      "placeBlock": "Click a block in the sidebar, then click a square in the grid to place it.",
+      "manipulateBlock": "Hover a placed block to flip, rotate, move, recolor, or delete it.",
+      "paintSquare": "Click an empty square to open the color picker and paint it.",
+      "resetHint": "Use Reset to clear the whole quilt and start over.",
+      "close": "Got it"
+    },
+    "reset": {
+      "title": "Reset quilt?",
+      "body": "This will remove every block and painted square from the quilt. This can't be undone.",
+      "confirm": "Yes, reset",
+      "cancel": "Cancel"
+    }
   },
   "notFound": {
     "title": "404",

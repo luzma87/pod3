@@ -9,7 +9,7 @@ function Harness() {
   return (
     <>
       <LanguageSwitcher />
-      <p>{t('designer.openInfo')}</p>
+      <p>{t('designer.infoButton')}</p>
     </>
   )
 }
@@ -17,12 +17,12 @@ function Harness() {
 describe('LanguageSwitcher', () => {
   it('defaults to English', () => {
     render(<Harness />)
-    expect(screen.getByText('Open info')).toBeInTheDocument()
+    expect(screen.getByText('Info')).toBeInTheDocument()
   })
 
   it('switches the whole app to Spanish when selected', async () => {
     render(<Harness />)
     await userEvent.selectOptions(screen.getByRole('combobox'), 'es')
-    expect(await screen.findByText('Abrir información')).toBeInTheDocument()
+    expect(await screen.findByText('Información')).toBeInTheDocument()
   })
 })

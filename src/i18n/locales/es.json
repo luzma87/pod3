@@ -5,11 +5,26 @@
   "designer": {
     "noQuiltLoaded": "Marcador de posición — aún no se ha cargado ninguna colcha.",
     "quiltLoaded": "Marcador de posición — aquí se cargaría la colcha \"{{quiltId}}\".",
-    "openInfo": "Abrir información",
-    "secondary": "Secundario",
-    "infoDialogTitle": "Base del tema",
-    "infoDialogDescription": "Este diálogo demuestra que la base del tema (colores, fuentes, diálogo con Radix) está configurada.",
-    "close": "Cerrar"
+    "infoButton": "Información",
+    "resetButton": "Reiniciar",
+    "info": {
+      "title": "Acerca de este diseñador de colchas",
+      "credit": "Estos bloques fueron diseñados por Jennifer Ofenstein y otras diseñadoras de Fandom in Stitches.",
+      "license": "Estos patrones son gratuitos solo para uso personal y SIN fines de lucro. No deben usarse para fabricación ni distribución. Se prohíbe la venta de los patrones o de las colchas hechas con ellos.",
+      "patternsLink": "Encuentra la lista completa de patrones en el blog Fandom in Stitches – Project of Doom",
+      "squareSize": "Cada cuadro de la cuadrícula de la colcha mide 1\".",
+      "placeBlock": "Haz clic en un bloque de la barra lateral y luego en un cuadro de la cuadrícula para colocarlo.",
+      "manipulateBlock": "Pasa el cursor sobre un bloque colocado para voltearlo, rotarlo, moverlo, recolorearlo o eliminarlo.",
+      "paintSquare": "Haz clic en un cuadro vacío para abrir el selector de color y pintarlo.",
+      "resetHint": "Usa Reiniciar para vaciar toda la colcha y empezar de nuevo.",
+      "close": "Entendido"
+    },
+    "reset": {
+      "title": "¿Reiniciar la colcha?",
+      "body": "Esto eliminará todos los bloques y cuadros pintados de la colcha. Esta acción no se puede deshacer.",
+      "confirm": "Sí, reiniciar",
+      "cancel": "Cancelar"
+    }
   },
   "notFound": {
     "title": "404",
