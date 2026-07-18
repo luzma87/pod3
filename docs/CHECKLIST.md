@@ -119,13 +119,19 @@ Slice 12 polish pass.
 - [x] Picking a swatch paints that single square and closes the dialog
 - [x] Repainting an already-painted square replaces its color instead of
       stacking
+- [x] Hover preview: with nothing selected, hovering the grid shows a
+      single-square gold-tinted preview at the cell under the cursor, so
+      it's clear which square will be painted before you click (mutually
+      exclusive with the block-footprint preview from Slice 3 — only one
+      shows depending on whether a block is selected)
 - **Manual test**: click an empty grid square with nothing selected in the
   sidebar — a "Choose a color" dialog with a grid of color swatches
-  appears. Pick one, the square gets painted and the dialog closes. Paint
-  a few different squares with different colors. Click an already-painted
-  square and pick a different color — it should replace, not stack.
-  Switch to Spanish and confirm the dialog title and swatch tooltips
-  translate.
+  appears. Before clicking, hover around the grid and confirm a
+  single-square highlight follows your cursor. Pick a color, the square
+  gets painted and the dialog closes. Paint a few different squares with
+  different colors. Click an already-painted square and pick a different
+  color — it should replace, not stack. Switch to Spanish and confirm the
+  dialog title and swatch tooltips translate.
 
 Scope note: this slice only paints a single square per click (per your
 choice) — pod2's bucket tool could paint a rectangle (extend right/down

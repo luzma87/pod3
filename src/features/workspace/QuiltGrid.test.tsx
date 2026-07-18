@@ -74,7 +74,7 @@ describe('QuiltGrid', () => {
     expect(placed).toHaveStyle({ left: '22px', top: '33px' })
   })
 
-  it('shows no hover preview when no block is selected to place', () => {
+  it('shows no block-footprint preview when no block is selected to place', () => {
     render(<QuiltGrid width={50} height={65} />)
     const grid = screen.getByTestId('quilt-grid')
     stubGridOrigin(grid)
@@ -188,5 +188,60 @@ describe('QuiltGrid', () => {
     const state = useDesignerStore.getState()
     expect(state.paintedSquares).toHaveLength(1)
     expect(state.paintedSquares[0].color).toBe('#2196F3')
+  })
+
+  it('previews a single square to paint when hovering with no block selected', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    // 11px squares: (22, 33) => cell (2, 3)
+    fireEvent.mouseMove(grid, { clientX: 22, clientY: 33 })
+
+    const preview = screen.getByTestId('paint-hover-preview')
+    expect(preview).toHaveStyle({
+      left: '22px',
+      top: '33px',
+      width: '11px',
+      height: '11px',
+    })
+  })
+
+  it('hides the paint preview while a block is selected instead', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    act(() => {
+      useDesignerStore.getState().selectBlockToPlace(pixie)
+    })
+    fireEvent.mouseMove(grid, { clientX: 22, clientY: 33 })
+
+    expect(screen.queryByTestId('paint-hover-preview')).not.toBeInTheDocument()
+    expect(screen.getByTestId('hover-preview')).toBeInTheDocument()
+  })
+
+  it('hides the paint preview while the paint dialog is open', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    fireEvent.mouseMove(grid, { clientX: 22, clientY: 33 })
+    expect(screen.getByTestId('paint-hover-preview')).toBeInTheDocument()
+
+    fireEvent.click(grid, { clientX: 22, clientY: 33 })
+    expect(screen.queryByTestId('paint-hover-preview')).not.toBeInTheDocument()
+  })
+
+  it('clears the paint preview on mouse leave', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    fireEvent.mouseMove(grid, { clientX: 22, clientY: 33 })
+    expect(screen.getByTestId('paint-hover-preview')).toBeInTheDocument()
+
+    fireEvent.mouseLeave(grid)
+    expect(screen.queryByTestId('paint-hover-preview')).not.toBeInTheDocument()
   })
 })

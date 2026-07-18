@@ -53,7 +53,6 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
   }
 
   const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
-    if (!blockToPlace) return
     setHoveredCell(getCellFromEvent(event))
   }
 
@@ -119,6 +118,18 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
             top: hoveredCell.y * SQUARE_SIZE,
             width: blockToPlace.size.width * SQUARE_SIZE,
             height: blockToPlace.size.height * SQUARE_SIZE,
+          }}
+        />
+      )}
+      {!blockToPlace && !paintTarget && hoveredCell && (
+        <div
+          data-testid="paint-hover-preview"
+          className="pointer-events-none absolute bg-gold/50"
+          style={{
+            left: hoveredCell.x * SQUARE_SIZE,
+            top: hoveredCell.y * SQUARE_SIZE,
+            width: SQUARE_SIZE,
+            height: SQUARE_SIZE,
           }}
         />
       )}
