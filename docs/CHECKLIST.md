@@ -22,7 +22,9 @@ and details behind each item. Check items off as they land.
 
 - [ ] Zustand stores (`designerStore`, `uiStore`, catalog state) ported 1:1
       from `GlobalProvider`
-- [ ] Firebase modular SDK wrapper (auth, database)
+- [x] Firebase modular SDK wrapper (auth, database) — connectivity
+      verified against the live project (527 existing quilts read
+      successfully)
 - [ ] Load/save round-trip verified against existing saved quilts
 
 ## Phase 3: Visual system
