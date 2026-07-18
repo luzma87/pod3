@@ -136,6 +136,13 @@ size, quiltUser }`) so existing saved quilts keep working — no data
   initialization calls.
 - Use the existing project (`poddesigner-7d754`) for pod3 — no new project
   to provision.
+- **Staying on the Spark (free) plan.** The Firebase console shows a
+  "upgrade to Blaze" warning about the default Cloud Storage bucket losing
+  access — this app doesn't use Cloud Storage anywhere (no `firebase/storage`
+  import, no storage rules), so the warning is being ignored on purpose.
+  Realtime Database, Auth, and Hosting all keep working on Spark regardless.
+  Revisit only if a future feature (e.g. user-uploaded images) actually
+  needs Cloud Storage.
 
 ### Firebase Security Rules (fixes the "insecure rules" emails)
 
