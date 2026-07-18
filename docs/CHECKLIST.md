@@ -12,8 +12,8 @@ and details behind each item. Check items off as they land.
 - [x] Testing: Vitest + React Testing Library wired up, first smoke test
       passing
 - [x] Production build verified (`npm run build`)
-- [ ] Port cursor assets (`assets/cursors/*.cur`)
-- [ ] Port SVG block assets (`assets/images/js/**` + category index files)
+- [x] Port cursor assets (`assets/cursors/*.cur`)
+- [x] Port SVG block assets (`assets/images/js/**` + category index files)
 - [ ] Base routing (`/` and `/:quiltId`)
 
 ## Phase 2: Store + Firebase core
