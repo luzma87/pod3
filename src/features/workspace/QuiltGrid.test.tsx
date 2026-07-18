@@ -1,6 +1,24 @@
-import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { act, fireEvent, render, screen } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
+import allBlocks from '../../assets/blocks/allBlocks'
+import { useDesignerStore } from '../../store/designerStore'
 import QuiltGrid from './QuiltGrid'
+
+const pixie = allBlocks.find((block) => block.name === 'Cornish Pixie')!
+
+function stubGridOrigin(grid: HTMLElement) {
+  vi.spyOn(grid, 'getBoundingClientRect').mockReturnValue({
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    width: 0,
+    height: 0,
+    x: 0,
+    y: 0,
+    toJSON: () => ({}),
+  })
+}
 
 describe('QuiltGrid', () => {
   it('renders a single-element grid sized from width/height in inches', () => {
@@ -26,5 +44,33 @@ describe('QuiltGrid', () => {
     const grid = screen.getByTestId('quilt-grid')
     expect(grid).toHaveAttribute('data-columns', '30')
     expect(grid).toHaveAttribute('data-rows', '40')
+  })
+
+  it('does nothing when clicked with no block selected to place', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    fireEvent.click(grid, { clientX: 22, clientY: 33 })
+
+    expect(grid.children.length).toBe(0)
+    expect(useDesignerStore.getState().placedBlocks).toEqual([])
+  })
+
+  it('places the selected block at the clicked cell, and clears the selection', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    act(() => {
+      useDesignerStore.getState().selectBlockToPlace(pixie)
+    })
+    // 11px squares: (22, 33) => cell (2, 3)
+    fireEvent.click(grid, { clientX: 22, clientY: 33 })
+
+    expect(useDesignerStore.getState().blockToPlace).toBeNull()
+    const placed = screen.getByTitle('Cornish Pixie')
+    expect(placed).toBeInTheDocument()
+    expect(placed).toHaveStyle({ left: '22px', top: '33px' })
   })
 })

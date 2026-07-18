@@ -87,9 +87,22 @@ yourself.
 
 ## Slice 3: Click-to-place blocks
 
-- [ ] Select a block from the sidebar, click a grid square, block appears
-      there
-- **Manual test**: place a couple of different blocks on the grid.
+- [x] Select a block from the sidebar, click a grid square, block appears
+      there — added `designerStore` (Zustand) as the first cross-component
+      shared state, since the sidebar and grid are siblings that both need
+      to know about `blockToPlace`
+- [x] Selected sidebar block shows a pressed/highlighted state
+- [x] Selection clears automatically after placing
+- **Manual test**: click a block in the sidebar (it highlights), click a
+  square on the grid, the block appears there and the sidebar selection
+  clears. Place a couple of different blocks in different spots. Clicking
+  the grid with nothing selected does nothing.
+
+Known follow-up, not blocking (added to `docs/todo.md`): grid placement is
+mouse-only right now (click position is computed from pointer coordinates,
+per the earlier decision to avoid one DOM node per cell) — there's no
+keyboard-accessible way to place a block yet. Worth revisiting during the
+Slice 12 polish pass.
 
 ## Slice 4: Bucket paint tool
 
