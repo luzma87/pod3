@@ -43,5 +43,26 @@
       "beasts": "Bestias",
       "disney": "Disney"
     }
+  },
+  "workspace": {
+    "sizeLabel": "Tamaño de la colcha",
+    "summary": "Colcha de {{width}}\"x{{height}}\", cada cuadro mide {{squareInches}}\"",
+    "gridAlt": "Cuadrícula vacía de la colcha, {{columns}} por {{rows}} cuadros",
+    "sizes": {
+      "baby": "Bebé",
+      "babyHorizontal": "Bebé Horizontal",
+      "lap": "Regazo",
+      "lapHorizontal": "Regazo Horizontal",
+      "throw": "Manta",
+      "throwHorizontal": "Manta Horizontal",
+      "twin": "Individual",
+      "twinHorizontal": "Individual Horizontal",
+      "doubleFull": "Doble/Matrimonial",
+      "doubleFullHorizontal": "Doble/Matrimonial Horizontal",
+      "queen": "Queen",
+      "queenHorizontal": "Queen Horizontal",
+      "king": "King",
+      "kingHorizontal": "King Horizontal"
+    }
   }
 }

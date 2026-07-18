@@ -1,0 +1,3 @@
+export const PIXELS_PER_INCH = 11
+export const SQUARE_INCHES = 1
+export const SQUARE_SIZE = PIXELS_PER_INCH * SQUARE_INCHES

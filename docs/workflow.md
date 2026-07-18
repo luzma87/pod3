@@ -35,5 +35,9 @@ private agent memory) so they're visible and versioned alongside the code.
 - `docs/CHECKLIST.md` — progress checklist, mirrors PLAN.md's phases so
   it's easy to see what's done and what's next at a glance.
 - `docs/workflow.md` (this file) — how we collaborate.
+- `docs/todo.md` — running backlog of small polish ideas that come up
+  mid-slice but aren't worth derailing the current slice for (e.g.
+  collapsible catalog categories, richer block tooltips). Check it when
+  starting a slice in case something on it is now in scope.
 - Additional `docs/*.md` files get added per topic as needed (e.g. a
   gotchas/troubleshooting log), rather than growing one big file.

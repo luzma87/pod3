@@ -75,9 +75,15 @@ yourself.
 
 ## Slice 2: Quilt grid + size picker
 
-- [ ] Empty themed grid for the selected quilt size
-- [ ] Size picker resizes the grid
-- **Manual test**: change the size dropdown, grid dimensions update.
+- [x] Empty themed grid for the selected quilt size — rendered as a
+      single element with a CSS background-pattern grid, not one DOM
+      node per square (pod2's approach doesn't scale: a King quilt would
+      be ~11,880 divs)
+- [x] Size picker resizes the grid, all 14 pod2 sizes ported and
+      translated
+- **Manual test**: change the size dropdown (defaults to "Throw"), the
+  grid and the summary text below it should resize to match. Try "King"
+  for the largest grid and "Baby" for the smallest.
 
 ## Slice 3: Click-to-place blocks
 

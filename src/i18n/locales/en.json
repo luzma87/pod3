@@ -43,5 +43,26 @@
       "beasts": "Beasts",
       "disney": "Disney"
     }
+  },
+  "workspace": {
+    "sizeLabel": "Quilt size",
+    "summary": "{{width}}\"x{{height}}\" quilt, each square is {{squareInches}}\"",
+    "gridAlt": "Empty quilt grid, {{columns}} by {{rows}} squares",
+    "sizes": {
+      "baby": "Baby",
+      "babyHorizontal": "Baby Horizontal",
+      "lap": "Lap",
+      "lapHorizontal": "Lap Horizontal",
+      "throw": "Throw",
+      "throwHorizontal": "Throw Horizontal",
+      "twin": "Twin",
+      "twinHorizontal": "Twin Horizontal",
+      "doubleFull": "Double/Full",
+      "doubleFullHorizontal": "Double/Full Horizontal",
+      "queen": "Queen",
+      "queenHorizontal": "Queen Horizontal",
+      "king": "King",
+      "kingHorizontal": "King Horizontal"
+    }
   }
 }
