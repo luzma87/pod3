@@ -93,10 +93,17 @@ yourself.
       to know about `blockToPlace`
 - [x] Selected sidebar block shows a pressed/highlighted state
 - [x] Selection clears automatically after placing
-- **Manual test**: click a block in the sidebar (it highlights), click a
-  square on the grid, the block appears there and the sidebar selection
-  clears. Place a couple of different blocks in different spots. Clicking
-  the grid with nothing selected does nothing.
+- [x] Hover preview: while a block is selected, hovering the grid shows a
+      tinted overlay at the block's full footprint (not just one square),
+      so you can see exactly where it'll land before clicking; tints
+      differently if the footprint would go out of bounds
+- **Manual test**: click a block in the sidebar (it highlights), hover
+  over the grid — a gold-tinted footprint should follow your cursor,
+  sized to that block's actual dimensions. Move it near the right/bottom
+  edge and the tint should switch to indicate it won't fit there. Click a
+  square, the block appears there and the sidebar selection clears. Place
+  a couple of different blocks in different spots. Clicking the grid with
+  nothing selected does nothing.
 
 Known follow-up, not blocking (added to `docs/todo.md`): grid placement is
 mouse-only right now (click position is computed from pointer coordinates,

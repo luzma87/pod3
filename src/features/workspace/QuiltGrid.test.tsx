@@ -73,4 +73,68 @@ describe('QuiltGrid', () => {
     expect(placed).toBeInTheDocument()
     expect(placed).toHaveStyle({ left: '22px', top: '33px' })
   })
+
+  it('shows no hover preview when no block is selected to place', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    fireEvent.mouseMove(grid, { clientX: 22, clientY: 33 })
+
+    expect(screen.queryByTestId('hover-preview')).not.toBeInTheDocument()
+  })
+
+  it("previews the selected block's full footprint at the hovered cell", () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    act(() => {
+      useDesignerStore.getState().selectBlockToPlace(pixie)
+    })
+    // 11px squares: (22, 33) => cell (2, 3)
+    fireEvent.mouseMove(grid, { clientX: 22, clientY: 33 })
+
+    const preview = screen.getByTestId('hover-preview')
+    // Cornish Pixie is 7x8.5 squares
+    expect(preview).toHaveStyle({
+      left: '22px',
+      top: '33px',
+      width: '77px',
+      height: '93.5px',
+    })
+    expect(preview).toHaveAttribute('data-out-of-bounds', 'false')
+  })
+
+  it('flags the preview as out of bounds near the grid edge', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    act(() => {
+      useDesignerStore.getState().selectBlockToPlace(pixie)
+    })
+    // cell (45, 3): 45 + 7 (block width) = 52 > 50 columns
+    fireEvent.mouseMove(grid, { clientX: 45 * 11, clientY: 33 })
+
+    expect(screen.getByTestId('hover-preview')).toHaveAttribute(
+      'data-out-of-bounds',
+      'true',
+    )
+  })
+
+  it('clears the hover preview on mouse leave', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    act(() => {
+      useDesignerStore.getState().selectBlockToPlace(pixie)
+    })
+    fireEvent.mouseMove(grid, { clientX: 22, clientY: 33 })
+    expect(screen.getByTestId('hover-preview')).toBeInTheDocument()
+
+    fireEvent.mouseLeave(grid)
+    expect(screen.queryByTestId('hover-preview')).not.toBeInTheDocument()
+  })
 })

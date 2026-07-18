@@ -1,4 +1,4 @@
-import type { CSSProperties, MouseEvent } from 'react'
+import { useState, type CSSProperties, type MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDesignerStore } from '../../store/designerStore'
 import { SQUARE_INCHES, SQUARE_SIZE } from './constants'
@@ -6,6 +6,13 @@ import { SQUARE_INCHES, SQUARE_SIZE } from './constants'
 interface QuiltGridProps {
   width: number
   height: number
+}
+
+function getCellFromEvent(event: MouseEvent<HTMLDivElement>) {
+  const rect = event.currentTarget.getBoundingClientRect()
+  const x = Math.floor((event.clientX - rect.left) / SQUARE_SIZE)
+  const y = Math.floor((event.clientY - rect.top) / SQUARE_SIZE)
+  return { x, y }
 }
 
 function QuiltGrid({ width, height }: QuiltGridProps) {
@@ -17,6 +24,11 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
   const placedBlocks = useDesignerStore((state) => state.placedBlocks)
   const placeBlockAt = useDesignerStore((state) => state.placeBlockAt)
 
+  const [hoveredCell, setHoveredCell] = useState<{
+    x: number
+    y: number
+  } | null>(null)
+
   const style = {
     '--square-size': `${SQUARE_SIZE}px`,
     width: columns * SQUARE_SIZE,
@@ -25,11 +37,20 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     if (!blockToPlace) return
-    const rect = event.currentTarget.getBoundingClientRect()
-    const x = Math.floor((event.clientX - rect.left) / SQUARE_SIZE)
-    const y = Math.floor((event.clientY - rect.top) / SQUARE_SIZE)
+    const { x, y } = getCellFromEvent(event)
     placeBlockAt(x, y)
   }
+
+  const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
+    if (!blockToPlace) return
+    setHoveredCell(getCellFromEvent(event))
+  }
+
+  const isOutOfBounds =
+    blockToPlace &&
+    hoveredCell &&
+    (hoveredCell.x + blockToPlace.size.width > columns ||
+      hoveredCell.y + blockToPlace.size.height > rows)
 
   return (
     <div
@@ -38,6 +59,8 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
       data-rows={rows}
       aria-label={t('workspace.gridAlt', { columns, rows })}
       onClick={handleClick}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => setHoveredCell(null)}
       className={`quilt-grid-lines relative box-content overflow-hidden border border-border bg-parchment-dark ${
         blockToPlace ? 'cursor-crosshair' : ''
       }`}
@@ -59,6 +82,21 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
           })}
         </div>
       ))}
+      {blockToPlace && hoveredCell && (
+        <div
+          data-testid="hover-preview"
+          data-out-of-bounds={Boolean(isOutOfBounds)}
+          className={`pointer-events-none absolute ${
+            isOutOfBounds ? 'bg-maroon/40' : 'bg-gold/50'
+          }`}
+          style={{
+            left: hoveredCell.x * SQUARE_SIZE,
+            top: hoveredCell.y * SQUARE_SIZE,
+            width: blockToPlace.size.width * SQUARE_SIZE,
+            height: blockToPlace.size.height * SQUARE_SIZE,
+          }}
+        />
+      )}
     </div>
   )
 }

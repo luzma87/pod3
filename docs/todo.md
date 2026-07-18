@@ -1,5 +1,5 @@
 [ ] accordeon/collapsible categories or some kind of icons bookmarks or something
-[ ] blocks' tootips with more info
+[ ] nicer blocks' tootips with more info
 [ ] nicer switchers
 [x] are we saving settings to local storage?
 [ ] make navbar/footer static
