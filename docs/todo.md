@@ -19,3 +19,9 @@
 [ ] put back the custom cursors
 [ ] (maybe) have the different layouts as templates
 [ ] script or something to add new blocks
+[ ] get a list of the blocks
+[ ] autocomplete on th search bar
+[ ] (maybe) allow resizing blocks (within reason)
+[ ] printing
+[ ] email me to an actually useful email address
+[ ] (maybe) git actions for deploying
