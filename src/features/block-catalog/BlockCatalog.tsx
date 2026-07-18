@@ -48,7 +48,7 @@ function BlockCatalog() {
       <p className="text-sm text-ink-muted">
         {t('catalog.resultCount', { count: filteredBlocks.length })}
       </p>
-      <div className="flex flex-col gap-4 overflow-y-auto">
+      <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto">
         {[...groupedBlocks.entries()].map(([category, blocks]) => (
           <div key={category}>
             <h2 className="font-display text-sm text-maroon">

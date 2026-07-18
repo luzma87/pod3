@@ -33,8 +33,9 @@
     "backHome": "Volver al diseñador de colchas"
   },
   "theme": {
-    "toggleToDark": "Cambiar a modo oscuro",
-    "toggleToLight": "Cambiar a modo claro"
+    "label": "Tema",
+    "light": "Modo claro",
+    "dark": "Modo oscuro"
   },
   "language": {
     "label": "Idioma"
@@ -50,6 +51,8 @@
     "searchPlaceholder": "Buscar por nombre o etiqueta…",
     "resultCount_one": "{{count}} bloque",
     "resultCount_other": "{{count}} bloques",
+    "tooltipSize": "{{width}}\"x{{height}}\"",
+    "tooltipDesigner": "Diseñado por: {{designer}}",
     "categories": {
       "weekly": "Semanal",
       "supplemental": "Suplementario",

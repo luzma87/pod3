@@ -7,7 +7,7 @@ function NotFoundPage() {
   const { t } = useTranslation()
 
   return (
-    <main className="flex flex-col items-center gap-4 p-8 text-center">
+    <main className="flex h-full flex-col items-center gap-4 overflow-y-auto p-8 text-center">
       <img
         src={ghostImage}
         alt={t('notFound.ghostAlt')}

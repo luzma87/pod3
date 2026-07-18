@@ -6,7 +6,7 @@ function AttributionsPage() {
   const { t } = useTranslation()
 
   return (
-    <main className="p-8">
+    <main className="h-full overflow-y-auto p-8">
       <h1 className="font-display text-3xl text-maroon">
         {t('attributions.title')}
       </h1>

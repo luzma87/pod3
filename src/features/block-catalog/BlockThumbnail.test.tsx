@@ -5,6 +5,9 @@ import allBlocks from '../../assets/blocks/allBlocks'
 import { useDesignerStore } from '../../store/designerStore'
 import BlockThumbnail from './BlockThumbnail'
 
+const pixie = allBlocks.find((block) => block.name === 'Cornish Pixie')!
+const castleCorner = allBlocks.find((block) => block.name === 'Castle corner')!
+
 describe('BlockThumbnail', () => {
   it('renders the block name and its SVG artwork', () => {
     const block = allBlocks[0]
@@ -35,5 +38,30 @@ describe('BlockThumbnail', () => {
 
     expect(useDesignerStore.getState().blockToPlace).toBeNull()
     expect(button).toHaveAttribute('aria-pressed', 'false')
+  })
+
+  it('shows the full name, size, and designer in a tooltip on hover', async () => {
+    const user = userEvent.setup()
+    render(<BlockThumbnail block={pixie} />)
+
+    await user.hover(screen.getByRole('button', { name: pixie.name }))
+    const tooltip = await screen.findByRole('tooltip')
+
+    expect(tooltip).toHaveTextContent(pixie.name)
+    expect(tooltip).toHaveTextContent(
+      `${pixie.size.width}"x${pixie.size.height}"`,
+    )
+    expect(tooltip).toHaveTextContent(pixie.designer!)
+  })
+
+  it('omits the designer line for blocks with no recorded designer', async () => {
+    const user = userEvent.setup()
+    render(<BlockThumbnail block={castleCorner} />)
+
+    await user.hover(screen.getByRole('button', { name: castleCorner.name }))
+    const tooltip = await screen.findByRole('tooltip')
+
+    expect(tooltip).toHaveTextContent(castleCorner.name)
+    expect(tooltip).not.toHaveTextContent('Designer:')
   })
 })

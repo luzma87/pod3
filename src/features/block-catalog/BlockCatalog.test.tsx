@@ -8,7 +8,9 @@ describe('BlockCatalog', () => {
   it('shows every block by default, grouped under all six category headers', () => {
     render(<BlockCatalog />)
     expect(screen.getByText(`${allBlocks.length} blocks`)).toBeInTheDocument()
-    expect(screen.getAllByTitle('Cornish Pixie').length).toBeGreaterThan(0)
+    expect(
+      screen.getAllByRole('button', { name: 'Cornish Pixie' }).length,
+    ).toBeGreaterThan(0)
     ;[
       'Weekly',
       'Supplemental',
@@ -25,7 +27,9 @@ describe('BlockCatalog', () => {
     render(<BlockCatalog />)
     await userEvent.type(screen.getByRole('searchbox'), 'mimbulus')
     expect(screen.getByText('1 block')).toBeInTheDocument()
-    expect(screen.getByTitle('Mimbulus Mimbletonia')).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Mimbulus Mimbletonia' }),
+    ).toBeInTheDocument()
 
     // Mimbulus Mimbletonia is the only match, and it's in the "Other" category
     expect(screen.getByText('Other')).toBeInTheDocument()

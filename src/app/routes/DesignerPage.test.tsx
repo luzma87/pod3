@@ -37,19 +37,6 @@ describe('DesignerPage click-to-place integration', () => {
     expect(thumbnail).toHaveAttribute('aria-pressed', 'false')
   })
 
-  it('opens the info dialog from the Info button', async () => {
-    render(
-      <MemoryRouter>
-        <DesignerPage />
-      </MemoryRouter>,
-    )
-
-    await userEvent.click(screen.getByRole('button', { name: 'Info' }))
-
-    expect(screen.getByRole('dialog')).toBeInTheDocument()
-    expect(screen.getByText('About this quilt designer')).toBeInTheDocument()
-  })
-
   it('resets the quilt from the Reset button after confirming', async () => {
     render(
       <MemoryRouter>

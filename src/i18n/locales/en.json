@@ -33,8 +33,9 @@
     "backHome": "Back to the quilt designer"
   },
   "theme": {
-    "toggleToDark": "Switch to dark mode",
-    "toggleToLight": "Switch to light mode"
+    "label": "Theme",
+    "light": "Light mode",
+    "dark": "Dark mode"
   },
   "language": {
     "label": "Language"
@@ -50,6 +51,8 @@
     "searchPlaceholder": "Search by name or tag…",
     "resultCount_one": "{{count}} block",
     "resultCount_other": "{{count}} blocks",
+    "tooltipSize": "{{width}}\"x{{height}}\"",
+    "tooltipDesigner": "Designer: {{designer}}",
     "categories": {
       "weekly": "Weekly",
       "supplemental": "Supplemental",
