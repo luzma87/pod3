@@ -25,12 +25,13 @@ yourself.
 
 ## Slice 0: Theme foundation
 
-- [ ] Tailwind CSS + chosen headless primitives (Radix/Ark) installed and
-      wired up
-- [ ] Design tokens: colors, fonts, spacing
-- [ ] Base components: button, card, dialog shell
+- [x] Tailwind CSS v4 + Radix UI installed and wired up
+- [x] Design tokens: colors (parchment/maroon/gold palette), fonts
+      (Cinzel display, Inter body)
+- [x] Base components: `Button`, `Card`, `Dialog` (Radix-powered)
 - **Manual test**: open the app — the shell visibly uses the
-  parchment/maroon theme, not default browser styling.
+  parchment/maroon theme, not default browser styling. On the designer
+  page, click "Open info" to confirm the themed dialog opens/closes.
 
 ## Slice 1: Block catalog sidebar
 

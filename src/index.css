@@ -1,12 +1,23 @@
-:root {
-  color-scheme: light dark;
-  font:
-    16px/1.5 system-ui,
-    'Segoe UI',
-    Roboto,
-    sans-serif;
+@import 'tailwindcss';
+
+@theme {
+  --color-parchment: #f4ead2;
+  --color-parchment-dark: #e8d9ae;
+  --color-ink: #2b1d14;
+  --color-ink-muted: #6b5a45;
+  --color-maroon: #6d1f2b;
+  --color-maroon-dark: #4f151e;
+  --color-gold: #b08d3f;
+  --color-gold-light: #d9bd76;
+  --color-border: #d8c7a1;
+
+  --font-display: 'Cinzel', serif;
+  --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
 }
 
 body {
   margin: 0;
+  background-color: var(--color-parchment);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
 }
