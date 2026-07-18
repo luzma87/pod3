@@ -46,6 +46,19 @@ yourself.
   the theme toggle to confirm colors swap between light/dark and persist
   across a page refresh.
 
+## Slice 0c: Themed 404 page & attributions page
+
+- [x] 404 page shows the ghost-with-hat artwork, translated copy, and a
+      link back to the designer
+- [x] `/attributions` route lists third-party assets with source links
+      (currently just the ghost artwork), linked from the footer on every
+      page
+- [x] Ghost artwork optimized (2000×2000, 1.8MB → 480px wide, ~47KB) before
+      being committed
+- **Manual test**: visit a nonexistent URL, confirm the ghost/404 page
+  looks right and "Back to the quilt designer" works; click "Attributions"
+  in the footer, confirm the ghost credit links out to Vecteezy.
+
 ## Slice 1: Block catalog sidebar
 
 - [ ] Themed list of ported blocks

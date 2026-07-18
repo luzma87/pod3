@@ -91,7 +91,7 @@ translation key from the first slice on.
   override this manually; the choice is cached in `localStorage`.
 - **Theme**: light/dark is a manual toggle (`ThemeToggle`, also in the
   header), not just OS-level `prefers-color-scheme` — though OS
-  preference is used as the *default* the first time, via the same
+  preference is used as the _default_ the first time, via the same
   detection-then-override pattern as the language. The chosen theme
   persists in `localStorage` under `pod3-theme`.
 - **How dark mode works**: rather than sprinkling `dark:` utility variants

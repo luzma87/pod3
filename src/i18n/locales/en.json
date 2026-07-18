@@ -13,7 +13,9 @@
   },
   "notFound": {
     "title": "404",
-    "body": "Not found."
+    "body": "This page doesn't exist... but this friendly ghost does.",
+    "ghostAlt": "A cute ghost wearing a witch hat",
+    "backHome": "Back to the quilt designer"
   },
   "theme": {
     "toggleToDark": "Switch to dark mode",
@@ -21,5 +23,11 @@
   },
   "language": {
     "label": "Language"
+  },
+  "attributions": {
+    "title": "Attributions",
+    "intro": "Pod3 uses free assets made by other artists. Thank you!",
+    "directLink": "Direct link to the asset",
+    "author": "by {{author}}"
   }
 }

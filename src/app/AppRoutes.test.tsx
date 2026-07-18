@@ -27,4 +27,9 @@ describe('AppRoutes', () => {
     renderAt('/some/nested/path')
     expect(screen.getByText('404')).toBeInTheDocument()
   })
+
+  it('renders the attributions page at /attributions, not the designer', () => {
+    renderAt('/attributions')
+    expect(screen.getByText('Attributions')).toBeInTheDocument()
+  })
 })

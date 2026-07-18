@@ -1,9 +1,11 @@
 import type { ButtonHTMLAttributes } from 'react'
+import { Slot } from 'radix-ui'
 
 type ButtonVariant = 'primary' | 'secondary'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant
+  asChild?: boolean
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
@@ -15,11 +17,13 @@ const variantClasses: Record<ButtonVariant, string> = {
 function Button({
   variant = 'primary',
   className = '',
+  asChild = false,
   ...props
 }: ButtonProps) {
+  const Comp = asChild ? Slot.Root : 'button'
   return (
-    <button
-      type="button"
+    <Comp
+      type={asChild ? undefined : 'button'}
       className={`rounded-md px-4 py-2 font-sans font-medium transition-colors cursor-pointer ${variantClasses[variant]} ${className}`}
       {...props}
     />
