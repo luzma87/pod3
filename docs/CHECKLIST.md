@@ -61,9 +61,17 @@ yourself.
 
 ## Slice 1: Block catalog sidebar
 
-- [ ] Themed list of ported blocks
-- [ ] Search/filter
-- **Manual test**: browse the block list, search narrows it.
+- [x] Themed list of ported blocks (527 blocks across 6 categories)
+- [x] Search/filter by name or tag
+- [x] Grouped under translated category headers (Weekly, Supplemental,
+      Top & Sides, Other, Beasts, Disney)
+- **Manual test**: browse the block list in the sidebar (grouped by
+  category with headers), type in the search box to narrow it down —
+  e.g. searching "mimbulus" should leave just one result under "Other".
+  Known follow-up (not blocking): the production JS bundle is now ~855KB
+  since all 527 SVGs are bundled eagerly — worth revisiting with
+  code-splitting/virtualization during the Slice 12 polish pass if it
+  becomes a real problem.
 
 ## Slice 2: Quilt grid + size picker
 

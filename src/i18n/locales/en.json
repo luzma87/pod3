@@ -29,5 +29,19 @@
     "intro": "Pod3 uses free assets made by other artists. Thank you!",
     "directLink": "Direct link to the asset",
     "author": "by {{author}}"
+  },
+  "catalog": {
+    "searchLabel": "Search blocks",
+    "searchPlaceholder": "Search by name or tag…",
+    "resultCount_one": "{{count}} block",
+    "resultCount_other": "{{count}} blocks",
+    "categories": {
+      "weekly": "Weekly",
+      "supplemental": "Supplemental",
+      "topSides": "Top & Sides",
+      "other": "Other",
+      "beasts": "Beasts",
+      "disney": "Disney"
+    }
   }
 }

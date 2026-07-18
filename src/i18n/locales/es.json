@@ -29,5 +29,19 @@
     "intro": "Pod3 usa recursos gratuitos creados por otros artistas. ¡Gracias!",
     "directLink": "Enlace directo al recurso",
     "author": "por {{author}}"
+  },
+  "catalog": {
+    "searchLabel": "Buscar bloques",
+    "searchPlaceholder": "Buscar por nombre o etiqueta…",
+    "resultCount_one": "{{count}} bloque",
+    "resultCount_other": "{{count}} bloques",
+    "categories": {
+      "weekly": "Semanal",
+      "supplemental": "Suplementario",
+      "topSides": "Superior y Laterales",
+      "other": "Otros",
+      "beasts": "Bestias",
+      "disney": "Disney"
+    }
   }
 }
