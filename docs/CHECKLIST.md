@@ -16,7 +16,7 @@ and details behind each item. Check items off as they land.
 - [x] Port SVG block assets (`assets/images/js/**` + category index files)
 - [x] Pre-push hook running `npm run validate` (format:check, lint, build,
       test)
-- [ ] Base routing (`/` and `/:quiltId`)
+- [x] Base routing (`/` and `/:quiltId`)
 
 ## Phase 2: Store + Firebase core
 

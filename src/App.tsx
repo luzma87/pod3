@@ -1,9 +1,11 @@
+import { BrowserRouter } from 'react-router'
+import AppRoutes from './app/AppRoutes'
+
 function App() {
   return (
-    <main>
-      <h1>Pod3 Quilt Designer</h1>
-      <p>Scaffold placeholder — nothing built yet.</p>
-    </main>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }
 
