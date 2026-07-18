@@ -30,8 +30,10 @@ private agent memory) so they're visible and versioned alongside the code.
 
 ## Where things live
 
-- `PLAN.md` — architecture and tech decisions for the rewrite, kept up to
-  date as we go.
+- `docs/PLAN.md` — architecture and tech decisions for the rewrite, kept up
+  to date as we go.
+- `docs/CHECKLIST.md` — progress checklist, mirrors PLAN.md's phases so
+  it's easy to see what's done and what's next at a glance.
 - `docs/workflow.md` (this file) — how we collaborate.
 - Additional `docs/*.md` files get added per topic as needed (e.g. a
   gotchas/troubleshooting log), rather than growing one big file.
