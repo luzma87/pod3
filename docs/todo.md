@@ -15,3 +15,7 @@
 [ ] blink svg color when selecting
 [ ] allow erasing painted cells
 [ ] info modal should always open on load
+[ ] better icons
+[ ] put back the custom cursors
+[ ] (maybe) have the different layouts as templates
+[ ] script or something to add new blocks
