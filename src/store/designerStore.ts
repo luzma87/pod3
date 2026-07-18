@@ -7,16 +7,24 @@ export interface PlacedBlock {
   position: { x: number; y: number }
 }
 
+export interface PaintedSquare {
+  position: { x: number; y: number }
+  color: string
+}
+
 interface DesignerState {
   blockToPlace: QuiltBlock | null
   placedBlocks: PlacedBlock[]
+  paintedSquares: PaintedSquare[]
   selectBlockToPlace: (block: QuiltBlock) => void
   placeBlockAt: (x: number, y: number) => void
+  paintSquare: (x: number, y: number, color: string) => void
 }
 
 const initialState = {
   blockToPlace: null,
   placedBlocks: [],
+  paintedSquares: [],
 }
 
 let nextInstanceId = 0
@@ -44,6 +52,17 @@ export const useDesignerStore = create<DesignerState>((set, get) => ({
         },
       ],
       blockToPlace: null,
+    }))
+  },
+
+  paintSquare: (x, y, color) => {
+    set((state) => ({
+      paintedSquares: [
+        ...state.paintedSquares.filter(
+          (square) => square.position.x !== x || square.position.y !== y,
+        ),
+        { position: { x, y }, color },
+      ],
     }))
   },
 }))

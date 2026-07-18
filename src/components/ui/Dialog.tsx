@@ -25,7 +25,10 @@ function Dialog({
       ) : null}
       <RadixDialog.Portal>
         <RadixDialog.Overlay className="fixed inset-0 bg-ink/40" />
-        <RadixDialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg border border-border bg-parchment p-6 shadow-lg">
+        <RadixDialog.Content
+          onClick={(event) => event.stopPropagation()}
+          className="fixed top-1/2 left-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg border border-border bg-parchment p-6 shadow-lg"
+        >
           <RadixDialog.Title className="font-display text-xl text-maroon">
             {title}
           </RadixDialog.Title>

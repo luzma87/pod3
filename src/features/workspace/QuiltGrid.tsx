@@ -1,6 +1,8 @@
 import { useState, type CSSProperties, type MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import Dialog from '../../components/ui/Dialog'
 import { useDesignerStore } from '../../store/designerStore'
+import ColorSwatchPicker from './ColorSwatchPicker'
 import { SQUARE_INCHES, SQUARE_SIZE } from './constants'
 
 interface QuiltGridProps {
@@ -22,9 +24,15 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
 
   const blockToPlace = useDesignerStore((state) => state.blockToPlace)
   const placedBlocks = useDesignerStore((state) => state.placedBlocks)
+  const paintedSquares = useDesignerStore((state) => state.paintedSquares)
   const placeBlockAt = useDesignerStore((state) => state.placeBlockAt)
+  const paintSquare = useDesignerStore((state) => state.paintSquare)
 
   const [hoveredCell, setHoveredCell] = useState<{
+    x: number
+    y: number
+  } | null>(null)
+  const [paintTarget, setPaintTarget] = useState<{
     x: number
     y: number
   } | null>(null)
@@ -36,9 +44,12 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
   } as CSSProperties
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
-    if (!blockToPlace) return
-    const { x, y } = getCellFromEvent(event)
-    placeBlockAt(x, y)
+    const cell = getCellFromEvent(event)
+    if (blockToPlace) {
+      placeBlockAt(cell.x, cell.y)
+    } else {
+      setPaintTarget(cell)
+    }
   }
 
   const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
@@ -66,6 +77,20 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
       }`}
       style={style}
     >
+      {paintedSquares.map((square) => (
+        <div
+          key={`${square.position.x}-${square.position.y}`}
+          title={square.color}
+          className="pointer-events-none absolute"
+          style={{
+            left: square.position.x * SQUARE_SIZE,
+            top: square.position.y * SQUARE_SIZE,
+            width: SQUARE_SIZE,
+            height: SQUARE_SIZE,
+            backgroundColor: square.color,
+          }}
+        />
+      ))}
       {placedBlocks.map((placed) => (
         <div
           key={placed.instanceId}
@@ -97,6 +122,20 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
           }}
         />
       )}
+      <Dialog
+        open={paintTarget !== null}
+        onOpenChange={(open) => {
+          if (!open) setPaintTarget(null)
+        }}
+        title={t('workspace.paintDialogTitle')}
+      >
+        <ColorSwatchPicker
+          onSelect={(color) => {
+            if (paintTarget) paintSquare(paintTarget.x, paintTarget.y, color)
+            setPaintTarget(null)
+          }}
+        />
+      </Dialog>
     </div>
   )
 }

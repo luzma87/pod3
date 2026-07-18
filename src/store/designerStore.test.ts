@@ -55,4 +55,31 @@ describe('designerStore', () => {
     const [first, second] = useDesignerStore.getState().placedBlocks
     expect(first.instanceId).not.toBe(second.instanceId)
   })
+
+  it('starts with nothing painted', () => {
+    expect(useDesignerStore.getState().paintedSquares).toEqual([])
+  })
+
+  it('paints a square at the given position', () => {
+    useDesignerStore.getState().paintSquare(2, 3, '#F44336')
+    expect(useDesignerStore.getState().paintedSquares).toEqual([
+      { position: { x: 2, y: 3 }, color: '#F44336' },
+    ])
+  })
+
+  it('repainting the same square replaces its color instead of stacking', () => {
+    useDesignerStore.getState().paintSquare(2, 3, '#F44336')
+    useDesignerStore.getState().paintSquare(2, 3, '#2196F3')
+
+    const { paintedSquares } = useDesignerStore.getState()
+    expect(paintedSquares).toHaveLength(1)
+    expect(paintedSquares[0].color).toBe('#2196F3')
+  })
+
+  it('painting different squares keeps them independent', () => {
+    useDesignerStore.getState().paintSquare(0, 0, '#F44336')
+    useDesignerStore.getState().paintSquare(1, 0, '#2196F3')
+
+    expect(useDesignerStore.getState().paintedSquares).toHaveLength(2)
+  })
 })

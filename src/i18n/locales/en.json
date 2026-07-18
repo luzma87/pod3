@@ -63,6 +63,31 @@
       "queenHorizontal": "Queen Horizontal",
       "king": "King",
       "kingHorizontal": "King Horizontal"
+    },
+    "paintDialogTitle": "Choose a color",
+    "colors": {
+      "red": "Red",
+      "pink": "Pink",
+      "purple": "Purple",
+      "deepPurple": "Deep Purple",
+      "indigo": "Indigo",
+      "blue": "Blue",
+      "lightBlue": "Light Blue",
+      "cyan": "Cyan",
+      "teal": "Teal",
+      "green": "Green",
+      "lightGreen": "Light Green",
+      "lime": "Lime",
+      "yellow": "Yellow",
+      "amber": "Amber",
+      "orange": "Orange",
+      "deepOrange": "Deep Orange",
+      "brown": "Brown",
+      "gray": "Gray",
+      "darkGray": "Dark Gray",
+      "blueGray": "Blue Gray",
+      "black": "Black",
+      "white": "White"
     }
   }
 }

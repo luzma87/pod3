@@ -46,14 +46,14 @@ describe('QuiltGrid', () => {
     expect(grid).toHaveAttribute('data-rows', '40')
   })
 
-  it('does nothing when clicked with no block selected to place', () => {
+  it('opens the paint dialog, not block placement, when clicked with no block selected', () => {
     render(<QuiltGrid width={50} height={65} />)
     const grid = screen.getByTestId('quilt-grid')
     stubGridOrigin(grid)
 
     fireEvent.click(grid, { clientX: 22, clientY: 33 })
 
-    expect(grid.children.length).toBe(0)
+    expect(screen.getByRole('dialog')).toBeInTheDocument()
     expect(useDesignerStore.getState().placedBlocks).toEqual([])
   })
 
@@ -136,5 +136,57 @@ describe('QuiltGrid', () => {
 
     fireEvent.mouseLeave(grid)
     expect(screen.queryByTestId('hover-preview')).not.toBeInTheDocument()
+  })
+
+  it('paints the clicked square with the chosen color and closes the dialog', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    // 11px squares: (22, 33) => cell (2, 3)
+    fireEvent.click(grid, { clientX: 22, clientY: 33 })
+    fireEvent.click(screen.getByRole('button', { name: 'Red' }))
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(useDesignerStore.getState().paintedSquares).toEqual([
+      { position: { x: 2, y: 3 }, color: '#F44336' },
+    ])
+    const painted = screen.getByTitle('#F44336')
+    expect(painted).toHaveStyle({
+      left: '22px',
+      top: '33px',
+      width: '11px',
+      height: '11px',
+      backgroundColor: '#F44336',
+    })
+  })
+
+  it('clicking a block instead of placing does not open the paint dialog', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    act(() => {
+      useDesignerStore.getState().selectBlockToPlace(pixie)
+    })
+    fireEvent.click(grid, { clientX: 22, clientY: 33 })
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(useDesignerStore.getState().paintedSquares).toEqual([])
+  })
+
+  it('repainting the same square replaces the color instead of stacking', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    fireEvent.click(grid, { clientX: 22, clientY: 33 })
+    fireEvent.click(screen.getByRole('button', { name: 'Red' }))
+    fireEvent.click(grid, { clientX: 22, clientY: 33 })
+    fireEvent.click(screen.getByRole('button', { name: 'Blue' }))
+
+    const state = useDesignerStore.getState()
+    expect(state.paintedSquares).toHaveLength(1)
+    expect(state.paintedSquares[0].color).toBe('#2196F3')
   })
 })

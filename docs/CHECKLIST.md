@@ -103,7 +103,8 @@ yourself.
   edge and the tint should switch to indicate it won't fit there. Click a
   square, the block appears there and the sidebar selection clears. Place
   a couple of different blocks in different spots. Clicking the grid with
-  nothing selected does nothing.
+  nothing selected opens the paint dialog (Slice 4) instead of placing
+  anything.
 
 Known follow-up, not blocking (added to `docs/todo.md`): grid placement is
 mouse-only right now (click position is computed from pointer coordinates,
@@ -113,8 +114,24 @@ Slice 12 polish pass.
 
 ## Slice 4: Bucket paint tool
 
-- [ ] Click an empty square, pick a color, square gets painted
-- **Manual test**: paint a few squares with different colors.
+- [x] Click an empty square (with no block selected), a themed dialog of
+      the pod2 preset color swatches opens
+- [x] Picking a swatch paints that single square and closes the dialog
+- [x] Repainting an already-painted square replaces its color instead of
+      stacking
+- **Manual test**: click an empty grid square with nothing selected in the
+  sidebar — a "Choose a color" dialog with a grid of color swatches
+  appears. Pick one, the square gets painted and the dialog closes. Paint
+  a few different squares with different colors. Click an already-painted
+  square and pick a different color — it should replace, not stack.
+  Switch to Spanish and confirm the dialog title and swatch tooltips
+  translate.
+
+Scope note: this slice only paints a single square per click (per your
+choice) — pod2's bucket tool could paint a rectangle (extend right/down
+from the clicked square) and offered free-form color choice beyond the
+preset palette. Both are noted as possible follow-ups in `docs/todo.md`
+rather than built now.
 
 ## Slice 5: Manipulate placed blocks
 

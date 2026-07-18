@@ -8,3 +8,5 @@
 [ ] app name to navbar
 [ ] scroll only sidebar, not main workspace
 [ ] keyboard-accessible way to place a block (grid click position is computed from pointer coordinates, no keyboard path yet)
+[ ] bucket tool: rectangle paint brush (pod2 let you extend right/down from the clicked square, not just one square at a time)
+[ ] bucket tool: arbitrary custom color, not just the preset palette swatches
