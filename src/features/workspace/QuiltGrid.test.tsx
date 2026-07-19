@@ -253,6 +253,19 @@ describe('QuiltGrid', () => {
       width: '11px',
       height: '11px',
     })
+    expect(preview).toHaveTextContent('')
+  })
+
+  it('shows the rectangle size while dragging out a paint selection', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    // drag from cell (2, 3) to cell (4, 5): 3 columns x 3 rows
+    fireEvent.mouseDown(grid, { clientX: 22, clientY: 33 })
+    fireEvent.mouseMove(grid, { clientX: 44, clientY: 55 })
+
+    expect(screen.getByTestId('paint-hover-preview')).toHaveTextContent('3x3')
   })
 
   it('hides the paint preview while a block is selected instead', () => {

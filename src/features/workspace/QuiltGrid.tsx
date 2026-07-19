@@ -161,28 +161,35 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
           }}
         />
       )}
-      {!blockToPlace && !paintTarget && hoveredCell && (
-        <div
-          data-testid="paint-hover-preview"
-          className="pointer-events-none absolute bg-gold/50"
-          style={{
-            left:
-              Math.min(hoveredCell.x, dragAnchor?.x ?? hoveredCell.x) *
-              SQUARE_SIZE,
-            top:
-              Math.min(hoveredCell.y, dragAnchor?.y ?? hoveredCell.y) *
-              SQUARE_SIZE,
-            width:
-              (Math.abs(hoveredCell.x - (dragAnchor?.x ?? hoveredCell.x)) +
-                1) *
-              SQUARE_SIZE,
-            height:
-              (Math.abs(hoveredCell.y - (dragAnchor?.y ?? hoveredCell.y)) +
-                1) *
-              SQUARE_SIZE,
-          }}
-        />
-      )}
+      {!blockToPlace &&
+        !paintTarget &&
+        hoveredCell &&
+        (() => {
+          const anchor = dragAnchor ?? hoveredCell
+          const previewColumns = Math.abs(hoveredCell.x - anchor.x) + 1
+          const previewRows = Math.abs(hoveredCell.y - anchor.y) + 1
+          return (
+            <div
+              data-testid="paint-hover-preview"
+              className="pointer-events-none absolute flex items-center justify-center bg-gold/50"
+              style={{
+                left: Math.min(hoveredCell.x, anchor.x) * SQUARE_SIZE,
+                top: Math.min(hoveredCell.y, anchor.y) * SQUARE_SIZE,
+                width: previewColumns * SQUARE_SIZE,
+                height: previewRows * SQUARE_SIZE,
+              }}
+            >
+              {dragAnchor && (
+                <span className="rounded bg-ink/70 px-1 text-xs text-parchment">
+                  {t('workspace.paintPreviewSize', {
+                    columns: previewColumns,
+                    rows: previewRows,
+                  })}
+                </span>
+              )}
+            </div>
+          )
+        })()}
       <Dialog
         open={paintTarget !== null}
         onOpenChange={(open) => {

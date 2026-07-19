@@ -43,3 +43,18 @@ body {
     linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
   background-size: var(--square-size) var(--square-size);
 }
+
+@keyframes recolor-part-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0.15;
+  }
+}
+
+.recolor-part-blink {
+  animation: recolor-part-blink 0.4s ease-in-out 2;
+}

@@ -73,6 +73,27 @@ describe('RecolorDialog', () => {
     expect(onClose).toHaveBeenCalledOnce()
   })
 
+  it('blinks the selected part in the preview so it can be spotted on the SVG', async () => {
+    render(
+      <RecolorDialog
+        placed={makePlaced()}
+        onSave={vi.fn()}
+        onClose={vi.fn()}
+      />,
+    )
+
+    await userEvent.click(screen.getByRole('button', { name: /Wings/ }))
+
+    const preview = screen.getByTestId('recolor-preview')
+    const wingsElements = preview.getElementsByClassName('wings')
+    expect(wingsElements.length).toBeGreaterThan(0)
+    expect(wingsElements[0]).toHaveClass('recolor-part-blink')
+
+    // switching to a different part stops blinking the previous one
+    await userEvent.click(screen.getByRole('button', { name: /Background/ }))
+    expect(wingsElements[0]).not.toHaveClass('recolor-part-blink')
+  })
+
   it('pre-seeds parts with any existing color overrides for the instance', () => {
     render(
       <RecolorDialog

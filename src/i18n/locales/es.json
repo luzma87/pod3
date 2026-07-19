@@ -6,6 +6,7 @@
     "noQuiltLoaded": "Marcador de posición — aún no se ha cargado ninguna colcha.",
     "quiltLoaded": "Marcador de posición — aquí se cargaría la colcha \"{{quiltId}}\".",
     "infoButton": "Información",
+    "emailButton": "Escríbeme",
     "resetButton": "Reiniciar",
     "info": {
       "title": "Acerca de este diseñador de colchas",
@@ -85,6 +86,7 @@
     "paintDialogTitle": "Elige un color",
     "paintCancel": "Cancelar",
     "paintErase": "Borrar",
+    "paintPreviewSize": "{{columns}}x{{rows}}",
     "customColorLabel": "Color personalizado",
     "colors": {
       "red": "Rojo",

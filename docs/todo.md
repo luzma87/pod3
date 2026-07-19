@@ -11,21 +11,21 @@
 [x] bucket tool: rectangle paint brush (pod2 let you extend right/down from the clicked square, not just one square at a time)
 [x] bucket tool: arbitrary custom color, not just the preset palette swatches
 [ ] allow changing the brown bg color of the blocks for the whole blanket
-[ ] blink svg color when selecting
+[x] blink svg color when selecting
 [x] allow erasing painted cells
-[ ] info modal should always open on load
+[x] info modal should always open on load
 [ ] better icons
 [ ] put back the custom cursors
 [ ] (maybe) have the different layouts as templates
 [ ] script or something to add new blocks
-[ ] get a list of the blocks
+[ ] get a list of the used blocks - as a dialoge, or as part of the print option, a list with all the used blovks and their sizes, will try to add url to the block main page
 [ ] autocomplete on th search bar
 [ ] (maybe) allow resizing blocks (within reason)
 [ ] printing
-[ ] email me to an actually useful email address
+[x] email me to an actually useful email address
 [ ] (maybe) git actions for deploying
 [ ] ruler kind of guide on the top/left sides
-[ ] size inside the preview for the paint
+[x] size inside the preview for the paint
 
 [plugin builtin:vite-reporter]
 (!) Some chunks are larger than 500 kB after minification. Consider:

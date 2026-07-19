@@ -11,9 +11,11 @@ interface LayoutProps {
   children: ReactNode
 }
 
+const CONTACT_EMAIL = 'luz.unda@yahoo.com'
+
 function Layout({ children }: LayoutProps) {
   const { t } = useTranslation()
-  const [infoOpen, setInfoOpen] = useState(false)
+  const [infoOpen, setInfoOpen] = useState(true)
 
   return (
     <div className="flex h-screen flex-col bg-parchment text-ink">
@@ -28,6 +30,17 @@ function Layout({ children }: LayoutProps) {
             onClick={() => setInfoOpen(true)}
           >
             ℹ️
+          </Button>
+          <Button variant="secondary" size="icon" asChild>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={t('designer.emailButton')}
+              title={t('designer.emailButton')}
+            >
+              ✉️
+            </a>
           </Button>
           <LanguageSwitcher />
           <ThemeToggle />

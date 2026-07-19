@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Button from '../../components/ui/Button'
 import Dialog from '../../components/ui/Dialog'
@@ -6,6 +6,8 @@ import type { ColorOverride, PlacedBlock } from '../../store/designerStore'
 import ColorSwatchPicker from './ColorSwatchPicker'
 
 const PREVIEW_WIDTH = 200
+// matches the animation-duration * iteration-count of .recolor-part-blink
+const BLINK_DURATION_MS = 800
 
 interface Part {
   className: string
@@ -79,6 +81,25 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
     setPendingOverrides({ ...placed.colorOverrides })
     setSelectedPart(scanned[0]?.className ?? null)
   }, [placed, previewNode])
+
+  useEffect(() => {
+    if (!previewNode || !selectedPart) return
+    const elements = Array.from(
+      previewNode.getElementsByClassName(selectedPart),
+    )
+    elements.forEach((element) => element.classList.add('recolor-part-blink'))
+    const timeout = setTimeout(() => {
+      elements.forEach((element) =>
+        element.classList.remove('recolor-part-blink'),
+      )
+    }, BLINK_DURATION_MS)
+    return () => {
+      clearTimeout(timeout)
+      elements.forEach((element) =>
+        element.classList.remove('recolor-part-blink'),
+      )
+    }
+  }, [selectedPart, previewNode])
 
   if (!placed) return null
 

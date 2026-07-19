@@ -16,7 +16,7 @@ describe('Layout', () => {
     expect(screen.getByText('Pod3 Quilt Designer')).toBeInTheDocument()
   })
 
-  it('opens the info dialog from the Info button', async () => {
+  it('links the Email me button to a mailto address in a new tab', async () => {
     render(
       <MemoryRouter>
         <Layout>
@@ -24,6 +24,39 @@ describe('Layout', () => {
         </Layout>
       </MemoryRouter>,
     )
+    // the info dialog opens automatically on load and hides the rest of
+    // the page from the accessibility tree until it's dismissed
+    await userEvent.click(screen.getByRole('button', { name: 'Got it' }))
+
+    const emailLink = screen.getByRole('link', { name: 'Email me' })
+    expect(emailLink).toHaveAttribute('href', 'mailto:luz.unda@yahoo.com')
+    expect(emailLink).toHaveAttribute('target', '_blank')
+  })
+
+  it('opens the info dialog automatically on load', () => {
+    render(
+      <MemoryRouter>
+        <Layout>
+          <p>page content</p>
+        </Layout>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('dialog')).toBeInTheDocument()
+    expect(screen.getByText('About this quilt designer')).toBeInTheDocument()
+  })
+
+  it('reopens the info dialog from the Info button after closing it', async () => {
+    render(
+      <MemoryRouter>
+        <Layout>
+          <p>page content</p>
+        </Layout>
+      </MemoryRouter>,
+    )
+
+    await userEvent.click(screen.getByRole('button', { name: 'Got it' }))
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
 
     await userEvent.click(screen.getByRole('button', { name: 'Info' }))
 
