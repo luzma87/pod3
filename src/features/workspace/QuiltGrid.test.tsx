@@ -37,7 +37,34 @@ describe('QuiltGrid', () => {
     // content-box so the 1px border sits outside the sized area instead of
     // eating into it, which would otherwise squeeze the last row/column
     expect(grid.className).toContain('box-content')
-    expect(grid).toHaveStyle({ width: '550px', height: '715px' })
+    // +1px on each dimension so the last background grid line isn't
+    // clipped exactly at the edge by overflow-hidden
+    expect(grid).toHaveStyle({ width: '551px', height: '716px' })
+  })
+
+  it('uses the plain grid-lines class and no major-line CSS var when major grid lines are off', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+
+    expect(grid.className).toContain('quilt-grid-lines')
+    expect(grid.className).not.toContain('quilt-grid-major-lines')
+    expect(grid.style.getPropertyValue('--major-square-size')).toBe('')
+  })
+
+  it('switches to the major-line class and sets the interval as a CSS var when enabled', () => {
+    render(<QuiltGrid width={50} height={65} majorGridInterval={5} />)
+    const grid = screen.getByTestId('quilt-grid')
+
+    expect(grid.className).toContain('quilt-grid-major-lines')
+    expect(grid.style.getPropertyValue('--major-square-size')).toBe('55px')
+  })
+
+  it('adds an extra pixel of edge padding for the thicker major lines', () => {
+    render(<QuiltGrid width={50} height={65} majorGridInterval={5} />)
+    const grid = screen.getByTestId('quilt-grid')
+
+    // 1px (always) + 1px more for the 2px-wide major lines
+    expect(grid).toHaveStyle({ width: '552px', height: '717px' })
   })
 
   it('floors partial-inch dimensions down to whole squares', () => {

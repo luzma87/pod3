@@ -67,6 +67,9 @@
     "sizeLabel": "Quilt size",
     "summary": "{{width}}\"x{{height}}\" quilt, each square is {{squareInches}}\"",
     "gridAlt": "Empty quilt grid, {{columns}} by {{rows}} squares",
+    "majorGridLinesLabel": "Guide lines",
+    "majorGridLinesOff": "Off",
+    "majorGridLinesEvery": "Every {{count}}\"",
     "sizes": {
       "baby": "Baby",
       "babyHorizontal": "Baby Horizontal",

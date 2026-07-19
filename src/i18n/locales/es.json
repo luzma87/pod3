@@ -67,6 +67,9 @@
     "sizeLabel": "Tamaño de la colcha",
     "summary": "Colcha de {{width}}\"x{{height}}\", cada cuadro mide {{squareInches}}\"",
     "gridAlt": "Cuadrícula vacía de la colcha, {{columns}} por {{rows}} cuadros",
+    "majorGridLinesLabel": "Líneas guía",
+    "majorGridLinesOff": "Desactivadas",
+    "majorGridLinesEvery": "Cada {{count}}\"",
     "sizes": {
       "baby": "Bebé",
       "babyHorizontal": "Bebé Horizontal",

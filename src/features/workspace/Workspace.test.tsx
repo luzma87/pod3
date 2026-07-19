@@ -19,7 +19,10 @@ describe('Workspace', () => {
 
   it('resizes the grid and summary when a different size is picked', async () => {
     render(<Workspace />)
-    await userEvent.selectOptions(screen.getByRole('combobox'), 'king')
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', { name: 'Quilt size' }),
+      'king',
+    )
 
     expect(
       screen.getByText('110"x108" quilt, each square is 1"'),
@@ -27,5 +30,19 @@ describe('Workspace', () => {
     const grid = screen.getByTestId('quilt-grid')
     expect(grid).toHaveAttribute('data-columns', '110')
     expect(grid).toHaveAttribute('data-rows', '108')
+  })
+
+  it('defaults major grid lines to off, and applies the chosen interval to the grid', async () => {
+    render(<Workspace />)
+    const grid = screen.getByTestId('quilt-grid')
+    expect(grid.className).not.toContain('quilt-grid-major-lines')
+
+    await userEvent.selectOptions(
+      screen.getByRole('combobox', { name: 'Guide lines' }),
+      'Every 10"',
+    )
+
+    expect(grid.className).toContain('quilt-grid-major-lines')
+    expect(grid.style.getPropertyValue('--major-square-size')).toBe('110px')
   })
 })

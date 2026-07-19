@@ -44,6 +44,19 @@ body {
   background-size: var(--square-size) var(--square-size);
 }
 
+.quilt-grid-major-lines {
+  background-image:
+    linear-gradient(to right, var(--color-gold) 2px, transparent 2px),
+    linear-gradient(to bottom, var(--color-gold) 2px, transparent 2px),
+    linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+  background-size:
+    var(--major-square-size) var(--major-square-size),
+    var(--major-square-size) var(--major-square-size),
+    var(--square-size) var(--square-size),
+    var(--square-size) var(--square-size);
+}
+
 @keyframes recolor-part-blink {
   0%,
   100% {

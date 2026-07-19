@@ -4,13 +4,15 @@ import Button from '../../components/ui/Button'
 import Dialog from '../../components/ui/Dialog'
 import { useDesignerStore } from '../../store/designerStore'
 import ColorSwatchPicker from './ColorSwatchPicker'
-import { SQUARE_INCHES, SQUARE_SIZE } from './constants'
+import { GRID_EDGE_PADDING, SQUARE_INCHES, SQUARE_SIZE } from './constants'
+import type { MajorGridInterval } from './MajorGridLinesPicker'
 import PlacedBlockView from './PlacedBlockView'
 import RecolorDialog from './RecolorDialog'
 
 interface QuiltGridProps {
   width: number
   height: number
+  majorGridInterval?: MajorGridInterval
 }
 
 function getCellFromEvent(event: MouseEvent<HTMLDivElement>) {
@@ -20,7 +22,7 @@ function getCellFromEvent(event: MouseEvent<HTMLDivElement>) {
   return { x, y }
 }
 
-function QuiltGrid({ width, height }: QuiltGridProps) {
+function QuiltGrid({ width, height, majorGridInterval = 0 }: QuiltGridProps) {
   const { t } = useTranslation()
   const columns = Math.floor(width / SQUARE_INCHES)
   const rows = Math.floor(height / SQUARE_INCHES)
@@ -52,10 +54,17 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
     null,
   )
 
+  // the 2px-wide major lines need an extra pixel of edge room beyond the
+  // 1px minor lines to avoid being clipped by overflow-hidden
+  const edgePadding = GRID_EDGE_PADDING + (majorGridInterval > 0 ? 1 : 0)
+
   const style = {
     '--square-size': `${SQUARE_SIZE}px`,
-    width: columns * SQUARE_SIZE,
-    height: rows * SQUARE_SIZE,
+    ...(majorGridInterval > 0
+      ? { '--major-square-size': `${majorGridInterval * SQUARE_SIZE}px` }
+      : {}),
+    width: columns * SQUARE_SIZE + edgePadding,
+    height: rows * SQUARE_SIZE + edgePadding,
   } as CSSProperties
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
@@ -120,7 +129,7 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
         setHoveredCell(null)
         setDragAnchor(null)
       }}
-      className={`quilt-grid-lines relative box-content overflow-hidden border border-border bg-parchment-dark ${
+      className={`${majorGridInterval > 0 ? 'quilt-grid-major-lines' : 'quilt-grid-lines'} relative box-content overflow-hidden border border-border bg-parchment-dark ${
         blockToPlace ? 'cursor-crosshair' : ''
       }`}
       style={style}

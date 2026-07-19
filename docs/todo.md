@@ -21,11 +21,13 @@
 [ ] get a list of the used blocks - as a dialoge, or as part of the print option, a list with all the used blovks and their sizes, will try to add url to the block main page
 [ ] autocomplete on th search bar
 [ ] (maybe) allow resizing blocks (within reason)
-[ ] printing
+[ ] print view - quilt with size, list of blocks
 [x] email me to an actually useful email address
 [ ] (maybe) git actions for deploying
-[ ] ruler kind of guide on the top/left sides
+[x] ruler kind of guide on the top/left sides (via bolder major grid lines every 5"/10", toggleable, instead of a literal ruler)
 [x] size inside the preview for the paint
+[ ] make the sidebar wide enough for 3 blocks
+[ ] check tablet design
 
 [plugin builtin:vite-reporter]
 (!) Some chunks are larger than 500 kB after minification. Consider:
