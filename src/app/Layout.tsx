@@ -2,6 +2,8 @@ import { useState } from 'react'
 import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
+import emailIcon from '../assets/icons/001-email.svg'
+import infoIcon from '../assets/icons/010-information.svg'
 import Button from '../components/ui/Button'
 import LanguageSwitcher from '../components/ui/LanguageSwitcher'
 import ThemeToggle from '../components/ui/ThemeToggle'
@@ -29,7 +31,7 @@ function Layout({ children }: LayoutProps) {
             title={t('designer.infoButton')}
             onClick={() => setInfoOpen(true)}
           >
-            ℹ️
+            <img src={infoIcon} alt="" className="h-5 w-5" />
           </Button>
           <Button variant="secondary" size="icon" asChild>
             <a
@@ -39,7 +41,7 @@ function Layout({ children }: LayoutProps) {
               aria-label={t('designer.emailButton')}
               title={t('designer.emailButton')}
             >
-              ✉️
+              <img src={emailIcon} alt="" className="h-5 w-5" />
             </a>
           </Button>
           <LanguageSwitcher />

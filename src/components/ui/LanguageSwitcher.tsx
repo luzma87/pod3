@@ -1,10 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import { DropdownMenu } from 'radix-ui'
+import checkIcon from '../../assets/icons/024-check.svg'
+import englishIcon from '../../assets/icons/022-english-language.svg'
+import spanishIcon from '../../assets/icons/023-spanish-language.svg'
 import Button from './Button'
 
 const LANGUAGES = [
-  { code: 'en', label: 'English', icon: '🇬🇧' },
-  { code: 'es', label: 'Español', icon: '🇪🇸' },
+  { code: 'en', label: 'English', icon: englishIcon },
+  { code: 'es', label: 'Español', icon: spanishIcon },
 ]
 
 function LanguageSwitcher() {
@@ -22,7 +25,7 @@ function LanguageSwitcher() {
           aria-label={t('language.label')}
           title={t('language.label')}
         >
-          {current.icon}
+          <img src={current.icon} alt="" className="h-5 w-5" />
         </Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
@@ -41,10 +44,10 @@ function LanguageSwitcher() {
                 value={lang.code}
                 className="flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm text-ink outline-none data-[highlighted]:bg-gold-light"
               >
-                <span aria-hidden>{lang.icon}</span>
+                <img src={lang.icon} alt="" className="h-4 w-4" />
                 {lang.label}
                 <DropdownMenu.ItemIndicator className="ml-auto">
-                  ✓
+                  <img src={checkIcon} alt="" className="h-3.5 w-3.5" />
                 </DropdownMenu.ItemIndicator>
               </DropdownMenu.RadioItem>
             ))}

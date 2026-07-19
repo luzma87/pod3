@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Dialog as RadixDialog } from 'radix-ui'
+import cancelIcon from '../../assets/icons/025-cancel.svg'
 
 interface DialogProps {
   open: boolean
@@ -44,7 +45,7 @@ function Dialog({
               aria-label="Close"
               className="absolute top-4 right-4 text-ink-muted hover:text-ink cursor-pointer"
             >
-              ✕
+              <img src={cancelIcon} alt="" className="h-4 w-4" />
             </button>
           </RadixDialog.Close>
         </RadixDialog.Content>

@@ -1,5 +1,7 @@
 import { useRef, useState, type CSSProperties, type MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import cancelIcon from '../../assets/icons/025-cancel.svg'
+import eraserIcon from '../../assets/icons/002-eraser.svg'
 import Button from '../../components/ui/Button'
 import Dialog from '../../components/ui/Dialog'
 import { useDesignerStore } from '../../store/designerStore'
@@ -223,6 +225,7 @@ function QuiltGrid({ width, height, majorGridInterval = 0 }: QuiltGridProps) {
         <div className="mt-4 flex justify-end gap-2">
           <Button
             variant="secondary"
+            className="gap-2"
             onClick={() => {
               if (paintTarget) {
                 eraseSquares(
@@ -235,9 +238,15 @@ function QuiltGrid({ width, height, majorGridInterval = 0 }: QuiltGridProps) {
               setPaintTarget(null)
             }}
           >
+            <img src={eraserIcon} alt="" className="h-4 w-4" />
             {t('workspace.paintErase')}
           </Button>
-          <Button variant="secondary" onClick={() => setPaintTarget(null)}>
+          <Button
+            variant="secondary"
+            className="gap-2"
+            onClick={() => setPaintTarget(null)}
+          >
+            <img src={cancelIcon} alt="" className="h-4 w-4" />
             {t('workspace.paintCancel')}
           </Button>
         </div>

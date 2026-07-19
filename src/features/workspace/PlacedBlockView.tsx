@@ -1,6 +1,11 @@
 import { useLayoutEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { HoverCard } from 'radix-ui'
+import paintPaletteIcon from '../../assets/icons/001-paint-palette.svg'
+import reflectIcon from '../../assets/icons/002-reflect.svg'
+import featherIcon from '../../assets/icons/003-feather.svg'
+import rotateIcon from '../../assets/icons/004-orientation.svg'
+import garbageIcon from '../../assets/icons/005-garbage.svg'
 import type { PlacedBlock } from '../../store/designerStore'
 import { useDesignerStore } from '../../store/designerStore'
 import { SQUARE_SIZE } from './constants'
@@ -69,45 +74,45 @@ function PlacedBlockView({ placed, onRecolor }: PlacedBlockViewProps) {
             title={t('workspace.actions.flip')}
             aria-label={t('workspace.actions.flip')}
             onClick={() => flipBlock(placed.instanceId)}
-            className="cursor-pointer"
+            className="cursor-pointer p-1"
           >
-            ↔
+            <img src={reflectIcon} alt="" className="h-4 w-4" />
           </button>
           <button
             type="button"
             title={t('workspace.actions.rotate')}
             aria-label={t('workspace.actions.rotate')}
             onClick={() => rotateBlock(placed.instanceId)}
-            className="cursor-pointer"
+            className="cursor-pointer p-1"
           >
-            ↻
+            <img src={rotateIcon} alt="" className="h-4 w-4" />
           </button>
           <button
             type="button"
             title={t('workspace.actions.move')}
             aria-label={t('workspace.actions.move')}
             onClick={() => grabBlock(placed.instanceId)}
-            className="cursor-pointer"
+            className="cursor-pointer p-1"
           >
-            🪶
+            <img src={featherIcon} alt="" className="h-4 w-4" />
           </button>
           <button
             type="button"
             title={t('workspace.actions.recolor')}
             aria-label={t('workspace.actions.recolor')}
             onClick={onRecolor}
-            className="cursor-pointer"
+            className="cursor-pointer p-1"
           >
-            🎨
+            <img src={paintPaletteIcon} alt="" className="h-4 w-4" />
           </button>
           <button
             type="button"
             title={t('workspace.actions.delete')}
             aria-label={t('workspace.actions.delete')}
             onClick={() => deleteBlock(placed.instanceId)}
-            className="cursor-pointer"
+            className="cursor-pointer p-1"
           >
-            🗑
+            <img src={garbageIcon} alt="" className="h-4 w-4" />
           </button>
         </HoverCard.Content>
       </HoverCard.Portal>

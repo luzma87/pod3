@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import cleanIcon from '../../assets/icons/013-clean.svg'
 import Button from '../../components/ui/Button'
 import { SQUARE_INCHES } from './constants'
 import MajorGridLinesPicker, {
@@ -28,7 +29,12 @@ function Workspace() {
           value={majorGridInterval}
           onChange={setMajorGridInterval}
         />
-        <Button variant="secondary" onClick={() => setResetOpen(true)}>
+        <Button
+          variant="secondary"
+          className="gap-2"
+          onClick={() => setResetOpen(true)}
+        >
+          <img src={cleanIcon} alt="" className="h-4 w-4" />
           {t('designer.resetButton')}
         </Button>
       </div>

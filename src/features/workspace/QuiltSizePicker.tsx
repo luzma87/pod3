@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import measuringTapeIcon from '../../assets/icons/026-measuring-tape.svg'
 import { QUILT_SIZES, type QuiltSizeKey } from './quiltSizes'
 
 interface QuiltSizePickerProps {
@@ -11,6 +12,7 @@ function QuiltSizePicker({ value, onChange }: QuiltSizePickerProps) {
 
   return (
     <label className="flex items-center gap-2">
+      <img src={measuringTapeIcon} alt="" className="h-4 w-4" />
       <span className="text-sm text-ink-muted">{t('workspace.sizeLabel')}</span>
       <select
         value={value}

@@ -14,7 +14,7 @@
 [x] blink svg color when selecting
 [x] allow erasing painted cells
 [x] info modal should always open on load
-[ ] better icons
+[x] better icons
 [ ] put back the custom cursors
 [ ] (maybe) have the different layouts as templates
 [ ] script or something to add new blocks
@@ -28,6 +28,7 @@
 [x] size inside the preview for the paint
 [ ] make the sidebar wide enough for 3 blocks
 [ ] check tablet design
+[ ] check size, if not multiple of 5/10 we don't need the extra pixel in the quilt divmake icons bigger, maybe have a single place where i can change the size to see
 
 [plugin builtin:vite-reporter]
 (!) Some chunks are larger than 500 kB after minification. Consider:
