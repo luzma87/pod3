@@ -234,6 +234,88 @@ describe('QuiltGrid', () => {
     expect(screen.queryByTestId('paint-hover-preview')).not.toBeInTheDocument()
   })
 
+  it('paints a rectangle when dragging from one cell to another', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    // drag from cell (2, 3) to cell (4, 5)
+    fireEvent.mouseDown(grid, { clientX: 22, clientY: 33 })
+    fireEvent.mouseMove(grid, { clientX: 44, clientY: 55 })
+    fireEvent.mouseUp(grid, { clientX: 44, clientY: 55 })
+    fireEvent.click(screen.getByRole('button', { name: 'Red' }))
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    const { paintedSquares } = useDesignerStore.getState()
+    expect(paintedSquares).toHaveLength(9)
+    expect(paintedSquares).toEqual(
+      expect.arrayContaining([
+        { position: { x: 2, y: 3 }, color: '#F44336' },
+        { position: { x: 4, y: 5 }, color: '#F44336' },
+      ]),
+    )
+  })
+
+  it('forms the rectangle regardless of drag direction (dragging up/left from the anchor)', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    // drag from cell (4, 5) up/left to cell (2, 3)
+    fireEvent.mouseDown(grid, { clientX: 44, clientY: 55 })
+    fireEvent.mouseMove(grid, { clientX: 22, clientY: 33 })
+    fireEvent.mouseUp(grid, { clientX: 22, clientY: 33 })
+    fireEvent.click(screen.getByRole('button', { name: 'Red' }))
+
+    expect(useDesignerStore.getState().paintedSquares).toHaveLength(9)
+  })
+
+  it('does not open the paint dialog for a drag while a block is selected to place', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    act(() => {
+      useDesignerStore.getState().selectBlockToPlace(pixie)
+    })
+    fireEvent.mouseDown(grid, { clientX: 22, clientY: 33 })
+    fireEvent.mouseMove(grid, { clientX: 44, clientY: 55 })
+    fireEvent.mouseUp(grid, { clientX: 44, clientY: 55 })
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(useDesignerStore.getState().paintedSquares).toEqual([])
+  })
+
+  it('cancels an in-progress drag on mouse leave', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    fireEvent.mouseDown(grid, { clientX: 22, clientY: 33 })
+    fireEvent.mouseMove(grid, { clientX: 44, clientY: 55 })
+    fireEvent.mouseLeave(grid)
+    fireEvent.mouseUp(grid, { clientX: 44, clientY: 55 })
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  })
+
+  it('previews the drag rectangle while dragging', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    fireEvent.mouseDown(grid, { clientX: 22, clientY: 33 })
+    fireEvent.mouseMove(grid, { clientX: 44, clientY: 55 })
+
+    const preview = screen.getByTestId('paint-hover-preview')
+    expect(preview).toHaveStyle({
+      left: '22px',
+      top: '33px',
+      width: '33px',
+      height: '33px',
+    })
+  })
+
   it('clears the paint preview on mouse leave', () => {
     render(<QuiltGrid width={50} height={65} />)
     const grid = screen.getByTestId('quilt-grid')

@@ -91,6 +91,41 @@ describe('designerStore', () => {
     expect(useDesignerStore.getState().paintedSquares).toHaveLength(2)
   })
 
+  it('paints every square within a rectangle', () => {
+    useDesignerStore.getState().paintRectangle(1, 2, 2, 3, '#F44336')
+
+    const { paintedSquares } = useDesignerStore.getState()
+    expect(paintedSquares).toHaveLength(4)
+    expect(paintedSquares).toEqual(
+      expect.arrayContaining([
+        { position: { x: 1, y: 2 }, color: '#F44336' },
+        { position: { x: 2, y: 2 }, color: '#F44336' },
+        { position: { x: 1, y: 3 }, color: '#F44336' },
+        { position: { x: 2, y: 3 }, color: '#F44336' },
+      ]),
+    )
+  })
+
+  it('paints a single square when the rectangle is 1x1', () => {
+    useDesignerStore.getState().paintRectangle(2, 3, 2, 3, '#F44336')
+
+    expect(useDesignerStore.getState().paintedSquares).toEqual([
+      { position: { x: 2, y: 3 }, color: '#F44336' },
+    ])
+  })
+
+  it('repainting an overlapping rectangle replaces overlapping squares instead of stacking', () => {
+    useDesignerStore.getState().paintRectangle(0, 0, 1, 1, '#F44336')
+    useDesignerStore.getState().paintRectangle(1, 1, 2, 2, '#2196F3')
+
+    const { paintedSquares } = useDesignerStore.getState()
+    expect(paintedSquares).toHaveLength(7)
+    const overlap = paintedSquares.find(
+      (square) => square.position.x === 1 && square.position.y === 1,
+    )
+    expect(overlap?.color).toBe('#2196F3')
+  })
+
   it('deletes a placed block by instanceId', () => {
     useDesignerStore.getState().selectBlockToPlace(pixie)
     useDesignerStore.getState().placeBlockAt(2, 3)

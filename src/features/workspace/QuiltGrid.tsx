@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type MouseEvent } from 'react'
+import { useRef, useState, type CSSProperties, type MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import Dialog from '../../components/ui/Dialog'
 import { useDesignerStore } from '../../store/designerStore'
@@ -28,16 +28,23 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
   const placedBlocks = useDesignerStore((state) => state.placedBlocks)
   const paintedSquares = useDesignerStore((state) => state.paintedSquares)
   const placeBlockAt = useDesignerStore((state) => state.placeBlockAt)
-  const paintSquare = useDesignerStore((state) => state.paintSquare)
+  const paintRectangle = useDesignerStore((state) => state.paintRectangle)
   const setColorOverrides = useDesignerStore((state) => state.setColorOverrides)
 
   const [hoveredCell, setHoveredCell] = useState<{
     x: number
     y: number
   } | null>(null)
-  const [paintTarget, setPaintTarget] = useState<{
+  const [dragAnchor, setDragAnchor] = useState<{
     x: number
     y: number
+  } | null>(null)
+  const draggedRef = useRef(false)
+  const [paintTarget, setPaintTarget] = useState<{
+    x0: number
+    y0: number
+    x1: number
+    y1: number
   } | null>(null)
   const [recolorInstanceId, setRecolorInstanceId] = useState<string | null>(
     null,
@@ -53,13 +60,38 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
     const cell = getCellFromEvent(event)
     if (blockToPlace) {
       placeBlockAt(cell.x, cell.y)
-    } else {
-      setPaintTarget(cell)
+    } else if (!draggedRef.current) {
+      setPaintTarget({ x0: cell.x, y0: cell.y, x1: cell.x, y1: cell.y })
     }
+    draggedRef.current = false
+  }
+
+  const handleMouseDown = (event: MouseEvent<HTMLDivElement>) => {
+    if (blockToPlace) return
+    draggedRef.current = false
+    setDragAnchor(getCellFromEvent(event))
   }
 
   const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
-    setHoveredCell(getCellFromEvent(event))
+    const cell = getCellFromEvent(event)
+    setHoveredCell(cell)
+    if (dragAnchor && (cell.x !== dragAnchor.x || cell.y !== dragAnchor.y)) {
+      draggedRef.current = true
+    }
+  }
+
+  const handleMouseUp = (event: MouseEvent<HTMLDivElement>) => {
+    if (!dragAnchor) return
+    if (draggedRef.current) {
+      const end = getCellFromEvent(event)
+      setPaintTarget({
+        x0: Math.min(dragAnchor.x, end.x),
+        y0: Math.min(dragAnchor.y, end.y),
+        x1: Math.max(dragAnchor.x, end.x),
+        y1: Math.max(dragAnchor.y, end.y),
+      })
+    }
+    setDragAnchor(null)
   }
 
   const isOutOfBounds =
@@ -79,8 +111,13 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
       data-rows={rows}
       aria-label={t('workspace.gridAlt', { columns, rows })}
       onClick={handleClick}
+      onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
-      onMouseLeave={() => setHoveredCell(null)}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={() => {
+        setHoveredCell(null)
+        setDragAnchor(null)
+      }}
       className={`quilt-grid-lines relative box-content overflow-hidden border border-border bg-parchment-dark ${
         blockToPlace ? 'cursor-crosshair' : ''
       }`}
@@ -127,10 +164,20 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
           data-testid="paint-hover-preview"
           className="pointer-events-none absolute bg-gold/50"
           style={{
-            left: hoveredCell.x * SQUARE_SIZE,
-            top: hoveredCell.y * SQUARE_SIZE,
-            width: SQUARE_SIZE,
-            height: SQUARE_SIZE,
+            left:
+              Math.min(hoveredCell.x, dragAnchor?.x ?? hoveredCell.x) *
+              SQUARE_SIZE,
+            top:
+              Math.min(hoveredCell.y, dragAnchor?.y ?? hoveredCell.y) *
+              SQUARE_SIZE,
+            width:
+              (Math.abs(hoveredCell.x - (dragAnchor?.x ?? hoveredCell.x)) +
+                1) *
+              SQUARE_SIZE,
+            height:
+              (Math.abs(hoveredCell.y - (dragAnchor?.y ?? hoveredCell.y)) +
+                1) *
+              SQUARE_SIZE,
           }}
         />
       )}
@@ -143,7 +190,15 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
       >
         <ColorSwatchPicker
           onSelect={(color) => {
-            if (paintTarget) paintSquare(paintTarget.x, paintTarget.y, color)
+            if (paintTarget) {
+              paintRectangle(
+                paintTarget.x0,
+                paintTarget.y0,
+                paintTarget.x1,
+                paintTarget.y1,
+                color,
+              )
+            }
             setPaintTarget(null)
           }}
         />

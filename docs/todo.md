@@ -7,9 +7,8 @@
 [ ] allow cm/in
 [x] app name to navbar
 [x] scroll only sidebar, not main workspace
-[ ] better color picker
 [ ] keyboard-accessible way to place a block (grid click position is computed from pointer coordinates, no keyboard path yet)
-[ ] bucket tool: rectangle paint brush (pod2 let you extend right/down from the clicked square, not just one square at a time)
+[x] bucket tool: rectangle paint brush (pod2 let you extend right/down from the clicked square, not just one square at a time)
 [ ] bucket tool: arbitrary custom color, not just the preset palette swatches
 [ ] allow changing the brown bg color of the blocks for the whole blanket
 [ ] blink svg color when selecting
@@ -25,3 +24,11 @@
 [ ] printing
 [ ] email me to an actually useful email address
 [ ] (maybe) git actions for deploying
+[ ] ruler kind of guide on the top/left sides
+
+[plugin builtin:vite-reporter]
+(!) Some chunks are larger than 500 kB after minification. Consider:
+
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

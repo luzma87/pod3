@@ -34,6 +34,13 @@ interface DesignerState {
   selectBlockToPlace: (block: QuiltBlock) => void
   placeBlockAt: (x: number, y: number) => void
   paintSquare: (x: number, y: number, color: string) => void
+  paintRectangle: (
+    x0: number,
+    y0: number,
+    x1: number,
+    y1: number,
+    color: string,
+  ) => void
   deleteBlock: (instanceId: string) => void
   flipBlock: (instanceId: string) => void
   rotateBlock: (instanceId: string) => void
@@ -93,6 +100,29 @@ export const useDesignerStore = create<DesignerState>((set, get) => ({
         { position: { x, y }, color },
       ],
     }))
+  },
+
+  paintRectangle: (x0, y0, x1, y1, color) => {
+    set((state) => {
+      const inRect: PaintedSquare[] = []
+      for (let y = y0; y <= y1; y++) {
+        for (let x = x0; x <= x1; x++) {
+          inRect.push({ position: { x, y }, color })
+        }
+      }
+      return {
+        paintedSquares: [
+          ...state.paintedSquares.filter(
+            (square) =>
+              square.position.x < x0 ||
+              square.position.x > x1 ||
+              square.position.y < y0 ||
+              square.position.y > y1,
+          ),
+          ...inRect,
+        ],
+      }
+    })
   },
 
   deleteBlock: (instanceId) => {
