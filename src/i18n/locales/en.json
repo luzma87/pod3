@@ -83,6 +83,7 @@
       "kingHorizontal": "King Horizontal"
     },
     "paintDialogTitle": "Choose a color",
+    "customColorLabel": "Custom color",
     "colors": {
       "red": "Red",
       "pink": "Pink",
