@@ -114,6 +114,51 @@ describe('designerStore', () => {
     ])
   })
 
+  it('erases every painted square within a rectangle', () => {
+    useDesignerStore.getState().paintRectangle(0, 0, 2, 2, '#F44336')
+
+    // erases the bottom-right 2x2 overlap of the painted 3x3 block
+    useDesignerStore.getState().eraseSquares(1, 1, 3, 3)
+
+    const { paintedSquares } = useDesignerStore.getState()
+    expect(paintedSquares).toHaveLength(5)
+    expect(paintedSquares).toEqual(
+      expect.arrayContaining([
+        { position: { x: 0, y: 0 }, color: '#F44336' },
+        { position: { x: 1, y: 0 }, color: '#F44336' },
+        { position: { x: 2, y: 0 }, color: '#F44336' },
+        { position: { x: 0, y: 1 }, color: '#F44336' },
+        { position: { x: 0, y: 2 }, color: '#F44336' },
+      ]),
+    )
+  })
+
+  it('erasing a rectangle that overlaps a placed block only clears paint, leaving the block alone', () => {
+    useDesignerStore.getState().paintRectangle(0, 0, 3, 3, '#F44336')
+    useDesignerStore.getState().selectBlockToPlace(pixie)
+    useDesignerStore.getState().placeBlockAt(1, 1)
+
+    useDesignerStore.getState().eraseSquares(0, 0, 3, 3)
+
+    const state = useDesignerStore.getState()
+    expect(state.paintedSquares).toEqual([])
+    expect(state.placedBlocks).toHaveLength(1)
+    expect(state.placedBlocks[0]).toMatchObject({
+      block: pixie,
+      position: { x: 1, y: 1 },
+    })
+  })
+
+  it('erasing squares that were never painted does nothing', () => {
+    useDesignerStore.getState().paintSquare(0, 0, '#F44336')
+
+    useDesignerStore.getState().eraseSquares(5, 5, 6, 6)
+
+    expect(useDesignerStore.getState().paintedSquares).toEqual([
+      { position: { x: 0, y: 0 }, color: '#F44336' },
+    ])
+  })
+
   it('repainting an overlapping rectangle replaces overlapping squares instead of stacking', () => {
     useDesignerStore.getState().paintRectangle(0, 0, 1, 1, '#F44336')
     useDesignerStore.getState().paintRectangle(1, 1, 2, 2, '#2196F3')

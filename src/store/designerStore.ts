@@ -41,6 +41,7 @@ interface DesignerState {
     y1: number,
     color: string,
   ) => void
+  eraseSquares: (x0: number, y0: number, x1: number, y1: number) => void
   deleteBlock: (instanceId: string) => void
   flipBlock: (instanceId: string) => void
   rotateBlock: (instanceId: string) => void
@@ -123,6 +124,18 @@ export const useDesignerStore = create<DesignerState>((set, get) => ({
         ],
       }
     })
+  },
+
+  eraseSquares: (x0, y0, x1, y1) => {
+    set((state) => ({
+      paintedSquares: state.paintedSquares.filter(
+        (square) =>
+          square.position.x < x0 ||
+          square.position.x > x1 ||
+          square.position.y < y0 ||
+          square.position.y > y1,
+      ),
+    }))
   },
 
   deleteBlock: (instanceId) => {

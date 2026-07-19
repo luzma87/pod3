@@ -83,6 +83,8 @@
       "kingHorizontal": "King Horizontal"
     },
     "paintDialogTitle": "Elige un color",
+    "paintCancel": "Cancelar",
+    "paintErase": "Borrar",
     "customColorLabel": "Color personalizado",
     "colors": {
       "red": "Rojo",

@@ -12,7 +12,7 @@
 [x] bucket tool: arbitrary custom color, not just the preset palette swatches
 [ ] allow changing the brown bg color of the blocks for the whole blanket
 [ ] blink svg color when selecting
-[ ] allow erasing painted cells
+[x] allow erasing painted cells
 [ ] info modal should always open on load
 [ ] better icons
 [ ] put back the custom cursors
@@ -25,6 +25,7 @@
 [ ] email me to an actually useful email address
 [ ] (maybe) git actions for deploying
 [ ] ruler kind of guide on the top/left sides
+[ ] size inside the preview for the paint
 
 [plugin builtin:vite-reporter]
 (!) Some chunks are larger than 500 kB after minification. Consider:

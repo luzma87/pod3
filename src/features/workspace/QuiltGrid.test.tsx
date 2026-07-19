@@ -162,6 +162,53 @@ describe('QuiltGrid', () => {
     })
   })
 
+  it('closes the paint dialog without painting when Cancel is clicked', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    fireEvent.click(grid, { clientX: 22, clientY: 33 })
+    fireEvent.click(screen.getByRole('button', { name: 'Cancel' }))
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(useDesignerStore.getState().paintedSquares).toEqual([])
+  })
+
+  it('erases a painted square when Erase is clicked', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    fireEvent.click(grid, { clientX: 22, clientY: 33 })
+    fireEvent.click(screen.getByRole('button', { name: 'Red' }))
+    expect(useDesignerStore.getState().paintedSquares).toHaveLength(1)
+
+    fireEvent.click(grid, { clientX: 22, clientY: 33 })
+    fireEvent.click(screen.getByRole('button', { name: 'Erase' }))
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(useDesignerStore.getState().paintedSquares).toEqual([])
+  })
+
+  it('erases every square in a dragged rectangle when Erase is clicked', () => {
+    render(<QuiltGrid width={50} height={65} />)
+    const grid = screen.getByTestId('quilt-grid')
+    stubGridOrigin(grid)
+
+    fireEvent.mouseDown(grid, { clientX: 22, clientY: 33 })
+    fireEvent.mouseMove(grid, { clientX: 44, clientY: 55 })
+    fireEvent.mouseUp(grid, { clientX: 44, clientY: 55 })
+    fireEvent.click(screen.getByRole('button', { name: 'Red' }))
+    expect(useDesignerStore.getState().paintedSquares).toHaveLength(9)
+
+    fireEvent.mouseDown(grid, { clientX: 22, clientY: 33 })
+    fireEvent.mouseMove(grid, { clientX: 44, clientY: 55 })
+    fireEvent.mouseUp(grid, { clientX: 44, clientY: 55 })
+    fireEvent.click(screen.getByRole('button', { name: 'Erase' }))
+
+    expect(useDesignerStore.getState().paintedSquares).toEqual([])
+  })
+
   it('clicking a block instead of placing does not open the paint dialog', () => {
     render(<QuiltGrid width={50} height={65} />)
     const grid = screen.getByTestId('quilt-grid')

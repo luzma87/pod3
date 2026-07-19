@@ -1,5 +1,6 @@
 import { useRef, useState, type CSSProperties, type MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import Button from '../../components/ui/Button'
 import Dialog from '../../components/ui/Dialog'
 import { useDesignerStore } from '../../store/designerStore'
 import ColorSwatchPicker from './ColorSwatchPicker'
@@ -29,6 +30,7 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
   const paintedSquares = useDesignerStore((state) => state.paintedSquares)
   const placeBlockAt = useDesignerStore((state) => state.placeBlockAt)
   const paintRectangle = useDesignerStore((state) => state.paintRectangle)
+  const eraseSquares = useDesignerStore((state) => state.eraseSquares)
   const setColorOverrides = useDesignerStore((state) => state.setColorOverrides)
 
   const [hoveredCell, setHoveredCell] = useState<{
@@ -202,6 +204,27 @@ function QuiltGrid({ width, height }: QuiltGridProps) {
             setPaintTarget(null)
           }}
         />
+        <div className="mt-4 flex justify-end gap-2">
+          <Button
+            variant="secondary"
+            onClick={() => {
+              if (paintTarget) {
+                eraseSquares(
+                  paintTarget.x0,
+                  paintTarget.y0,
+                  paintTarget.x1,
+                  paintTarget.y1,
+                )
+              }
+              setPaintTarget(null)
+            }}
+          >
+            {t('workspace.paintErase')}
+          </Button>
+          <Button variant="secondary" onClick={() => setPaintTarget(null)}>
+            {t('workspace.paintCancel')}
+          </Button>
+        </div>
       </Dialog>
       <RecolorDialog
         placed={recolorTarget}
