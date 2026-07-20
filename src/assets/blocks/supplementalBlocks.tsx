@@ -54,6 +54,8 @@ import Svg045DarkArts from './svg/supplemental/045DarkArts'
 import Svg046Memos from './svg/supplemental/046Memos'
 import Svg047Scabbers from './svg/supplemental/047Scabbers'
 import Svg048SnapeWand from './svg/supplemental/048SnapeWand'
+import Svg049LilysGoldfishBowl from './svg/supplemental/049LilysGoldfishBowl'
+import Svg050Pixie from './svg/supplemental/050Pixie'
 
 const supplementalBlocks = [
   {
@@ -719,6 +721,30 @@ const supplementalBlocks = [
     designer: 'Daphne Seymour',
     file: '048-snape-wand',
     element: (props: SVGProps<SVGSVGElement>) => <Svg048SnapeWand {...props} />,
+  },
+  {
+    id: 'sb56',
+    name: 'Lily’s Goldfish Bowl',
+    size: { width: 10, height: 10 },
+    tags: ['lily', 'goldfish', 'bowl', 'fish'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Jennifer Larimore',
+    file: '049-lilys-goldfish-bowl',
+    element: (props: SVGProps<SVGSVGElement>) => (
+      <Svg049LilysGoldfishBowl {...props} />
+    ),
+  },
+  {
+    id: 'sb57',
+    name: 'Pixie',
+    size: { width: 10, height: 20 },
+    tags: ['pixie', 'books', 'bookshelf', 'deathly', 'hallows'],
+    type: 'supplemental',
+    difficulty: 4,
+    designer: 'Kirstin Viland',
+    file: '050-pixie',
+    element: (props: SVGProps<SVGSVGElement>) => <Svg050Pixie {...props} />,
   },
 ]
 

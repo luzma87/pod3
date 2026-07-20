@@ -39,5 +39,7 @@ private agent memory) so they're visible and versioned alongside the code.
   mid-slice but aren't worth derailing the current slice for (e.g.
   collapsible catalog categories, richer block tooltips). Check it when
   starting a slice in case something on it is now in scope.
+- `docs/adding-blocks.md` — how to convert a raw SVG export into a block
+  component and catalog entry when the user asks for new blocks to be added.
 - Additional `docs/*.md` files get added per topic as needed (e.g. a
   gotchas/troubleshooting log), rather than growing one big file.
