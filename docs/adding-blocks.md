@@ -34,11 +34,7 @@ import type { SVGProps } from 'react'
 
 const SvgNNNName = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="x y width height" {...props}>
-    <path
-      d="..."
-      className="background"
-      fill="#9b7647"
-    />
+    <path d="..." className="background" fill="#9b7647" />
     <path d="..." className="kebab-case-part-name" fill="#rrggbb" />
     {/* one <path> per visual part */}
   </svg>
@@ -69,7 +65,7 @@ translating:
    never used, always dropped. (Tip: `grep -v base64 file.svg` to view the
    rest of the file without choking on the huge line.)
 2. **Derive the real `viewBox` from the `background` shape's own `x y width
-   height`**, not the file's own top-level `viewBox` attribute (it's
+height`**, not the file's own top-level `viewBox` attribute (it's
    frequently a stale/default value like `0 0 500 500` that doesn't match the
    actual artwork bounds).
 3. **Convert `<rect x y width height>` → `<path>`**: `d="M{x} {y}H{x+width}V{y+height}H{x}Z"`.
