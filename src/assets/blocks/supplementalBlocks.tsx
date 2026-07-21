@@ -56,6 +56,16 @@ import Svg047Scabbers from './svg/supplemental/047Scabbers'
 import Svg048SnapeWand from './svg/supplemental/048SnapeWand'
 import Svg049LilysGoldfishBowl from './svg/supplemental/049LilysGoldfishBowl'
 import Svg050Pixie from './svg/supplemental/050Pixie'
+import Svg051SpiderwebCorner from './svg/supplemental/051SpiderwebCorner'
+import Svg052WingardiumLeviosa from './svg/supplemental/052WingardiumLeviosa'
+import Svg053ScreamingMandrake from './svg/supplemental/053ScreamingMandrake'
+import Svg054MistletoeWithBooks from './svg/supplemental/054MistletoeWithBooks'
+import Svg055Mistletoe from './svg/supplemental/055Mistletoe'
+import Svg056GoldBars from './svg/supplemental/056GoldBars'
+import Svg057GoldCoins1 from './svg/supplemental/057GoldCoins1'
+import Svg058GoldCoins2 from './svg/supplemental/058GoldCoins2'
+import Svg059GoldenEgg from './svg/supplemental/059GoldenEgg'
+import Svg060NifflerWithRing from './svg/supplemental/060NifflerWithRing'
 
 const supplementalBlocks = [
   {
@@ -745,6 +755,145 @@ const supplementalBlocks = [
     designer: 'Kirstin Viland',
     file: '050-pixie',
     element: (props: SVGProps<SVGSVGElement>) => <Svg050Pixie {...props} />,
+  },
+  {
+    id: 'sb58',
+    name: 'Spiderweb Corner',
+    size: { width: 5, height: 5 },
+    tags: ['spiderweb', 'spider', 'web', 'corner'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Holly Urbain',
+    file: '051-spiderweb-corner-5x5',
+    element: (props: SVGProps<SVGSVGElement>) => (
+      <Svg051SpiderwebCorner {...props} />
+    ),
+  },
+  {
+    id: 'sb59',
+    name: 'Spiderweb Corner',
+    size: { width: 10, height: 10 },
+    tags: ['spiderweb', 'spider', 'web', 'corner'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Holly Urbain',
+    file: '051-spiderweb-corner-10x10',
+    element: (props: SVGProps<SVGSVGElement>) => (
+      <Svg051SpiderwebCorner {...props} />
+    ),
+  },
+  {
+    id: 'sb60',
+    name: 'Wingardium Leviosa',
+    size: { width: 10, height: 10 },
+    tags: ['wingardium', 'leviosa', 'wand', 'feather', 'spell'],
+    type: 'supplemental',
+    difficulty: 4,
+    designer: 'Holly Urbain',
+    file: '052-wingardium-leviosa-10x10',
+    element: (props: SVGProps<SVGSVGElement>) => (
+      <Svg052WingardiumLeviosa {...props} />
+    ),
+  },
+  {
+    id: 'sb61',
+    name: 'Screaming Mandrake',
+    size: { width: 10, height: 10 },
+    tags: ['mandrake', 'herbology', 'pot'],
+    type: 'supplemental',
+    difficulty: 4,
+    designer: 'Kirstin Viland',
+    file: '053-screaming-mandrake',
+    element: (props: SVGProps<SVGSVGElement>) => (
+      <Svg053ScreamingMandrake {...props} />
+    ),
+  },
+  {
+    id: 'sb62',
+    name: 'Mistletoe with Books [embroidered]',
+    size: { width: 10, height: 10 },
+    tags: ['mistletoe', 'books', 'book', 'snowflake', 'embroidery'],
+    type: 'supplemental',
+    difficulty: 4,
+    designer: 'Holly Urbain',
+    hasEmbroidery: true,
+    file: '054-mistletoe-with-books',
+    element: (props: SVGProps<SVGSVGElement>) => (
+      <Svg054MistletoeWithBooks {...props} />
+    ),
+  },
+  {
+    id: 'sb63',
+    name: 'Mistletoe [embroidered]',
+    size: { width: 5, height: 5 },
+    tags: ['mistletoe', 'embroidery'],
+    type: 'supplemental',
+    difficulty: 4,
+    designer: 'Holly Urbain',
+    hasEmbroidery: true,
+    file: '055-mistletoe',
+    element: (props: SVGProps<SVGSVGElement>) => <Svg055Mistletoe {...props} />,
+  },
+  {
+    id: 'sb64',
+    name: 'Gold Bars',
+    size: { width: 10, height: 10 },
+    tags: ['gold', 'bars', 'gringotts', 'books', 'book'],
+    type: 'supplemental',
+    difficulty: 1,
+    designer: 'Jennifer Larimore',
+    file: '056-gold-bars',
+    element: (props: SVGProps<SVGSVGElement>) => <Svg056GoldBars {...props} />,
+  },
+  {
+    id: 'sb65',
+    name: 'Gold Coins 1',
+    size: { width: 10, height: 10 },
+    tags: ['gold', 'coins', 'galleons', 'gringotts', 'books', 'book'],
+    type: 'supplemental',
+    difficulty: 1,
+    designer: 'Jennifer Larimore',
+    file: '057-gold-coins-1',
+    element: (props: SVGProps<SVGSVGElement>) => (
+      <Svg057GoldCoins1 {...props} />
+    ),
+  },
+  {
+    id: 'sb66',
+    name: 'Gold Coins 2',
+    size: { width: 10, height: 10 },
+    tags: ['gold', 'coins', 'galleons', 'gringotts', 'books', 'book'],
+    type: 'supplemental',
+    difficulty: 1,
+    designer: 'Jennifer Larimore',
+    file: '058-gold-coins-2',
+    element: (props: SVGProps<SVGSVGElement>) => (
+      <Svg058GoldCoins2 {...props} />
+    ),
+  },
+  {
+    id: 'sb67',
+    name: 'Golden Egg',
+    size: { width: 10, height: 10 },
+    tags: ['golden', 'egg', 'triwizard', 'books', 'book'],
+    type: 'supplemental',
+    difficulty: 2,
+    designer: 'Jennifer Larimore',
+    file: '059-golden-egg',
+    element: (props: SVGProps<SVGSVGElement>) => <Svg059GoldenEgg {...props} />,
+  },
+  {
+    id: 'sb68',
+    name: 'Niffler with Ring',
+    size: { width: 10, height: 10 },
+    tags: ['niffler', 'ring', 'gold', 'book'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Jennifer Larimore',
+    file: '060-niffler-with-ring',
+    element: (props: SVGProps<SVGSVGElement>) => (
+      <Svg060NifflerWithRing {...props} />
+    ),
   },
 ]
 
