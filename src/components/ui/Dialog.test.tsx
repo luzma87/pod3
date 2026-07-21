@@ -41,4 +41,19 @@ describe('Dialog', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Close' }))
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
+
+  it('renders a footer outside the scrollable content area, when given one', async () => {
+    render(
+      <Dialog
+        open
+        onOpenChange={() => {}}
+        title="Test dialog"
+        footer={<p>Footer content</p>}
+      >
+        <p>Dialog body content</p>
+      </Dialog>,
+    )
+    expect(screen.getByText('Dialog body content')).toBeInTheDocument()
+    expect(screen.getByText('Footer content')).toBeInTheDocument()
+  })
 })

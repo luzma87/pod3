@@ -9,6 +9,8 @@ interface DialogProps {
   description?: string
   children?: ReactNode
   trigger?: ReactNode
+  footer?: ReactNode
+  maxWidthClassName?: string
 }
 
 function Dialog({
@@ -18,6 +20,8 @@ function Dialog({
   description,
   children,
   trigger,
+  footer,
+  maxWidthClassName = 'max-w-md',
 }: DialogProps) {
   return (
     <RadixDialog.Root open={open} onOpenChange={onOpenChange}>
@@ -28,7 +32,7 @@ function Dialog({
         <RadixDialog.Overlay className="fixed inset-0 bg-ink/40" />
         <RadixDialog.Content
           onClick={(event) => event.stopPropagation()}
-          className="fixed top-1/2 left-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg border border-border bg-parchment p-6 shadow-lg"
+          className={`fixed top-1/2 left-1/2 flex max-h-[85vh] w-full ${maxWidthClassName} -translate-x-1/2 -translate-y-1/2 flex-col rounded-lg border border-border bg-parchment p-6 shadow-lg`}
         >
           <RadixDialog.Title className="font-display text-xl text-maroon">
             {title}
@@ -38,7 +42,8 @@ function Dialog({
               {description}
             </RadixDialog.Description>
           ) : null}
-          <div className="mt-4">{children}</div>
+          <div className="mt-4 min-h-0 flex-1 overflow-y-auto">{children}</div>
+          {footer ? <div className="mt-4 shrink-0">{footer}</div> : null}
           <RadixDialog.Close asChild>
             <button
               type="button"

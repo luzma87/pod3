@@ -26,7 +26,7 @@ function ColorSwatchPicker({ onSelect }: ColorSwatchPickerProps) {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="grid grid-cols-6 gap-2">
+      <div className="grid grid-cols-10 gap-2">
         {MATERIAL_PALETTE.map(({ color, labelKey }) => {
           const label = t(`workspace.colors.${labelKey}`)
           return (

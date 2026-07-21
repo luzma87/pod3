@@ -37,8 +37,6 @@ function Workspace() {
           <img src={cleanIcon} alt="" className="h-4 w-4" />
           {t('designer.resetButton')}
         </Button>
-      </div>
-      <div className="flex flex-wrap items-center gap-4">
         <p className="text-sm text-ink-muted">
           {t('workspace.summary', {
             width: size.width,

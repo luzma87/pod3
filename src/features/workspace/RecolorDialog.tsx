@@ -15,9 +15,70 @@ interface Part {
   type: 'fill' | 'stroke'
 }
 
+interface LabeledPart extends Part {
+  label: string
+}
+
+interface PartGroup {
+  key: string
+  label: string
+  members: LabeledPart[]
+}
+
+type PartRow =
+  | { kind: 'standalone'; part: LabeledPart }
+  | { kind: 'group'; group: PartGroup }
+
 function humanizePartName(className: string) {
   const spaced = className.replace(/-/g, ' ')
   return spaced.charAt(0).toUpperCase() + spaced.slice(1)
+}
+
+// Groups parts that share a leading run of hyphen-separated segments, e.g.
+// gold-bars-dark/medium/light -> group "Gold bars" with members
+// Dark/Medium/Light. Picks the deepest shared prefix that still leaves every
+// member with a non-empty label, so e.g. book1 + book1-detail (where book1
+// has nothing left to show once "book1" is the group name) stay standalone
+// instead of forming a group with a blank-looking member.
+function findGroupKey(part: Part, allParts: Part[]): string | null {
+  const segments = part.className.split('-')
+  for (let length = segments.length - 1; length >= 1; length--) {
+    const prefix = segments.slice(0, length).join('-')
+    const memberCount = allParts.filter((candidate) => {
+      const candidateSegments = candidate.className.split('-')
+      return (
+        candidateSegments.length > length &&
+        candidateSegments.slice(0, length).join('-') === prefix
+      )
+    }).length
+    if (memberCount >= 2) return prefix
+  }
+  return null
+}
+
+function buildPartRows(parts: Part[]): PartRow[] {
+  const rows: PartRow[] = []
+  const groupsByKey = new Map<string, PartGroup>()
+
+  parts.forEach((part) => {
+    const groupKey = findGroupKey(part, parts)
+    const label = humanizePartName(
+      groupKey ? part.className.slice(groupKey.length + 1) : part.className,
+    )
+    if (!groupKey) {
+      rows.push({ kind: 'standalone', part: { ...part, label } })
+      return
+    }
+    let group = groupsByKey.get(groupKey)
+    if (!group) {
+      group = { key: groupKey, label: humanizePartName(groupKey), members: [] }
+      groupsByKey.set(groupKey, group)
+      rows.push({ kind: 'group', group })
+    }
+    group.members.push({ ...part, label })
+  })
+
+  return rows
 }
 
 const COLORABLE_SELECTOR =
@@ -74,6 +135,7 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
     Record<string, ColorOverride>
   >({})
   const [selectedPart, setSelectedPart] = useState<string | null>(null)
+  const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set())
 
   useLayoutEffect(() => {
     // Radix's Dialog.Portal mounts its content one tick after the initial
@@ -85,6 +147,7 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
     setParts(scanned)
     setPendingOverrides({ ...placed.colorOverrides })
     setSelectedPart(scanned[0]?.className ?? null)
+    setExpandedGroups(new Set())
   }, [placed, previewNode])
 
   useEffect(() => {
@@ -125,8 +188,41 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
     }
   }
 
+  const toggleGroup = (key: string) => {
+    setExpandedGroups((current) => {
+      const next = new Set(current)
+      if (next.has(key)) {
+        next.delete(key)
+      } else {
+        next.add(key)
+      }
+      return next
+    })
+  }
+
   const previewHeight =
     PREVIEW_WIDTH * (placed.block.size.height / placed.block.size.width)
+  const rows = buildPartRows(parts)
+
+  const renderPartButton = (part: LabeledPart) => {
+    const currentColor = pendingOverrides[part.className]?.color ?? part.color
+    return (
+      <button
+        key={part.className}
+        type="button"
+        onClick={() => setSelectedPart(part.className)}
+        className={`flex cursor-pointer items-center gap-2 rounded-md border px-2 py-1 text-sm ${
+          selectedPart === part.className ? 'border-maroon' : 'border-border'
+        }`}
+      >
+        {part.label}
+        <span
+          className="h-4 w-4 rounded-sm border border-border"
+          style={{ backgroundColor: currentColor }}
+        />
+      </button>
+    )
+  }
 
   return (
     <Dialog
@@ -135,6 +231,17 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
         if (!open) onClose()
       }}
       title={t('workspace.recolorDialogTitle')}
+      maxWidthClassName="max-w-2xl"
+      footer={
+        <div className="flex justify-end gap-2">
+          <Button variant="secondary" onClick={onClose}>
+            {t('workspace.recolorCancel')}
+          </Button>
+          <Button onClick={() => onSave(pendingOverrides)}>
+            {t('workspace.recolorSave')}
+          </Button>
+        </div>
+      }
     >
       <div className="flex gap-4">
         <div ref={setPreviewNode} data-testid="recolor-preview">
@@ -145,39 +252,34 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
         </div>
         <div className="flex flex-1 flex-col gap-3">
           <div className="flex flex-wrap gap-2">
-            {parts.map((part) => {
-              const currentColor =
-                pendingOverrides[part.className]?.color ?? part.color
+            {rows.map((row) => {
+              if (row.kind === 'standalone') {
+                return renderPartButton(row.part)
+              }
+              const { group } = row
+              const expanded = expandedGroups.has(group.key)
               return (
-                <button
-                  key={part.className}
-                  type="button"
-                  onClick={() => setSelectedPart(part.className)}
-                  className={`flex cursor-pointer items-center gap-2 rounded-md border px-2 py-1 text-sm ${
-                    selectedPart === part.className
-                      ? 'border-maroon'
-                      : 'border-border'
-                  }`}
-                >
-                  {humanizePartName(part.className)}
-                  <span
-                    className="h-4 w-4 rounded-sm border border-border"
-                    style={{ backgroundColor: currentColor }}
-                  />
-                </button>
+                <div key={group.key} className="contents">
+                  <button
+                    type="button"
+                    aria-expanded={expanded}
+                    onClick={() => toggleGroup(group.key)}
+                    className="flex cursor-pointer items-center gap-1 rounded-md border border-border px-2 py-1 text-sm"
+                  >
+                    <span aria-hidden="true">{expanded ? '▾' : '▸'}</span>
+                    {group.label}
+                  </button>
+                  {expanded && (
+                    <div className="flex w-full flex-wrap gap-2 pl-4">
+                      {group.members.map((member) => renderPartButton(member))}
+                    </div>
+                  )}
+                </div>
               )
             })}
           </div>
           <ColorSwatchPicker onSelect={handleSelectColor} />
         </div>
-      </div>
-      <div className="mt-4 flex justify-end gap-2">
-        <Button variant="secondary" onClick={onClose}>
-          {t('workspace.recolorCancel')}
-        </Button>
-        <Button onClick={() => onSave(pendingOverrides)}>
-          {t('workspace.recolorSave')}
-        </Button>
       </div>
     </Dialog>
   )

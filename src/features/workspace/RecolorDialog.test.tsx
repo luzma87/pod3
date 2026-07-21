@@ -44,7 +44,7 @@ describe('RecolorDialog', () => {
     expect(screen.getByRole('button', { name: /Pixie/ })).toBeInTheDocument()
   })
 
-  it('discovers recolorable parts drawn with <line>/<polyline>/<ellipse>, not just <path>', () => {
+  it('groups parts that share a name prefix under a collapsible header, collapsed by default', async () => {
     render(
       <RecolorDialog
         placed={makePlaced({ block: mistletoe })}
@@ -53,15 +53,24 @@ describe('RecolorDialog', () => {
       />,
     )
 
+    const groupButton = screen.getByRole('button', { name: 'Mistletoe' })
+    expect(groupButton).toHaveAttribute('aria-expanded', 'false')
     expect(
-      screen.getByRole('button', { name: /Mistletoe branches embroidery/ }),
+      screen.queryByRole('button', { name: /Branches embroidery/ }),
+    ).not.toBeInTheDocument()
+
+    await userEvent.click(groupButton)
+
+    expect(groupButton).toHaveAttribute('aria-expanded', 'true')
+    expect(
+      screen.getByRole('button', { name: /Branches embroidery/ }),
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: /Mistletoe berries embroidery/ }),
+      screen.getByRole('button', { name: /Berries embroidery/ }),
     ).toBeInTheDocument()
   })
 
-  it('recoloring a part drawn with <ellipse> updates every element sharing its class', async () => {
+  it('recoloring a grouped part drawn with <ellipse> updates every element sharing its class', async () => {
     const onSave = vi.fn()
     render(
       <RecolorDialog
@@ -71,8 +80,9 @@ describe('RecolorDialog', () => {
       />,
     )
 
+    await userEvent.click(screen.getByRole('button', { name: 'Mistletoe' }))
     await userEvent.click(
-      screen.getByRole('button', { name: /Mistletoe berries embroidery/ }),
+      screen.getByRole('button', { name: /Berries embroidery/ }),
     )
     await userEvent.click(screen.getByRole('button', { name: 'Red' }))
     await userEvent.click(screen.getByRole('button', { name: 'Save' }))
