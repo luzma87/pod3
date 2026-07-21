@@ -50,6 +50,7 @@
   "catalog": {
     "searchLabel": "Search blocks",
     "searchPlaceholder": "Search by name or tag…",
+    "suggestionsLabel": "Suggestions",
     "resultCount_one": "{{count}} block",
     "resultCount_other": "{{count}} blocks",
     "tooltipSize": "{{width}}\"x{{height}}\"",
