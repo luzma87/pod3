@@ -3,11 +3,16 @@ import { useTranslation } from 'react-i18next'
 import { MATERIAL_PALETTE } from './colorPalette'
 
 interface ColorSwatchPickerProps {
-  currentColor: string
+  currentColor?: string
+  columns?: 5 | 10
   onSelect: (color: string) => void
 }
 
-function ColorSwatchPicker({ currentColor, onSelect }: ColorSwatchPickerProps) {
+function ColorSwatchPicker({
+  currentColor,
+  columns = 10,
+  onSelect,
+}: ColorSwatchPickerProps) {
   const { t } = useTranslation()
   const customColorRef = useRef<HTMLInputElement>(null)
 
@@ -30,13 +35,16 @@ function ColorSwatchPicker({ currentColor, onSelect }: ColorSwatchPickerProps) {
   // native input showing its own last value rather than throwing.
   useEffect(() => {
     const input = customColorRef.current
-    if (!input || !/^#[0-9a-fA-F]{6}$/.test(currentColor)) return
+    if (!input || !currentColor || !/^#[0-9a-fA-F]{6}$/.test(currentColor))
+      return
     input.value = currentColor
   }, [currentColor])
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="grid grid-cols-10 gap-2">
+      <div
+        className={`grid gap-2 ${columns === 5 ? 'grid-cols-5' : 'grid-cols-10'}`}
+      >
         {MATERIAL_PALETTE.map(({ color, labelKey }) => {
           const label = t(`workspace.colors.${labelKey}`)
           return (

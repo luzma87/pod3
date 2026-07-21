@@ -213,7 +213,7 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
         key={part.className}
         type="button"
         onClick={() => setSelectedPart(part.className)}
-        className={`flex cursor-pointer items-center gap-2 rounded-md border-2 px-2 py-1 text-sm ${
+        className={`flex w-full cursor-pointer items-center justify-between gap-2 rounded-md border-2 px-2 py-1 text-sm ${
           selectedPart === part.className
             ? 'border-maroon bg-maroon/10'
             : 'border-border'
@@ -221,7 +221,7 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
       >
         {part.label}
         <span
-          className="h-4 w-4 rounded-sm border border-border"
+          className="h-4 w-4 shrink-0 rounded-sm border border-border"
           style={{ backgroundColor: currentColor }}
         />
       </button>
@@ -235,7 +235,7 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
         if (!open) onClose()
       }}
       title={t('workspace.recolorDialogTitle')}
-      maxWidthClassName="max-w-2xl"
+      maxWidthClassName="max-w-3xl"
       footer={
         <div className="flex justify-end gap-2">
           <Button variant="secondary" onClick={onClose}>
@@ -254,8 +254,14 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
             height: previewHeight,
           })}
         </div>
-        <div className="flex flex-1 flex-col gap-3">
-          <div className="flex flex-wrap gap-2">
+        <div className="flex w-48 shrink-0 flex-col gap-2">
+          <span className="text-sm font-semibold text-ink-muted">
+            {t('workspace.recolorPartsLabel')}
+          </span>
+          <div
+            className="flex flex-col gap-2 overflow-y-auto pr-1"
+            style={{ maxHeight: previewHeight }}
+          >
             {rows.map((row) => {
               if (row.kind === 'standalone') {
                 return renderPartButton(row.part)
@@ -263,18 +269,18 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
               const { group } = row
               const expanded = expandedGroups.has(group.key)
               return (
-                <div key={group.key} className="contents">
+                <div key={group.key} className="flex flex-col gap-2">
                   <button
                     type="button"
                     aria-expanded={expanded}
                     onClick={() => toggleGroup(group.key)}
-                    className="flex cursor-pointer items-center gap-1 rounded-md border border-border px-2 py-1 text-sm"
+                    className="flex w-full cursor-pointer items-center gap-1 rounded-md border border-border px-2 py-1 text-sm"
                   >
                     <span aria-hidden="true">{expanded ? '▾' : '▸'}</span>
                     {group.label}
                   </button>
                   {expanded && (
-                    <div className="flex w-full flex-wrap gap-2 pl-4">
+                    <div className="flex flex-col gap-2 pl-4">
                       {group.members.map((member) => renderPartButton(member))}
                     </div>
                   )}
@@ -282,6 +288,11 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
               )
             })}
           </div>
+        </div>
+        <div className="flex flex-1 flex-col gap-2">
+          <span className="text-sm font-semibold text-ink-muted">
+            {t('workspace.recolorColorLabel')}
+          </span>
           <ColorSwatchPicker
             currentColor={
               (selectedPart &&
@@ -290,6 +301,7 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
                     ?.color)) ||
               '#000000'
             }
+            columns={5}
             onSelect={handleSelectColor}
           />
         </div>

@@ -124,6 +124,8 @@
       "delete": "Evanesco (eliminar)"
     },
     "recolorDialogTitle": "Recolorear bloque",
+    "recolorPartsLabel": "Partes",
+    "recolorColorLabel": "Color",
     "recolorSave": "Guardar",
     "recolorCancel": "Cancelar"
   }
