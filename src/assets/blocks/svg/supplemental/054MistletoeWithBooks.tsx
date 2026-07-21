@@ -7,6 +7,7 @@ const snowflakeShapes = (
       y1="-56.616"
       x2="-240.652"
       y2="162.695"
+      className="snowflake-embroidery"
       stroke="#91c8cd"
       strokeWidth={3}
     />
@@ -15,6 +16,7 @@ const snowflakeShapes = (
       y1="53.523"
       x2="-130.947"
       y2="54.452"
+      className="snowflake-embroidery"
       stroke="#91c8cd"
       strokeWidth={3}
     />
@@ -23,6 +25,7 @@ const snowflakeShapes = (
       y1="-22.738"
       x2="-165.715"
       y2="129.92"
+      className="snowflake-embroidery"
       stroke="#91c8cd"
       strokeWidth={3}
     />
@@ -31,17 +34,20 @@ const snowflakeShapes = (
       y1="131.537"
       x2="-163.219"
       y2="-25.159"
+      className="snowflake-embroidery"
       stroke="#91c8cd"
       strokeWidth={3}
     />
     <polyline
       points="-323.588 8.169 -284.884 8.387 -282.763 -28.626"
+      className="snowflake-embroidery"
       fill="none"
       stroke="#91c8cd"
       strokeWidth={3}
     />
     <polyline
       points="-262.11 -21.516 -223.4 -21.298 -221.28 -58.311"
+      className="snowflake-embroidery"
       fill="none"
       stroke="#91c8cd"
       strokeWidth={3}
@@ -54,6 +60,7 @@ const snowflakeShapes = (
     />
     <polyline
       points="-253.63 11.354 -223.65 13.16 -221.75 -16.487"
+      className="snowflake-embroidery"
       fill="none"
       stroke="#91c8cd"
       strokeWidth={3}
@@ -65,6 +72,7 @@ const snowflakeShapes = (
     />
     <polyline
       points="-199.52 8.526 -160.81 8.744 -158.69 -28.269"
+      className="snowflake-embroidery"
       fill="none"
       stroke="#91c8cd"
       strokeWidth={3}
@@ -77,6 +85,7 @@ const snowflakeShapes = (
     />
     <polyline
       points="-200.72 133.673 -162.01 133.891 -159.9 96.878"
+      className="snowflake-embroidery"
       fill="none"
       stroke="#91c8cd"
       strokeWidth={3}
@@ -88,6 +97,7 @@ const snowflakeShapes = (
     />
     <polyline
       points="-322.26 134.911 -283.55 135.129 -281.44 98.116"
+      className="snowflake-embroidery"
       fill="none"
       stroke="#91c8cd"
       strokeWidth={3}
@@ -99,6 +109,7 @@ const snowflakeShapes = (
     />
     <polyline
       points="-195.61 57.67 -156.9 57.888 -154.78 20.875"
+      className="snowflake-embroidery"
       fill="none"
       stroke="#91c8cd"
       strokeWidth={3}
@@ -110,6 +121,7 @@ const snowflakeShapes = (
     />
     <polyline
       points="-164.63 82.399 -134.66 84.205 -132.76 54.558"
+      className="snowflake-embroidery"
       fill="none"
       stroke="#91c8cd"
       strokeWidth={3}
@@ -121,6 +133,7 @@ const snowflakeShapes = (
     />
     <polyline
       points="-269.92 137.139 -231.21 137.357 -229.09 100.344"
+      className="snowflake-embroidery"
       fill="none"
       stroke="#91c8cd"
       strokeWidth={3}
@@ -132,6 +145,7 @@ const snowflakeShapes = (
     />
     <polyline
       points="-238.94 161.868 -208.97 163.674 -207.07 134.027"
+      className="snowflake-embroidery"
       fill="none"
       stroke="#91c8cd"
       strokeWidth={3}
@@ -143,6 +157,7 @@ const snowflakeShapes = (
     />
     <polyline
       points="-348.24 60.82 -309.52 61.038 -307.42 24.025"
+      className="snowflake-embroidery"
       fill="none"
       stroke="#91c8cd"
       strokeWidth={3}
@@ -154,6 +169,7 @@ const snowflakeShapes = (
     />
     <polyline
       points="-317.25 85.549 -287.27 87.355 -285.38 57.708"
+      className="snowflake-embroidery"
       fill="none"
       stroke="#91c8cd"
       strokeWidth={3}
@@ -183,19 +199,9 @@ const Svg054MistletoeWithBooks = (props: SVGProps<SVGSVGElement>) => (
       className="book1-detail"
       fill="#a8e3e1"
     />
-    <g className="snowflake1-embroidery">{snowflakeShapes}</g>
-    <g
-      className="snowflake2-embroidery"
-      transform="translate(0.117672 359.370117)"
-    >
-      {snowflakeShapes}
-    </g>
-    <g
-      className="snowflake3-embroidery"
-      transform="translate(0.222004 718.76123)"
-    >
-      {snowflakeShapes}
-    </g>
+    <g>{snowflakeShapes}</g>
+    <g transform="translate(0.117672 359.370117)">{snowflakeShapes}</g>
+    <g transform="translate(0.222004 718.76123)">{snowflakeShapes}</g>
     <path
       d="M -108.86 -171.34 L 60.799 -186.92 L 160.957 974.43 L -10.701 991.002"
       className="book2"
@@ -235,12 +241,13 @@ const Svg054MistletoeWithBooks = (props: SVGProps<SVGSVGElement>) => (
       className="mistletoe-leaves"
       fill="#1db422"
     />
-    <g className="mistletoe-berries-embroidery">
+    <g>
       <ellipse
         cx="799.782"
         cy="-247.17"
         rx="26.301"
         ry="24.94"
+        className="mistletoe-berries-embroidery"
         fill="#d8d8d8"
       />
       <ellipse
@@ -248,6 +255,7 @@ const Svg054MistletoeWithBooks = (props: SVGProps<SVGSVGElement>) => (
         cy="-237.46"
         rx="26.301"
         ry="24.94"
+        className="mistletoe-berries-embroidery"
         fill="#d8d8d8"
       />
       <ellipse
@@ -255,6 +263,7 @@ const Svg054MistletoeWithBooks = (props: SVGProps<SVGSVGElement>) => (
         cy="-106.47"
         rx="26.301"
         ry="24.94"
+        className="mistletoe-berries-embroidery"
         fill="#d8d8d8"
       />
       <ellipse
@@ -262,6 +271,7 @@ const Svg054MistletoeWithBooks = (props: SVGProps<SVGSVGElement>) => (
         cy="-87.217"
         rx="26.301"
         ry="24.94"
+        className="mistletoe-berries-embroidery"
         fill="#d8d8d8"
       />
     </g>

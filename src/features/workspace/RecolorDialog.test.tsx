@@ -6,6 +6,9 @@ import type { PlacedBlock } from '../../store/designerStore'
 import RecolorDialog from './RecolorDialog'
 
 const pixie = allBlocks.find((block) => block.name === 'Cornish Pixie')!
+const mistletoe = allBlocks.find(
+  (block) => block.name === 'Mistletoe [embroidered]',
+)!
 
 function makePlaced(overrides: Partial<PlacedBlock> = {}): PlacedBlock {
   return {
@@ -39,6 +42,55 @@ describe('RecolorDialog', () => {
     ).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /Wings/ })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /Pixie/ })).toBeInTheDocument()
+  })
+
+  it('discovers recolorable parts drawn with <line>/<polyline>/<ellipse>, not just <path>', () => {
+    render(
+      <RecolorDialog
+        placed={makePlaced({ block: mistletoe })}
+        onSave={vi.fn()}
+        onClose={vi.fn()}
+      />,
+    )
+
+    expect(
+      screen.getByRole('button', { name: /Mistletoe branches embroidery/ }),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /Mistletoe berries embroidery/ }),
+    ).toBeInTheDocument()
+  })
+
+  it('recoloring a part drawn with <ellipse> updates every element sharing its class', async () => {
+    const onSave = vi.fn()
+    render(
+      <RecolorDialog
+        placed={makePlaced({ block: mistletoe })}
+        onSave={onSave}
+        onClose={vi.fn()}
+      />,
+    )
+
+    await userEvent.click(
+      screen.getByRole('button', { name: /Mistletoe berries embroidery/ }),
+    )
+    await userEvent.click(screen.getByRole('button', { name: 'Red' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Save' }))
+
+    expect(onSave).toHaveBeenCalledWith(
+      expect.objectContaining({
+        'mistletoe-berries-embroidery': { color: '#F44336', type: 'fill' },
+      }),
+    )
+
+    const preview = screen.getByTestId('recolor-preview')
+    const berries = preview.getElementsByClassName(
+      'mistletoe-berries-embroidery',
+    )
+    expect(berries.length).toBeGreaterThan(1)
+    Array.from(berries).forEach((berry) =>
+      expect(berry).toHaveAttribute('fill', '#F44336'),
+    )
   })
 
   it('picking a part then a swatch stages that color, applied on Save', async () => {

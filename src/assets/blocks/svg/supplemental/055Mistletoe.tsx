@@ -31,12 +31,13 @@ const Svg055Mistletoe = (props: SVGProps<SVGSVGElement>) => (
       className="mistletoe-leaves"
       fill="#1db422"
     />
-    <g className="mistletoe-berries-embroidery">
+    <g>
       <ellipse
         cx="799.782"
         cy="-247.17"
         rx="26.301"
         ry="24.94"
+        className="mistletoe-berries-embroidery"
         fill="#d8d8d8"
       />
       <ellipse
@@ -44,6 +45,7 @@ const Svg055Mistletoe = (props: SVGProps<SVGSVGElement>) => (
         cy="-237.46"
         rx="26.301"
         ry="24.94"
+        className="mistletoe-berries-embroidery"
         fill="#d8d8d8"
       />
       <ellipse
@@ -51,6 +53,7 @@ const Svg055Mistletoe = (props: SVGProps<SVGSVGElement>) => (
         cy="-106.47"
         rx="26.301"
         ry="24.94"
+        className="mistletoe-berries-embroidery"
         fill="#d8d8d8"
       />
       <ellipse
@@ -58,6 +61,7 @@ const Svg055Mistletoe = (props: SVGProps<SVGSVGElement>) => (
         cy="-87.217"
         rx="26.301"
         ry="24.94"
+        className="mistletoe-berries-embroidery"
         fill="#d8d8d8"
       />
     </g>

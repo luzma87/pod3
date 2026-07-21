@@ -20,25 +20,30 @@ function humanizePartName(className: string) {
   return spaced.charAt(0).toUpperCase() + spaced.slice(1)
 }
 
+const COLORABLE_SELECTOR =
+  'path, line, polyline, polygon, ellipse, circle, rect'
+
 function scanParts(container: HTMLElement): Part[] {
   const parts = new Map<string, Part>()
-  Array.from(container.querySelectorAll('path')).forEach((path) => {
-    const className = path.getAttribute('class')
-    if (!className) return
-    const fill = path.getAttribute('fill')
-    const stroke = path.getAttribute('stroke')
-    let color: string | null = null
-    let type: 'fill' | 'stroke' = 'fill'
-    if (fill) {
-      color = fill
-      type = 'fill'
-    }
-    if (stroke) {
-      color = stroke
-      type = 'stroke'
-    }
-    if (color) parts.set(className, { className, color, type })
-  })
+  Array.from(container.querySelectorAll(COLORABLE_SELECTOR)).forEach(
+    (element) => {
+      const className = element.getAttribute('class')
+      if (!className) return
+      const fill = element.getAttribute('fill')
+      const stroke = element.getAttribute('stroke')
+      let color: string | null = null
+      let type: 'fill' | 'stroke' = 'fill'
+      if (fill) {
+        color = fill
+        type = 'fill'
+      }
+      if (stroke) {
+        color = stroke
+        type = 'stroke'
+      }
+      if (color) parts.set(className, { className, color, type })
+    },
+  )
   return Array.from(parts.values())
 }
 
