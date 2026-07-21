@@ -155,7 +155,9 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
     const elements = Array.from(
       previewNode.getElementsByClassName(selectedPart),
     )
-    elements.forEach((element) => element.classList.add('recolor-part-blink'))
+    elements.forEach((element) => {
+      element.classList.add('recolor-part-blink', 'recolor-part-selected')
+    })
     const timeout = setTimeout(() => {
       elements.forEach((element) =>
         element.classList.remove('recolor-part-blink'),
@@ -163,9 +165,9 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
     }, BLINK_DURATION_MS)
     return () => {
       clearTimeout(timeout)
-      elements.forEach((element) =>
-        element.classList.remove('recolor-part-blink'),
-      )
+      elements.forEach((element) => {
+        element.classList.remove('recolor-part-blink', 'recolor-part-selected')
+      })
     }
   }, [selectedPart, previewNode])
 
@@ -211,8 +213,10 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
         key={part.className}
         type="button"
         onClick={() => setSelectedPart(part.className)}
-        className={`flex cursor-pointer items-center gap-2 rounded-md border px-2 py-1 text-sm ${
-          selectedPart === part.className ? 'border-maroon' : 'border-border'
+        className={`flex cursor-pointer items-center gap-2 rounded-md border-2 px-2 py-1 text-sm ${
+          selectedPart === part.className
+            ? 'border-maroon bg-maroon/10'
+            : 'border-border'
         }`}
       >
         {part.label}

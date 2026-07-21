@@ -71,3 +71,9 @@ body {
 .recolor-part-blink {
   animation: recolor-part-blink 0.4s ease-in-out 2;
 }
+
+.recolor-part-selected {
+  filter: drop-shadow(0 0 1.5px var(--color-maroon))
+    drop-shadow(0 0 3px var(--color-maroon))
+    drop-shadow(0 0 5px var(--color-maroon));
+}
