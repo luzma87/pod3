@@ -278,7 +278,16 @@ function RecolorDialog({ placed, onSave, onClose }: RecolorDialogProps) {
               )
             })}
           </div>
-          <ColorSwatchPicker onSelect={handleSelectColor} />
+          <ColorSwatchPicker
+            currentColor={
+              (selectedPart &&
+                (pendingOverrides[selectedPart]?.color ??
+                  parts.find((part) => part.className === selectedPart)
+                    ?.color)) ||
+              '#000000'
+            }
+            onSelect={handleSelectColor}
+          />
         </div>
       </div>
     </Dialog>

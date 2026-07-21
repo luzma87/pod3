@@ -3,10 +3,11 @@ import { useTranslation } from 'react-i18next'
 import { MATERIAL_PALETTE } from './colorPalette'
 
 interface ColorSwatchPickerProps {
+  currentColor: string
   onSelect: (color: string) => void
 }
 
-function ColorSwatchPicker({ onSelect }: ColorSwatchPickerProps) {
+function ColorSwatchPicker({ currentColor, onSelect }: ColorSwatchPickerProps) {
   const { t } = useTranslation()
   const customColorRef = useRef<HTMLInputElement>(null)
 
@@ -23,6 +24,15 @@ function ColorSwatchPicker({ onSelect }: ColorSwatchPickerProps) {
     input.addEventListener('change', handleChange)
     return () => input.removeEventListener('change', handleChange)
   }, [onSelect])
+
+  // <input type="color"> only accepts #rrggbb, so a currentColor outside
+  // that shape (e.g. a named color or something unset) just leaves the
+  // native input showing its own last value rather than throwing.
+  useEffect(() => {
+    const input = customColorRef.current
+    if (!input || !/^#[0-9a-fA-F]{6}$/.test(currentColor)) return
+    input.value = currentColor
+  }, [currentColor])
 
   return (
     <div className="flex flex-col gap-3">
