@@ -17,7 +17,7 @@
 [x] better icons
 [ ] put back the custom cursors
 [ ] (maybe) have the different layouts as templates
-[ ] script or something to add new blocks
+[x] script or something to add new blocks
 [ ] get a list of the used blocks - as a dialoge, or as part of the print option, a list with all the used blovks and their sizes, will try to add url to the block main page
 [ ] autocomplete on th search bar
 [ ] (maybe) allow resizing blocks (within reason)
