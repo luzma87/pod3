@@ -66,6 +66,9 @@ import Svg057GoldCoins1 from './svg/supplemental/057GoldCoins1'
 import Svg058GoldCoins2 from './svg/supplemental/058GoldCoins2'
 import Svg059GoldenEgg from './svg/supplemental/059GoldenEgg'
 import Svg060NifflerWithRing from './svg/supplemental/060NifflerWithRing'
+import Svg061StagDoeBookends from './svg/supplemental/061StagDoeBookends'
+import Svg062RitaSkeeterInAJar from './svg/supplemental/062RitaSkeeterInAJar'
+import Svg063TonTongueToffee from './svg/supplemental/063TonTongueToffee'
 
 const supplementalBlocks = [
   {
@@ -893,6 +896,45 @@ const supplementalBlocks = [
     file: '060-niffler-with-ring',
     element: (props: SVGProps<SVGSVGElement>) => (
       <Svg060NifflerWithRing {...props} />
+    ),
+  },
+  {
+    id: 'sb69',
+    name: 'Stag & Doe Bookends',
+    size: { width: 20, height: 10 },
+    tags: ['stag', 'doe', 'bookends', 'books', 'book', 'deer'],
+    type: 'supplemental',
+    difficulty: 4,
+    designer: 'Holly Urbain',
+    file: '061-stag-doe-bookends',
+    element: (props: SVGProps<SVGSVGElement>) => (
+      <Svg061StagDoeBookends {...props} />
+    ),
+  },
+  {
+    id: 'sb70',
+    name: 'Rita Skeeter in a Jar',
+    size: { width: 10, height: 10 },
+    tags: ['rita', 'skeeter', 'beetle', 'jar', 'books', 'book'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Holly Urbain',
+    file: '062-rita-skeeter-in-a-jar',
+    element: (props: SVGProps<SVGSVGElement>) => (
+      <Svg062RitaSkeeterInAJar {...props} />
+    ),
+  },
+  {
+    id: 'sb71',
+    name: 'Ton Tongue Toffee',
+    size: { width: 10, height: 10 },
+    tags: ['ton', 'tongue', 'toffee', 'candy', 'books', 'book'],
+    type: 'supplemental',
+    difficulty: 3,
+    designer: 'Holly Urbain',
+    file: '063-ton-tongue-toffee',
+    element: (props: SVGProps<SVGSVGElement>) => (
+      <Svg063TonTongueToffee {...props} />
     ),
   },
 ]
