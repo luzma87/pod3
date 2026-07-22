@@ -3,8 +3,10 @@
     "title": "Pod3 Quilt Designer"
   },
   "designer": {
-    "noQuiltLoaded": "Placeholder — no quilt loaded yet.",
-    "quiltLoaded": "Placeholder — would load quilt \"{{quiltId}}\" here.",
+    "noQuiltLoaded": "Design a new quilt, or open a saved one via its shared link.",
+    "quiltLoading": "Loading quilt…",
+    "quiltNotFound": "This quilt link doesn't match any saved design.",
+    "quiltLoadError": "Something went wrong loading this quilt. Please try again.",
     "infoButton": "Info",
     "emailButton": "Email me",
     "resetButton": "Reset",

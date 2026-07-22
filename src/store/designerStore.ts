@@ -4,6 +4,7 @@ import {
   QUILT_SIZES,
   type QuiltSizeKey,
 } from '../features/workspace/quiltSizes'
+import type { LoadedQuilt } from '../features/workspace/serializeQuilt'
 
 const DEFAULT_SIZE_KEY: QuiltSizeKey = 'throw'
 
@@ -43,6 +44,7 @@ interface DesignerState {
   quiltId: string | null
   setSizeKey: (key: QuiltSizeKey) => void
   setQuiltId: (id: string) => void
+  loadDesign: (quiltId: string, quilt: LoadedQuilt) => void
   selectBlockToPlace: (block: QuiltBlock) => void
   placeBlockAt: (x: number, y: number) => void
   paintSquare: (x: number, y: number, color: string) => void
@@ -86,6 +88,29 @@ export const useDesignerStore = create<DesignerState>((set, get) => ({
 
   setQuiltId: (id) => {
     set({ quiltId: id })
+  },
+
+  loadDesign: (quiltId, quilt) => {
+    // Loaded instanceIds may already contain higher numeric suffixes than
+    // this fresh session's counter (e.g. "block-id-7") — bump past the
+    // highest one seen so a subsequent placeBlockAt can't mint a
+    // colliding instanceId. Legacy-converted ids ("block-id-legacy-0")
+    // have no numeric suffix and are simply ignored here.
+    const maxLoadedSuffix = quilt.placedBlocks.reduce((max, placed) => {
+      const suffix = Number(placed.instanceId.split('-').pop())
+      return Number.isFinite(suffix) ? Math.max(max, suffix) : max
+    }, 0)
+    nextInstanceId = Math.max(nextInstanceId, maxLoadedSuffix)
+
+    set({
+      quiltId,
+      blockToPlace: null,
+      placedBlocks: quilt.placedBlocks,
+      paintedSquares: quilt.paintedSquares,
+      sizeKey: quilt.sizeKey,
+      width: quilt.width,
+      height: quilt.height,
+    })
   },
 
   selectBlockToPlace: (block) => {

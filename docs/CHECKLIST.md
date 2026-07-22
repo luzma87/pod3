@@ -195,8 +195,11 @@ rather than built now.
 
 ## Slice 8: Load from Firebase via URL
 
-- [ ] `/:quiltId` loads and renders real saved data
+- [x] `/:quiltId` loads and renders real saved data
+- [x] Backwards-compatible with legacy pod2-shaped quilts (merged
+      blocks/paint array, nested `{name, size: {w, h}}` size object)
 - **Manual test**: paste a saved quilt's URL in a fresh tab, it loads.
+  Also worth trying an old pod2-era quilt link and a bogus/nonexistent id.
 
 ## Slice 9: Firebase security rules deployed
 

@@ -3,8 +3,10 @@
     "title": "Diseñador de colchas Pod3"
   },
   "designer": {
-    "noQuiltLoaded": "Marcador de posición — aún no se ha cargado ninguna colcha.",
-    "quiltLoaded": "Marcador de posición — aquí se cargaría la colcha \"{{quiltId}}\".",
+    "noQuiltLoaded": "Diseña una colcha nueva, o abre una guardada mediante su enlace compartido.",
+    "quiltLoading": "Cargando colcha…",
+    "quiltNotFound": "Este enlace no corresponde a ningún diseño guardado.",
+    "quiltLoadError": "Algo salió mal al cargar esta colcha. Inténtalo de nuevo.",
     "infoButton": "Información",
     "emailButton": "Escríbeme",
     "resetButton": "Reiniciar",

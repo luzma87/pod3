@@ -282,6 +282,64 @@ describe('designerStore', () => {
     expect(useDesignerStore.getState().quiltId).toBe('brave-swift-phoenix-42')
   })
 
+  it('loadDesign replaces the whole design and clears any pending block', () => {
+    useDesignerStore.getState().selectBlockToPlace(pixie)
+
+    const loadedPlaced = {
+      instanceId: `${pixie.id}-7`,
+      block: pixie,
+      position: { x: 1, y: 1 },
+      rotation: 90,
+      isFlipped: true,
+      colorOverrides: {},
+    }
+    useDesignerStore.getState().loadDesign('brave-swift-phoenix-42', {
+      placedBlocks: [loadedPlaced],
+      paintedSquares: [{ position: { x: 0, y: 0 }, color: '#F44336' }],
+      sizeKey: 'king',
+      width: 110,
+      height: 108,
+    })
+
+    const state = useDesignerStore.getState()
+    expect(state.quiltId).toBe('brave-swift-phoenix-42')
+    expect(state.blockToPlace).toBeNull()
+    expect(state.placedBlocks).toEqual([loadedPlaced])
+    expect(state.paintedSquares).toEqual([
+      { position: { x: 0, y: 0 }, color: '#F44336' },
+    ])
+    expect(state.sizeKey).toBe('king')
+    expect(state.width).toBe(110)
+    expect(state.height).toBe(108)
+  })
+
+  it('loadDesign advances the instance-id counter past the highest loaded suffix', () => {
+    useDesignerStore.getState().loadDesign('brave-swift-phoenix-42', {
+      placedBlocks: [
+        {
+          instanceId: `${pixie.id}-7`,
+          block: pixie,
+          position: { x: 1, y: 1 },
+          rotation: 0,
+          isFlipped: false,
+          colorOverrides: {},
+        },
+      ],
+      paintedSquares: [],
+      sizeKey: 'throw',
+      width: 50,
+      height: 65,
+    })
+
+    useDesignerStore.getState().selectBlockToPlace(pixie)
+    useDesignerStore.getState().placeBlockAt(2, 2)
+
+    const newlyPlaced = useDesignerStore
+      .getState()
+      .placedBlocks.find((placed) => placed.position.x === 2)!
+    expect(newlyPlaced.instanceId).toBe(`${pixie.id}-8`)
+  })
+
   it('reset clears the design but preserves the chosen quilt size', () => {
     useDesignerStore.getState().setSizeKey('king')
     useDesignerStore.getState().setQuiltId('brave-swift-phoenix-42')

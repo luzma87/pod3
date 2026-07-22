@@ -1,7 +1,17 @@
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import AppRoutes from './AppRoutes'
+
+const loadQuiltMock = vi.fn()
+
+vi.mock('../firebase/quilts', () => ({
+  loadQuilt: (...args: unknown[]) => loadQuiltMock(...args),
+}))
+
+beforeEach(() => {
+  loadQuiltMock.mockReset().mockResolvedValue(null)
+})
 
 const renderAt = (path: string) =>
   render(
@@ -13,14 +23,15 @@ const renderAt = (path: string) =>
 describe('AppRoutes', () => {
   it('renders the designer with no quilt loaded at /', () => {
     renderAt('/')
-    expect(screen.getByText(/no quilt loaded yet/i)).toBeInTheDocument()
+    expect(screen.getByText(/design a new quilt/i)).toBeInTheDocument()
   })
 
-  it('renders the designer with the quilt id at /:quiltId', () => {
+  it('renders the designer and attempts to load the quilt id at /:quiltId', async () => {
     renderAt('/my-quilt-123')
     expect(
-      screen.getByText(/would load quilt "my-quilt-123"/i),
+      await screen.findByText(/doesn't match any saved design/i),
     ).toBeInTheDocument()
+    expect(loadQuiltMock).toHaveBeenCalledWith('my-quilt-123')
   })
 
   it('renders the not found page for unmatched nested paths', () => {
