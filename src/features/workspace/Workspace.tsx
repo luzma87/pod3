@@ -2,24 +2,24 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import cleanIcon from '../../assets/icons/013-clean.svg'
 import Button from '../../components/ui/Button'
+import { useDesignerStore } from '../../store/designerStore'
 import { SQUARE_INCHES } from './constants'
 import MajorGridLinesPicker, {
   type MajorGridInterval,
 } from './MajorGridLinesPicker'
 import QuiltGrid from './QuiltGrid'
 import QuiltSizePicker from './QuiltSizePicker'
-import { QUILT_SIZES, type QuiltSizeKey } from './quiltSizes'
 import ResetDialog from './ResetDialog'
-
-const DEFAULT_SIZE_KEY: QuiltSizeKey = 'throw'
 
 function Workspace() {
   const { t } = useTranslation()
-  const [sizeKey, setSizeKey] = useState<QuiltSizeKey>(DEFAULT_SIZE_KEY)
+  const sizeKey = useDesignerStore((state) => state.sizeKey)
+  const width = useDesignerStore((state) => state.width)
+  const height = useDesignerStore((state) => state.height)
+  const setSizeKey = useDesignerStore((state) => state.setSizeKey)
   const [majorGridInterval, setMajorGridInterval] =
     useState<MajorGridInterval>(0)
   const [resetOpen, setResetOpen] = useState(false)
-  const size = QUILT_SIZES[sizeKey]
 
   return (
     <section className="flex flex-col gap-4">
@@ -39,16 +39,16 @@ function Workspace() {
         </Button>
         <p className="text-sm text-ink-muted">
           {t('workspace.summary', {
-            width: size.width,
-            height: size.height,
+            width,
+            height,
             squareInches: SQUARE_INCHES,
           })}
         </p>
       </div>
       <div className="overflow-auto">
         <QuiltGrid
-          width={size.width}
-          height={size.height}
+          width={width}
+          height={height}
           majorGridInterval={majorGridInterval}
         />
       </div>

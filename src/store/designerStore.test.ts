@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import allBlocks from '../assets/blocks/allBlocks'
-import { useDesignerStore } from './designerStore'
+import { resetDesignerStore, useDesignerStore } from './designerStore'
 
 const pixie = allBlocks.find((block) => block.name === 'Cornish Pixie')!
 const mimbulus = allBlocks.find(
@@ -258,5 +258,46 @@ describe('designerStore', () => {
     expect(useDesignerStore.getState().placedBlocks[0].colorOverrides).toEqual({
       background: { color: '#F44336', type: 'fill' },
     })
+  })
+
+  it('starts with the default quilt size and no quilt id', () => {
+    const state = useDesignerStore.getState()
+    expect(state.sizeKey).toBe('throw')
+    expect(state.width).toBe(50)
+    expect(state.height).toBe(65)
+    expect(state.quiltId).toBeNull()
+  })
+
+  it('setSizeKey updates the key and its actual dimensions together', () => {
+    useDesignerStore.getState().setSizeKey('babyHorizontal')
+
+    const state = useDesignerStore.getState()
+    expect(state.sizeKey).toBe('babyHorizontal')
+    expect(state.width).toBe(40)
+    expect(state.height).toBe(30)
+  })
+
+  it('setQuiltId sets the current quilt id', () => {
+    useDesignerStore.getState().setQuiltId('brave-swift-phoenix-42')
+    expect(useDesignerStore.getState().quiltId).toBe('brave-swift-phoenix-42')
+  })
+
+  it('reset clears the design but preserves the chosen quilt size', () => {
+    useDesignerStore.getState().setSizeKey('king')
+    useDesignerStore.getState().setQuiltId('brave-swift-phoenix-42')
+    useDesignerStore.getState().selectBlockToPlace(pixie)
+    useDesignerStore.getState().placeBlockAt(2, 3)
+    useDesignerStore.getState().paintSquare(0, 0, '#F44336')
+
+    resetDesignerStore()
+
+    const state = useDesignerStore.getState()
+    expect(state.placedBlocks).toEqual([])
+    expect(state.paintedSquares).toEqual([])
+    expect(state.blockToPlace).toBeNull()
+    expect(state.quiltId).toBeNull()
+    expect(state.sizeKey).toBe('king')
+    expect(state.width).toBe(110)
+    expect(state.height).toBe(108)
   })
 })

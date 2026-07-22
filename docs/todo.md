@@ -28,7 +28,8 @@
 [x] size inside the preview for the paint
 [ ] make the sidebar wide enough for 3 blocks
 [ ] check tablet design
-[ ] check size, if not multiple of 5/10 we don't need the extra pixel in the quilt divmake icons bigger, maybe have a single place where i can change the size to see
+[ ] check size, if not multiple of 5/10 we don't need the extra pixel in the quilt div
+[ ] make icons bigger, maybe have a single place where i can change the size to see
 [ ] add filters, for example, size, with/out embroidery, difficulty, etc
 
 [plugin builtin:vite-reporter]

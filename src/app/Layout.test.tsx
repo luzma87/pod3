@@ -1,8 +1,27 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router'
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import Layout from './Layout'
+
+const waitForUserMock = vi.fn()
+const saveQuiltMock = vi.fn()
+
+vi.mock('../firebase/client', () => ({
+  waitForUser: () => waitForUserMock(),
+}))
+
+vi.mock('../firebase/quilts', () => ({
+  saveQuilt: (...args: unknown[]) => saveQuiltMock(...args),
+}))
+
+beforeEach(() => {
+  waitForUserMock.mockReset().mockResolvedValue({
+    uid: 'user-1',
+    isAnonymous: true,
+  })
+  saveQuiltMock.mockReset().mockResolvedValue(undefined)
+})
 
 describe('Layout', () => {
   it('shows the app name in the header', () => {
@@ -62,5 +81,46 @@ describe('Layout', () => {
 
     expect(screen.getByRole('dialog')).toBeInTheDocument()
     expect(screen.getByText('About this quilt designer')).toBeInTheDocument()
+  })
+
+  it('saves the quilt and shows a shareable link dialog', async () => {
+    render(
+      <MemoryRouter>
+        <Layout>
+          <p>page content</p>
+        </Layout>
+      </MemoryRouter>,
+    )
+    await userEvent.click(screen.getByRole('button', { name: 'Got it' }))
+
+    await userEvent.click(screen.getByRole('button', { name: 'Save' }))
+
+    expect(await screen.findByText('Saved!')).toBeInTheDocument()
+    expect(saveQuiltMock).toHaveBeenCalledTimes(1)
+    const [quiltId] = saveQuiltMock.mock.calls[0] as [string]
+    expect(
+      screen.getByDisplayValue(new RegExp(`${quiltId}$`)),
+    ).toBeInTheDocument()
+  })
+
+  it('shows an error message if saving fails', async () => {
+    saveQuiltMock.mockRejectedValueOnce(new Error('network error'))
+    render(
+      <MemoryRouter>
+        <Layout>
+          <p>page content</p>
+        </Layout>
+      </MemoryRouter>,
+    )
+    await userEvent.click(screen.getByRole('button', { name: 'Got it' }))
+
+    await userEvent.click(screen.getByRole('button', { name: 'Save' }))
+
+    expect(
+      await screen.findByText(
+        'Something went wrong saving your quilt. Please try again.',
+      ),
+    ).toBeInTheDocument()
+    expect(screen.queryByText('Saved!')).not.toBeInTheDocument()
   })
 })

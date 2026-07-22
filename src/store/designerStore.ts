@@ -1,5 +1,11 @@
 import { create } from 'zustand'
 import type { QuiltBlock } from '../assets/blocks/allBlocks'
+import {
+  QUILT_SIZES,
+  type QuiltSizeKey,
+} from '../features/workspace/quiltSizes'
+
+const DEFAULT_SIZE_KEY: QuiltSizeKey = 'throw'
 
 export interface ColorOverride {
   color: string
@@ -31,6 +37,12 @@ interface DesignerState {
   blockToPlace: PendingBlock | null
   placedBlocks: PlacedBlock[]
   paintedSquares: PaintedSquare[]
+  sizeKey: QuiltSizeKey
+  width: number
+  height: number
+  quiltId: string | null
+  setSizeKey: (key: QuiltSizeKey) => void
+  setQuiltId: (id: string) => void
   selectBlockToPlace: (block: QuiltBlock) => void
   placeBlockAt: (x: number, y: number) => void
   paintSquare: (x: number, y: number, color: string) => void
@@ -56,12 +68,25 @@ const initialState = {
   blockToPlace: null,
   placedBlocks: [],
   paintedSquares: [],
+  sizeKey: DEFAULT_SIZE_KEY,
+  width: QUILT_SIZES[DEFAULT_SIZE_KEY].width,
+  height: QUILT_SIZES[DEFAULT_SIZE_KEY].height,
+  quiltId: null,
 }
 
 let nextInstanceId = 0
 
 export const useDesignerStore = create<DesignerState>((set, get) => ({
   ...initialState,
+
+  setSizeKey: (key) => {
+    const { width, height } = QUILT_SIZES[key]
+    set({ sizeKey: key, width, height })
+  },
+
+  setQuiltId: (id) => {
+    set({ quiltId: id })
+  },
 
   selectBlockToPlace: (block) => {
     set((state) => ({
@@ -198,5 +223,9 @@ export const useDesignerStore = create<DesignerState>((set, get) => ({
 
 export const resetDesignerStore = () => {
   nextInstanceId = 0
-  useDesignerStore.setState(initialState)
+  // Reset (Evanesco) clears the design, but the user's chosen quilt size
+  // isn't part of "the design" the way blocks/paint are — preserve it
+  // across a reset instead of snapping back to the default size.
+  const { sizeKey, width, height } = useDesignerStore.getState()
+  useDesignerStore.setState({ ...initialState, sizeKey, width, height })
 }

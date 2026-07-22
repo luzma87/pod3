@@ -8,6 +8,8 @@
     "infoButton": "Información",
     "emailButton": "Escríbeme",
     "resetButton": "Reiniciar",
+    "saveButton": "Guardar",
+    "saveError": "Algo salió mal al guardar tu colcha. Inténtalo de nuevo.",
     "info": {
       "title": "Acerca de este diseñador de colchas",
       "credit": "Estos bloques fueron diseñados por Jennifer Ofenstein y otras diseñadoras de Fandom in Stitches.",
@@ -25,6 +27,13 @@
       "body": "Esto eliminará todos los bloques y cuadros pintados de la colcha. Esta acción no se puede deshacer.",
       "confirm": "Sí, reiniciar",
       "cancel": "Cancelar"
+    },
+    "save": {
+      "title": "¡Guardado!",
+      "linkLabel": "Enlace para compartir",
+      "copy": "Copiar enlace",
+      "copied": "¡Copiado!",
+      "close": "Cerrar"
     }
   },
   "notFound": {

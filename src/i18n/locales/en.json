@@ -8,6 +8,8 @@
     "infoButton": "Info",
     "emailButton": "Email me",
     "resetButton": "Reset",
+    "saveButton": "Save",
+    "saveError": "Something went wrong saving your quilt. Please try again.",
     "info": {
       "title": "About this quilt designer",
       "credit": "These blocks were designed by Jennifer Ofenstein and other Fandom in Stitches designers.",
@@ -25,6 +27,13 @@
       "body": "This will remove every block and painted square from the quilt. This can't be undone.",
       "confirm": "Yes, reset",
       "cancel": "Cancel"
+    },
+    "save": {
+      "title": "Saved!",
+      "linkLabel": "Shareable link",
+      "copy": "Copy link",
+      "copied": "Copied!",
+      "close": "Close"
     }
   },
   "notFound": {

@@ -187,10 +187,11 @@ rather than built now.
 
 ## Slice 7: Save to Firebase
 
-- [ ] Save button writes the quilt to `/quilts/{id}`
-- [ ] Shareable id/URL generated
+- [x] Save button writes the quilt to `/quilts/{id}`
+- [x] Shareable id/URL generated
 - **Manual test**: save a design, confirm the URL changes and the save
-  succeeds.
+  succeeds. ✅ confirmed — quilt data visible in Firebase under the
+  generated id.
 
 ## Slice 8: Load from Firebase via URL
 
