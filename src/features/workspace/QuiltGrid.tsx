@@ -2,8 +2,10 @@ import { useRef, useState, type CSSProperties, type MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import cancelIcon from '../../assets/icons/025-cancel.svg'
 import eraserIcon from '../../assets/icons/002-eraser.svg'
+import garbageIcon from '../../assets/icons/005-garbage.svg'
 import Button from '../../components/ui/Button'
 import Dialog from '../../components/ui/Dialog'
+import ErrorBoundary from '../../components/ui/ErrorBoundary'
 import { useDesignerStore } from '../../store/designerStore'
 import ColorSwatchPicker from './ColorSwatchPicker'
 import { GRID_EDGE_PADDING, SQUARE_INCHES, SQUARE_SIZE } from './constants'
@@ -36,6 +38,7 @@ function QuiltGrid({ width, height, majorGridInterval = 0 }: QuiltGridProps) {
   const paintRectangle = useDesignerStore((state) => state.paintRectangle)
   const eraseSquares = useDesignerStore((state) => state.eraseSquares)
   const setColorOverrides = useDesignerStore((state) => state.setColorOverrides)
+  const deleteBlock = useDesignerStore((state) => state.deleteBlock)
 
   const [hoveredCell, setHoveredCell] = useState<{
     x: number
@@ -151,11 +154,37 @@ function QuiltGrid({ width, height, majorGridInterval = 0 }: QuiltGridProps) {
         />
       ))}
       {placedBlocks.map((placed) => (
-        <PlacedBlockView
+        <ErrorBoundary
           key={placed.instanceId}
-          placed={placed}
-          onRecolor={() => setRecolorInstanceId(placed.instanceId)}
-        />
+          resetKeys={[placed]}
+          fallback={() => (
+            <div
+              className="pointer-events-auto absolute flex flex-col items-center justify-center gap-1 border border-maroon bg-maroon/10 p-1 text-center text-xs text-maroon"
+              style={{
+                left: placed.position.x * SQUARE_SIZE,
+                top: placed.position.y * SQUARE_SIZE,
+                width: placed.block.size.width * SQUARE_SIZE,
+                height: placed.block.size.height * SQUARE_SIZE,
+              }}
+            >
+              {t('workspace.blockRenderError')}
+              <button
+                type="button"
+                title={t('workspace.blockRenderErrorDelete')}
+                aria-label={t('workspace.blockRenderErrorDelete')}
+                onClick={() => deleteBlock(placed.instanceId)}
+                className="cursor-pointer"
+              >
+                <img src={garbageIcon} alt="" className="h-4 w-4" />
+              </button>
+            </div>
+          )}
+        >
+          <PlacedBlockView
+            placed={placed}
+            onRecolor={() => setRecolorInstanceId(placed.instanceId)}
+          />
+        </ErrorBoundary>
       ))}
       {blockToPlace && hoveredCell && (
         <div

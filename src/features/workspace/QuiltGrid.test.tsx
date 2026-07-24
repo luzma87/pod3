@@ -466,4 +466,40 @@ describe('QuiltGrid', () => {
       wings: { color: '#F44336', type: 'fill' },
     })
   })
+
+  it('shows a per-block error fallback instead of crashing the grid when a block fails to render, and can delete it', async () => {
+    const brokenBlock = {
+      ...pixie,
+      element: () => {
+        throw new Error('malformed svg path data')
+      },
+    }
+    // React logs the caught render error to the console in dev mode
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    act(() => {
+      useDesignerStore.setState({
+        placedBlocks: [
+          {
+            instanceId: 'broken-1',
+            block: brokenBlock,
+            position: { x: 0, y: 0 },
+            rotation: 0,
+            isFlipped: false,
+            colorOverrides: {},
+          },
+        ],
+      })
+    })
+
+    render(<QuiltGrid width={50} height={65} />)
+
+    expect(screen.getByText("Couldn't display this block")).toBeInTheDocument()
+    expect(useDesignerStore.getState().placedBlocks).toHaveLength(1)
+
+    await userEvent.click(screen.getByRole('button', { name: 'Remove it' }))
+
+    expect(useDesignerStore.getState().placedBlocks).toEqual([])
+    consoleError.mockRestore()
+  })
 })

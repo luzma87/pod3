@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import allBlocks from '../../assets/blocks/allBlocks'
 import BlockCatalog from './BlockCatalog'
 
@@ -89,5 +89,33 @@ describe('BlockCatalog', () => {
 
     expect(searchbox).toHaveValue('mimbulus')
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
+  })
+
+  describe('when a block fails to render', () => {
+    const pixie = allBlocks.find((block) => block.name === 'Cornish Pixie')!
+    let originalElement: typeof pixie.element
+
+    afterEach(() => {
+      pixie.element = originalElement
+      vi.restoreAllMocks()
+    })
+
+    it('shows a per-thumbnail error fallback instead of crashing the whole catalog', () => {
+      originalElement = pixie.element
+      pixie.element = () => {
+        throw new Error('malformed svg path data')
+      }
+      vi.spyOn(console, 'error').mockImplementation(() => {})
+
+      render(<BlockCatalog />)
+
+      expect(
+        screen.getByText("Couldn't display this block"),
+      ).toBeInTheDocument()
+      // every other block still renders normally
+      expect(
+        screen.getByRole('button', { name: 'Mimbulus Mimbletonia' }),
+      ).toBeInTheDocument()
+    })
   })
 })

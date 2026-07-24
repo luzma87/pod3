@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import AttributionsPage from './AttributionsPage'
 
@@ -9,11 +9,14 @@ describe('AttributionsPage', () => {
     expect(
       screen.getByText('Ghost with hat by Piyaporn Teannawa'),
     ).toBeInTheDocument()
-    expect(
-      screen.getByRole('img', { name: 'Ghost with hat' }),
-    ).toBeInTheDocument()
+    const ghostImage = screen.getByRole('img', { name: 'Ghost with hat' })
+    expect(ghostImage).toBeInTheDocument()
 
-    const sourceLink = screen.getByRole('link', {
+    // scope to this attribution's own card — other entries share the same
+    // "Halloween PNGs by Vecteezy" source link text
+    const card = within(ghostImage.closest('li')!)
+
+    const sourceLink = card.getByRole('link', {
       name: 'Halloween PNGs by Vecteezy',
     })
     expect(sourceLink).toHaveAttribute(
@@ -22,7 +25,7 @@ describe('AttributionsPage', () => {
     )
     expect(sourceLink).toHaveAttribute('target', '_blank')
 
-    const directLink = screen.getByRole('link', {
+    const directLink = card.getByRole('link', {
       name: 'Direct link to the asset',
     })
     expect(directLink).toHaveAttribute(

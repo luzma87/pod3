@@ -44,6 +44,12 @@
     "ghostAlt": "Un fantasma adorable con sombrero de bruja",
     "backHome": "Volver al diseñador de colchas"
   },
+  "crashPage": {
+    "title": "Algo salió mal",
+    "body": "Esta parte de la aplicación tuvo un error inesperado. Recargar suele solucionarlo — tu última colcha guardada está a salvo.",
+    "catAlt": "Un gato negro que tiró algo con una escoba",
+    "reload": "Recargar la página"
+  },
   "theme": {
     "label": "Tema",
     "light": "Modo claro",
@@ -66,6 +72,7 @@
     "resultCount_other": "{{count}} bloques",
     "tooltipSize": "{{width}}\"x{{height}}\"",
     "tooltipDesigner": "Diseñado por: {{designer}}",
+    "thumbnailError": "No se pudo mostrar este bloque",
     "categories": {
       "weekly": "Semanal",
       "supplemental": "Suplementario",
@@ -134,6 +141,8 @@
       "recolor": "Colovaria (recolorear)",
       "delete": "Evanesco (eliminar)"
     },
+    "blockRenderError": "No se pudo mostrar este bloque",
+    "blockRenderErrorDelete": "Eliminarlo",
     "recolorDialogTitle": "Recolorear bloque",
     "recolorPartsLabel": "Partes",
     "recolorColorLabel": "Color",

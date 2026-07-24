@@ -2,6 +2,7 @@ import { useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Fuse from 'fuse.js'
 import allBlocks, { type QuiltBlock } from '../../assets/blocks/allBlocks'
+import ErrorBoundary from '../../components/ui/ErrorBoundary'
 import BlockThumbnail from './BlockThumbnail'
 
 const MAX_SUGGESTIONS = 6
@@ -162,7 +163,16 @@ function BlockCatalog() {
             </h2>
             <div className="mt-2 flex flex-wrap gap-2">
               {blocks.map((block) => (
-                <BlockThumbnail key={block.id} block={block} />
+                <ErrorBoundary
+                  key={block.id}
+                  fallback={() => (
+                    <div className="flex w-24 flex-col items-center gap-1 rounded-md border border-maroon bg-maroon/10 p-2 text-center text-xs text-maroon">
+                      {t('catalog.thumbnailError')}
+                    </div>
+                  )}
+                >
+                  <BlockThumbnail block={block} />
+                </ErrorBoundary>
               ))}
             </div>
           </div>

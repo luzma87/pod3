@@ -11,7 +11,7 @@ function AttributionsPage() {
         {t('attributions.title')}
       </h1>
       <p className="mt-2 max-w-md text-ink-muted">{t('attributions.intro')}</p>
-      <ul className="mt-6 flex max-w-md flex-col gap-3">
+      <ul className="mt-6 flex gap-3">
         {attributions.map((item) => {
           const author = item.author
             ? ` ${t('attributions.author', { author: item.author })}`

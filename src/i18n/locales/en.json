@@ -44,6 +44,12 @@
     "ghostAlt": "A cute ghost wearing a witch hat",
     "backHome": "Back to the quilt designer"
   },
+  "crashPage": {
+    "title": "Something went wrong",
+    "body": "This part of the app hit an unexpected error. Reloading usually fixes it — your last saved quilt is safe.",
+    "catAlt": "A black cat that knocked something over with a broom",
+    "reload": "Reload the page"
+  },
   "theme": {
     "label": "Theme",
     "light": "Light mode",
@@ -66,6 +72,7 @@
     "resultCount_other": "{{count}} blocks",
     "tooltipSize": "{{width}}\"x{{height}}\"",
     "tooltipDesigner": "Designer: {{designer}}",
+    "thumbnailError": "Couldn't display this block",
     "categories": {
       "weekly": "Weekly",
       "supplemental": "Supplemental",
@@ -134,6 +141,8 @@
       "recolor": "Colovaria (recolor)",
       "delete": "Evanesco (delete)"
     },
+    "blockRenderError": "Couldn't display this block",
+    "blockRenderErrorDelete": "Remove it",
     "recolorDialogTitle": "Recolor block",
     "recolorPartsLabel": "Parts",
     "recolorColorLabel": "Color",
